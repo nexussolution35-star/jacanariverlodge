@@ -1,0 +1,369 @@
+/* =========================================================
+   Jacana River Lodge — visual language adapted from the
+   lodge's own site (Website B) over the Newmark conversion
+   architecture (Website A).
+   Palette taken from the logo: cream, rust, charcoal.
+   ========================================================= */
+
+:root{
+  --cream:#f7f3dc;
+  --cream-deep:#efe9cf;
+  --sand:#e7dcbf;
+  --rust:#954635;
+  --rust-dark:#723325;
+  --charcoal:#323132;
+  --ink:#211f1f;
+  --green:#6f9a35;
+  --white:#ffffff;
+  --muted:#6f6a62;
+  --line:rgba(50,49,50,.14);
+  --shadow:0 18px 50px -22px rgba(33,31,31,.45);
+  --shadow-sm:0 10px 30px -18px rgba(33,31,31,.5);
+  --serif:'Roboto Slab', Georgia, 'Times New Roman', serif;
+  --sans:'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --script:'Dancing Script', cursive;
+  --maxw:1240px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);
+  color:var(--charcoal);
+  background:var(--cream);
+  line-height:1.7;
+  font-size:17px;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4,h5{font-family:var(--serif);color:var(--ink);line-height:1.18;font-weight:700}
+h2{font-size:clamp(1.9rem,3.6vw,3rem)}
+h3{font-size:clamp(1.3rem,2.2vw,1.7rem)}
+p{margin-bottom:1.1rem}
+.container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 26px}
+
+/* ---------- shared bits ---------- */
+.eyebrow{
+  display:inline-block;font-family:var(--sans);font-weight:600;
+  letter-spacing:.32em;text-transform:uppercase;font-size:.72rem;
+  color:var(--rust);margin-bottom:1rem;
+}
+.eyebrow::before{content:"";display:inline-block;width:28px;height:2px;
+  background:var(--rust);vertical-align:middle;margin-right:12px;transform:translateY(-3px)}
+.section{padding:clamp(64px,8vw,118px) 0;position:relative}
+.section--cream{background:var(--cream)}
+.section--sand{background:linear-gradient(180deg,var(--cream-deep),var(--sand))}
+.section--ink{background:var(--charcoal);color:#efe9d8}
+.section--ink h2,.section--ink h3,.section--ink h4{color:#fff}
+.lead{font-size:clamp(1.05rem,1.6vw,1.22rem);color:var(--muted)}
+.center{text-align:center}
+.center .eyebrow::before{display:none}
+.section-head{max-width:760px;margin:0 auto 54px}
+.section-head.center{text-align:center}
+
+/* leaf / fan divider */
+.divider{display:flex;align-items:center;justify-content:center;gap:14px;margin:18px 0 4px}
+.divider span{height:1px;width:60px;background:var(--rust);opacity:.5}
+.divider svg{width:26px;height:26px;fill:var(--rust)}
+
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:.6em;cursor:pointer;
+  font-family:var(--sans);font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  font-size:.78rem;padding:15px 30px;border:1.5px solid var(--rust);
+  background:var(--rust);color:#fff;border-radius:2px;transition:.35s var(--ease);
+}
+.btn:hover{background:var(--rust-dark);border-color:var(--rust-dark);transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.btn--ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.7)}
+.btn--ghost:hover{background:#fff;color:var(--rust);border-color:#fff}
+.btn--outline{background:transparent;color:var(--rust)}
+.btn--outline:hover{background:var(--rust);color:#fff}
+.btn--lg{padding:18px 40px;font-size:.82rem}
+
+/* =========================================================
+   HEADER / NAV
+   ========================================================= */
+.topbar{
+  background:var(--charcoal);color:#e9e3d2;font-size:.8rem;
+  letter-spacing:.04em;
+}
+.topbar .container{display:flex;align-items:center;justify-content:space-between;min-height:42px;flex-wrap:wrap;gap:6px 22px}
+.topbar a{color:#e9e3d2;transition:.25s}
+.topbar a:hover{color:#fff}
+.topbar .tb-left{display:flex;gap:22px;flex-wrap:wrap}
+.topbar .tb-right{display:flex;gap:18px;align-items:center}
+.topbar .stars{letter-spacing:2px;color:#f0c33c}
+
+.site-header{
+  position:sticky;top:0;z-index:60;background:var(--cream);
+  border-bottom:1px solid var(--line);transition:.4s var(--ease);
+}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:88px}
+.brand img{height:74px;width:auto;transition:.35s var(--ease)}
+.site-header.shrink{box-shadow:var(--shadow-sm)}
+.site-header.shrink .brand img{height:56px}
+.nav{display:flex;align-items:center;gap:30px}
+.nav a{
+  font-family:var(--sans);font-weight:500;font-size:.84rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--charcoal);position:relative;padding:6px 0;
+}
+.nav a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--rust);transition:.3s var(--ease)}
+.nav a:hover{color:var(--rust)}
+.nav a:hover::after{width:100%}
+.header-cta{display:flex;align-items:center;gap:14px}
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+.nav-toggle span{width:26px;height:2px;background:var(--charcoal);transition:.3s}
+
+/* =========================================================
+   HERO — rotating banner (Website A featured-property slider
+   reframed for a single lodge)
+   ========================================================= */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;color:#fff;overflow:hidden}
+.hero__slides{position:absolute;inset:0}
+.hero__slide{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  opacity:0;transform:scale(1.08);transition:opacity 1.4s var(--ease),transform 7s linear;
+}
+.hero__slide.active{opacity:1;transform:scale(1)}
+.hero::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(33,31,31,.55) 0%,rgba(33,31,31,.18) 38%,rgba(33,31,31,.72) 100%);z-index:1}
+.hero .container{position:relative;z-index:2;padding-top:60px;padding-bottom:60px}
+.hero__inner{max-width:820px}
+.hero .eyebrow{color:#f0c33c}
+.hero .eyebrow::before{background:#f0c33c}
+.hero h1{
+  color:#fff;font-size:clamp(2.3rem,5.2vw,4.2rem);line-height:1.08;
+  text-shadow:0 4px 30px rgba(0,0,0,.4);margin-bottom:1.3rem;
+}
+.hero__sub{font-size:clamp(1.05rem,1.7vw,1.3rem);max-width:640px;margin-bottom:2rem;color:#f3eee0}
+.hero__actions{display:flex;gap:16px;flex-wrap:wrap}
+.hero__facts{display:flex;gap:34px;margin-top:46px;flex-wrap:wrap}
+.hero__facts .f b{font-family:var(--serif);font-size:1.9rem;color:#fff;display:block;line-height:1}
+.hero__facts .f span{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#e8e0cd}
+.hero__dots{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:10px}
+.hero__dots button{width:11px;height:11px;border-radius:50%;border:1.5px solid #fff;background:transparent;cursor:pointer;transition:.3s;padding:0}
+.hero__dots button.active{background:#fff;width:30px;border-radius:6px}
+
+/* =========================================================
+   WELCOME / BRAND STATEMENT
+   ========================================================= */
+.welcome{position:relative}
+.welcome__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+.welcome__media{position:relative}
+.welcome__media img{border-radius:4px;box-shadow:var(--shadow);width:100%;height:560px;object-fit:cover}
+.welcome__media .badge{
+  position:absolute;bottom:-26px;left:-26px;background:var(--cream);
+  border:1px solid var(--line);box-shadow:var(--shadow-sm);padding:22px 26px;border-radius:4px;text-align:center;
+}
+.welcome__media .badge b{font-family:var(--serif);font-size:2.1rem;color:var(--rust);display:block;line-height:1}
+.welcome__media .badge span{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.welcome h2 .script{font-family:var(--script);color:var(--rust);font-size:1.15em;font-weight:700}
+.welcome__stats{display:flex;gap:30px;margin-top:30px;flex-wrap:wrap}
+.welcome__stats .s b{font-family:var(--serif);font-size:1.6rem;color:var(--rust)}
+.welcome__stats .s span{display:block;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* =========================================================
+   EXPLORE THE MJEJANE (Website A "Destinations")
+   ========================================================= */
+.explore__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.explore-card{
+  position:relative;height:380px;border-radius:4px;overflow:hidden;color:#fff;
+  display:flex;align-items:flex-end;box-shadow:var(--shadow-sm);
+}
+.explore-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.explore-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(33,31,31,0) 30%,rgba(33,31,31,.85))}
+.explore-card:hover img{transform:scale(1.09)}
+.explore-card__body{position:relative;z-index:2;padding:26px}
+.explore-card__body h3{color:#fff;margin-bottom:6px}
+.explore-card__body p{font-size:.86rem;color:#ece6d6;margin:0;opacity:.92}
+.explore-card__body .more{display:inline-block;margin-top:10px;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:#f0c33c}
+
+/* =========================================================
+   PARALLAX QUOTE STRIP
+   ========================================================= */
+.parallax{
+  position:relative;min-height:62vh;display:flex;align-items:center;justify-content:center;
+  background-attachment:fixed;background-size:cover;background-position:center;color:#fff;text-align:center;
+}
+.parallax::after{content:"";position:absolute;inset:0;background:rgba(33,31,31,.6)}
+.parallax__inner{position:relative;z-index:2;max-width:860px;padding:40px 26px}
+.parallax__inner .q{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.4rem);line-height:1.35;color:#fff}
+.parallax__inner cite{display:block;margin-top:22px;font-style:normal;letter-spacing:.16em;text-transform:uppercase;font-size:.78rem;color:#f0c33c}
+
+/* =========================================================
+   EXPERIENCES (Website A "Featured experiences")
+   ========================================================= */
+.exp__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.exp-card{background:var(--white);border-radius:4px;overflow:hidden;box-shadow:var(--shadow-sm);transition:.4s var(--ease);display:flex;flex-direction:column}
+.exp-card:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+.exp-card__img{height:240px;overflow:hidden}
+.exp-card__img img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.exp-card:hover .exp-card__img img{transform:scale(1.08)}
+.exp-card__body{padding:26px 26px 30px;flex:1;display:flex;flex-direction:column}
+.exp-card__body h3{font-size:1.25rem;margin-bottom:8px}
+.exp-card__body p{font-size:.92rem;color:var(--muted);flex:1}
+.exp-card__body .more{margin-top:14px;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);font-weight:600}
+
+/* =========================================================
+   THE BIG 5 — feature row
+   ========================================================= */
+.big5__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.big5-card{position:relative;border-radius:4px;overflow:hidden;height:300px;color:#fff;display:flex;align-items:flex-end}
+.big5-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.big5-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(33,31,31,0) 40%,rgba(33,31,31,.82))}
+.big5-card:hover img{transform:scale(1.1)}
+.big5-card span{position:relative;z-index:2;padding:18px;font-family:var(--serif);font-size:1.3rem;font-weight:700}
+
+/* =========================================================
+   STORIES (Website A "Inspiring stories")
+   ========================================================= */
+.stories__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.story-card{background:var(--cream);border:1px solid var(--line);border-radius:4px;overflow:hidden;transition:.4s var(--ease);display:flex;flex-direction:column}
+.story-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.story-card__img{height:215px;overflow:hidden}
+.story-card__img img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.story-card:hover .story-card__img img{transform:scale(1.07)}
+.story-card__body{padding:24px;flex:1;display:flex;flex-direction:column}
+.story-card__tag{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rust);font-weight:600;margin-bottom:10px}
+.story-card__body h3{font-size:1.15rem;margin-bottom:10px}
+.story-card__body p{font-size:.9rem;color:var(--muted);flex:1}
+.story-card__body .more{margin-top:14px;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--rust);font-weight:600}
+
+/* =========================================================
+   NEWSLETTER (Website A "inspiration in your inbox")
+   ========================================================= */
+.newsletter{position:relative;background:var(--rust);color:#fff;overflow:hidden}
+.newsletter::before{content:"";position:absolute;inset:0;background:url('../assets/images/Homepage-Bottom-Background-Image-65c7aab9.jpg') center/cover;opacity:.16}
+.newsletter .container{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.newsletter h2{color:#fff}
+.newsletter p{color:#f5e7df}
+.nl-form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.nl-form .full{grid-column:1/-1}
+.nl-form input{
+  width:100%;padding:15px 16px;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.1);
+  color:#fff;font-family:var(--sans);font-size:.95rem;border-radius:2px;
+}
+.nl-form input::placeholder{color:#f0ddd4}
+.nl-form input:focus{outline:none;border-color:#fff;background:rgba(255,255,255,.18)}
+.nl-form button{width:100%;background:#fff;color:var(--rust);border-color:#fff}
+.nl-form button:hover{background:var(--charcoal);color:#fff;border-color:var(--charcoal)}
+.nl-note{font-size:.78rem;color:#f0ddd4;margin-top:12px;display:flex;align-items:center;gap:8px}
+.nl-msg{grid-column:1/-1;font-size:.9rem;color:#fff;font-weight:600;min-height:1.2em}
+
+/* =========================================================
+   TESTIMONIALS (Website A "What our clients say")
+   ========================================================= */
+.testi{background:var(--charcoal);color:#efe9d8;text-align:center}
+.testi .stars{color:#f0c33c;letter-spacing:4px;font-size:1.3rem;margin-bottom:20px}
+.testi__viewport{max-width:840px;margin:0 auto;position:relative;min-height:230px}
+.testi__slide{position:absolute;inset:0;opacity:0;transition:opacity .7s var(--ease);pointer-events:none}
+.testi__slide.active{opacity:1;position:relative;pointer-events:auto}
+.testi__slide .q{font-family:var(--serif);font-size:clamp(1.2rem,2.2vw,1.7rem);line-height:1.5;color:#fff;font-weight:400}
+.testi__slide .title{display:block;margin-top:22px;color:#f0c33c;font-family:var(--serif);font-style:italic;font-size:1.1rem}
+.testi__slide .who{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#bdb6a6;margin-top:6px}
+.testi__nav{display:flex;gap:12px;justify-content:center;margin-top:36px}
+.testi__nav button{width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;cursor:pointer;transition:.3s;font-size:1.1rem}
+.testi__nav button:hover{background:#fff;color:var(--charcoal)}
+
+/* =========================================================
+   AWARDS / TRUST (Website A "Awards & associations")
+   ========================================================= */
+.awards{text-align:center}
+.awards__row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:50px;margin-top:40px}
+.award{display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--charcoal);min-width:150px}
+.award .icon{font-size:2.4rem;color:var(--rust)}
+.award .sa-stars{color:#de3831;letter-spacing:2px;font-size:1.5rem}
+.award b{font-family:var(--serif);font-size:1rem}
+.award span{font-size:.78rem;color:var(--muted);letter-spacing:.04em}
+
+/* =========================================================
+   BOOK DIRECT / LOYALTY (Website A "JOIN & ENJOY MORE")
+   ========================================================= */
+.loyalty{background:var(--charcoal);color:#efe9d8;position:relative;overflow:hidden}
+.loyalty::before{content:"";position:absolute;right:-5%;top:-30%;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(149,70,53,.45),transparent 65%)}
+.loyalty .container{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.loyalty h2{color:#fff}
+.loyalty .benefits{list-style:none;display:grid;gap:16px;margin-top:10px}
+.loyalty .benefits li{display:flex;align-items:flex-start;gap:14px;font-size:1.02rem}
+.loyalty .benefits .tick{flex:none;width:30px;height:30px;border-radius:50%;background:var(--rust);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.85rem;margin-top:2px}
+.loyalty .fineprint{font-size:.76rem;color:#a8a192;margin-top:24px}
+.loyalty__card{background:var(--cream);color:var(--charcoal);border-radius:6px;padding:42px;box-shadow:var(--shadow);text-align:center}
+.loyalty__card .big{font-family:var(--serif);font-size:3.4rem;color:var(--rust);line-height:1}
+.loyalty__card .big small{display:block;font-size:.9rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.loyalty__card p{margin:18px 0 24px;color:var(--muted)}
+
+/* =========================================================
+   CONTACT (Website A "CALL US / EMAIL US / MAKE A RESERVATION")
+   ========================================================= */
+.contact__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:54px}
+.contact-card{background:var(--cream);border:1px solid var(--line);border-radius:4px;padding:38px 30px;text-align:center;transition:.4s var(--ease)}
+.contact-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:transparent}
+.contact-card .icon{width:62px;height:62px;border-radius:50%;background:var(--rust);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 18px}
+.contact-card h3{font-size:1.15rem;letter-spacing:.04em;margin-bottom:8px}
+.contact-card a{color:var(--rust);font-weight:600;font-size:1.05rem}
+.contact-card p{color:var(--muted);font-size:.92rem;margin:0}
+.map-wrap{border-radius:6px;overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--line)}
+.map-wrap iframe{display:block;width:100%;height:430px;border:0;filter:grayscale(.25)}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer{background:#26241f;color:#cfc8b6;padding:70px 0 0}
+.footer__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:50px}
+.footer h4{color:#fff;font-size:1rem;letter-spacing:.06em;margin-bottom:18px}
+.footer p{font-size:.9rem;color:#b6af9d}
+.footer ul{list-style:none;display:grid;gap:10px}
+.footer ul a{font-size:.9rem;color:#cfc8b6;transition:.25s}
+.footer ul a:hover{color:#f0c33c;padding-left:4px}
+.footer .brand-foot{height:96px;width:auto;margin-bottom:18px;background:var(--cream);padding:8px 12px;border-radius:6px}
+.footer .stars{color:#f0c33c;letter-spacing:3px}
+.footer__bottom{border-top:1px solid rgba(255,255,255,.1);padding:22px 0;font-size:.82rem;color:#9b937f;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer__bottom a{color:#9b937f}
+.footer__bottom a:hover{color:#fff}
+
+/* floating WhatsApp */
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:80;width:60px;height:60px;border-radius:50%;
+  background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.7rem;
+  box-shadow:0 12px 30px -8px rgba(37,211,102,.7);transition:.3s}
+.wa-float:hover{transform:scale(1.08)}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width:1080px){
+  .explore__grid{grid-template-columns:repeat(2,1fr)}
+  .exp__grid,.stories__grid{grid-template-columns:repeat(2,1fr)}
+  .big5__grid{grid-template-columns:repeat(3,1fr)}
+  .footer__grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:880px){
+  .nav{position:fixed;inset:0 0 0 auto;width:min(82vw,340px);background:var(--cream);
+    flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:6px;padding:90px 30px;
+    transform:translateX(100%);transition:.4s var(--ease);box-shadow:var(--shadow);z-index:55}
+  .nav.open{transform:none}
+  .nav a{font-size:1rem;width:100%;padding:12px 0;border-bottom:1px solid var(--line)}
+  .nav-toggle{display:flex;z-index:60}
+  .nav-toggle.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-toggle.active span:nth-child(2){opacity:0}
+  .nav-toggle.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .header-cta .btn{display:none}
+  .welcome__grid,.newsletter .container,.loyalty .container{grid-template-columns:1fr;gap:40px}
+  .welcome__media img{height:420px}
+  .contact__grid{grid-template-columns:1fr}
+  .parallax{background-attachment:scroll}
+  .topbar .tb-left{display:none}
+}
+@media (max-width:620px){
+  body{font-size:16px}
+  .explore__grid,.exp__grid,.stories__grid,.big5__grid,.footer__grid,.nl-form{grid-template-columns:1fr}
+  .hero{min-height:88vh}
+  .hero__facts{gap:24px}
+  .welcome__media .badge{left:0}
+  .footer__bottom{flex-direction:column}
+}

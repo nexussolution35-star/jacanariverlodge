@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 460" role="img" aria-label="Jacana River Lodge">
+  <defs>
+    <style>
+      .jname { font-family: 'Roboto Slab', Georgia, serif; font-weight: 700; fill: #323132; letter-spacing: 4px; }
+      .jscript { font-family: 'Dancing Script', 'Brush Script MT', cursive; font-weight: 700; fill: #954635; }
+    </style>
+  </defs>
+  <!-- cream rounded panel -->
+  <rect x="6" y="40" width="508" height="300" rx="26" fill="#f7f3dc"/>
+
+  <!-- water ripples -->
+  <g fill="none" stroke="#9bc1de" stroke-width="3.2" stroke-linecap="round" opacity="0.9">
+    <path d="M120 150 q40 -16 80 0 t80 0 t80 0"/>
+    <path d="M130 168 q42 16 84 0 t84 0 t70 0"/>
+  </g>
+  <!-- lily pads -->
+  <ellipse cx="150" cy="120" rx="34" ry="13" fill="#7aa83f"/>
+  <ellipse cx="380" cy="150" rx="30" ry="11" fill="#7aa83f"/>
+  <!-- reeds -->
+  <g fill="none" stroke="#6f9a35" stroke-width="3.5" stroke-linecap="round">
+    <path d="M118 132 q-6 -34 4 -56"/>
+    <path d="M126 132 q4 -30 16 -50"/>
+    <path d="M352 150 q-4 -28 6 -48"/>
+    <path d="M360 150 q6 -26 16 -42"/>
+  </g>
+
+  <!-- African jacana bird -->
+  <g>
+    <!-- body -->
+    <path d="M215 70 q70 -34 116 6 q14 14 6 34 q-10 26 -52 30 q-44 4 -70 -18 q-22 -20 0 -52 Z" fill="#7a3b28"/>
+    <!-- neck and head -->
+    <path d="M150 56 q14 -34 44 -38 q20 -2 26 14 q6 18 -10 30 q-18 12 -34 28 q-18 18 -26 6 q-8 -22 0 -40 Z" fill="#1c1c1c"/>
+    <path d="M150 30 q22 -18 44 -14 q-4 18 -22 30 q-16 10 -22 -16 Z" fill="#e7e7e7"/>
+    <!-- blue bill base -->
+    <path d="M150 36 q-16 2 -22 14 q-2 8 8 8 q14 -2 22 -12 Z" fill="#9bbcd6"/>
+    <!-- white breast -->
+    <path d="M168 92 q-10 30 6 56 q10 14 22 4 q-6 -34 -2 -64 q-16 -2 -26 4 Z" fill="#f1efe6"/>
+    <!-- legs / long toes -->
+    <g fill="none" stroke="#111" stroke-width="5" stroke-linecap="round">
+      <path d="M196 150 l-30 70 l-46 26"/>
+      <path d="M196 150 l-30 70 l16 36"/>
+      <path d="M196 150 l-30 70 l54 6"/>
+      <path d="M236 150 l24 64 l50 14"/>
+      <path d="M236 150 l24 64 l8 40"/>
+    </g>
+  </g>
+
+  <!-- wordmark -->
+  <text class="jname" x="260" y="262" font-size="92" text-anchor="middle">JACANA</text>
+  <text class="jscript" x="260" y="328" font-size="72" text-anchor="middle">River Lodge</text>
+
+  <!-- five South-African-flag stars -->
+  <g transform="translate(0,372)">
+    <use href="#sa-star" x="110"/>
+    <use href="#sa-star" x="190"/>
+    <use href="#sa-star" x="270"/>
+    <use href="#sa-star" x="350"/>
+    <use href="#sa-star" x="430"/>
+  </g>
+  <g id="sa-star" transform="translate(-30,0) scale(0.5)">
+    <path d="M60 0 L74 44 L120 44 L83 70 L97 116 L60 88 L23 116 L37 70 L0 44 L46 44 Z" fill="#de3831"/>
+    <path d="M60 0 L74 44 L120 44 L83 70 L97 116 L60 88 Z" fill="#002395"/>
+    <path d="M60 50 L97 116 L60 88 L23 116 Z" fill="#000"/>
+    <path d="M60 58 L86 104 L60 86 L34 104 Z" fill="#007a4d"/>
+    <path d="M60 66 L74 96 L60 84 L46 96 Z" fill="#ffb612"/>
+  </g>
+</svg>
