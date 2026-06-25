@@ -29,6 +29,41 @@
     });
   }
 
+  /* ---------- activities dropdown (mobile expand) ---------- */
+  var dd = document.getElementById('navDd');
+  if (dd) {
+    var ddToggle = dd.querySelector('.nav-dd__toggle');
+    ddToggle.addEventListener('click', function (e) {
+      if (window.innerWidth <= 880) {
+        e.preventDefault();
+        e.stopPropagation();
+        dd.classList.toggle('open');
+      }
+    });
+  }
+
+  /* ---------- hero enquiry form ---------- */
+  var heroForm = document.getElementById('heroForm');
+  var heroMsg = document.getElementById('heroFormMsg');
+  if (heroForm) {
+    heroForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var d = new FormData(heroForm);
+      var name = (d.get('name') || '').trim();
+      var email = (d.get('email') || '').trim();
+      var phone = (d.get('phone') || '').trim();
+      var validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!name || (!validEmail && !phone)) {
+        heroMsg.style.color = '#ffd9c9';
+        heroMsg.textContent = 'Please add your name and an email or phone number.';
+        return;
+      }
+      heroMsg.style.color = '#ffe9a8';
+      heroMsg.textContent = 'Thank you, ' + name + '! We’ll be in touch shortly with availability.';
+      heroForm.reset();
+    });
+  }
+
   /* ---------- hero slider ---------- */
   var slides = Array.prototype.slice.call(document.querySelectorAll('.hero__slide'));
   var dotsWrap = document.getElementById('heroDots');
