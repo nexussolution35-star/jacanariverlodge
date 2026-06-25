@@ -107,6 +107,35 @@
     reveals.forEach(function (el) { el.classList.add('in'); });
   }
 
+  /* ---------- gallery lightbox ---------- */
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  var galleryImgs = Array.prototype.slice.call(document.querySelectorAll('#galleryGrid img'));
+  var lbIndex = 0;
+  function showLb(i) {
+    lbIndex = (i + galleryImgs.length) % galleryImgs.length;
+    var src = galleryImgs[lbIndex].getAttribute('src');
+    lbImg.setAttribute('src', src);
+    lbImg.setAttribute('alt', galleryImgs[lbIndex].getAttribute('alt') || '');
+  }
+  function openLb(i) { showLb(i); lb.classList.add('open'); lb.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; }
+  function closeLb() { lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; }
+  if (lb && galleryImgs.length) {
+    galleryImgs.forEach(function (img, i) {
+      img.addEventListener('click', function () { openLb(i); });
+    });
+    document.getElementById('lightboxClose').addEventListener('click', closeLb);
+    document.getElementById('lightboxNext').addEventListener('click', function () { showLb(lbIndex + 1); });
+    document.getElementById('lightboxPrev').addEventListener('click', function () { showLb(lbIndex - 1); });
+    lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', function (e) {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLb();
+      else if (e.key === 'ArrowRight') showLb(lbIndex + 1);
+      else if (e.key === 'ArrowLeft') showLb(lbIndex - 1);
+    });
+  }
+
   /* ---------- year ---------- */
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
