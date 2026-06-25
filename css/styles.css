@@ -122,10 +122,9 @@ p{margin-bottom:1.1rem}
    ========================================================= */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;color:#fff;overflow:hidden}
 .hero__media{position:absolute;inset:0;background:#211f1f}
-.hero__video{
+.hero__video,.hero__img{
   position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
   object-position:center;display:block;
-  image-rendering:auto;will-change:transform;backface-visibility:hidden;transform:translateZ(0);
 }
 .hero::after{content:"";position:absolute;inset:0;z-index:1;
   background:linear-gradient(110deg,rgba(28,26,24,.78) 0%,rgba(28,26,24,.52) 34%,rgba(28,26,24,.30) 60%,rgba(28,26,24,.55) 100%)}
@@ -377,8 +376,9 @@ p{margin-bottom:1.1rem}
 .gallery__grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px}
 .gallery__item{position:relative;overflow:hidden;border-radius:4px;margin:0;cursor:pointer;box-shadow:var(--shadow-sm)}
 .gallery__item img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
-.gallery__item::after{content:"\2316";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  font-size:1.8rem;color:#fff;background:rgba(33,31,31,.36);opacity:0;transition:.35s var(--ease)}
+.gallery__item::after{content:"";position:absolute;inset:0;
+  background:rgba(33,31,31,.36) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Cpath d='M15.5 14h-.8l-.3-.3a6.5 6.5 0 1 0-.7.7l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z'/%3E%3C/svg%3E") center/34px no-repeat;
+  opacity:0;transition:.35s var(--ease)}
 .gallery__item:hover img{transform:scale(1.09)}
 .gallery__item:hover::after{opacity:1}
 .gallery__item--wide{grid-column:span 2}
@@ -482,6 +482,19 @@ p{margin-bottom:1.1rem}
 .reason h4{font-family:var(--serif);font-size:1.35rem;font-weight:600;color:var(--rust);margin-bottom:8px}
 .reason p{font-size:.98rem;color:#4a463f;margin:0}
 .story-card a.more{display:inline-block}
+
+/* =========================================================
+   SVG ICON SIZING (replacing emoji)
+   ========================================================= */
+.i-lock{width:13px;height:13px;display:inline-block;vertical-align:-2px;margin-right:3px}
+.award .icon{display:flex;align-items:center;justify-content:center;height:46px}
+.award .icon svg{width:42px;height:42px;fill:currentColor}
+.contact-card .icon svg{width:26px;height:26px;fill:#fff}
+.aside-list li span{display:inline-flex;width:20px;height:20px}
+.aside-list li span svg{width:20px;height:20px;fill:currentColor}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+.tick svg{width:13px;height:13px;fill:#fff;display:block}
+.review-badge__icon svg{display:block}
 
 /* =========================================================
    RESPONSIVE
