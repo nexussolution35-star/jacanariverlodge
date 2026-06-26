@@ -149,7 +149,7 @@ p{margin-bottom:1.1rem}
 .review-badge__icon svg{width:100%;height:100%}
 .review-badge__text{display:flex;flex-direction:column;line-height:1.15}
 .review-badge__text strong{font-family:var(--sans);font-size:1rem;font-weight:800;display:flex;align-items:center;gap:6px}
-.rb-stars{color:#f5a623;letter-spacing:1px;font-size:.82rem}
+.rb-stars{color:#FFC400;letter-spacing:1px;font-size:.82rem}
 .review-badge__text span{font-size:.72rem;color:var(--muted);letter-spacing:.02em}
 
 /* hero feature points */
@@ -413,6 +413,10 @@ p{margin-bottom:1.1rem}
 .footer ul a{font-size:.9rem;color:#cfc8b6;transition:.25s}
 .footer ul a:hover{color:#f0c33c;padding-left:4px}
 .footer .brand-foot{height:120px;width:auto;margin-bottom:18px}
+.footer-award{display:inline-block;margin-top:18px;border-radius:8px;overflow:hidden;
+  box-shadow:var(--shadow-sm);transition:.3s var(--ease);max-width:170px}
+.footer-award:hover{transform:translateY(-3px)}
+.footer-award img{display:block;width:100%;height:auto}
 .footer .stars{color:#f0c33c;letter-spacing:3px}
 .footer__bottom{border-top:1px solid rgba(255,255,255,.1);padding:22px 0;font-size:.82rem;color:#9b937f;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .footer__bottom a{color:#9b937f}
