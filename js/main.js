@@ -171,6 +171,32 @@
     });
   }
 
+  /* ---------- google reviews carousel ---------- */
+  var rTrack = document.getElementById('reviewsTrack');
+  if (rTrack) {
+    var rPrev = document.getElementById('reviewsPrev');
+    var rNext = document.getElementById('reviewsNext');
+    var rAuto;
+    function cardStep() {
+      var c = rTrack.querySelector('.review-card');
+      if (!c) return 320;
+      var gap = parseInt(getComputedStyle(rTrack).gap) || 24;
+      return c.offsetWidth + gap;
+    }
+    function rScroll(dir) { rTrack.scrollBy({ left: dir * cardStep(), behavior: 'smooth' }); }
+    function autoAdvance() {
+      var maxScroll = rTrack.scrollWidth - rTrack.clientWidth - 4;
+      if (rTrack.scrollLeft >= maxScroll) rTrack.scrollTo({ left: 0, behavior: 'smooth' });
+      else rScroll(1);
+    }
+    function resetAuto() { clearInterval(rAuto); rAuto = setInterval(autoAdvance, 4500); }
+    if (rPrev) rPrev.addEventListener('click', function () { rScroll(-1); resetAuto(); });
+    if (rNext) rNext.addEventListener('click', function () { rScroll(1); resetAuto(); });
+    rTrack.addEventListener('mouseenter', function () { clearInterval(rAuto); });
+    rTrack.addEventListener('mouseleave', resetAuto);
+    resetAuto();
+  }
+
   /* ---------- year ---------- */
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();

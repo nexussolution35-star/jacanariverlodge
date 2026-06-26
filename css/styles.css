@@ -199,6 +199,49 @@ p{margin-bottom:1.1rem}
 .partner--tall img{height:86px}
 
 /* =========================================================
+   GOOGLE REVIEWS CAROUSEL
+   ========================================================= */
+.reviews{background:var(--cream);padding-top:clamp(50px,6vw,80px);padding-bottom:clamp(50px,6vw,80px)}
+.reviews__head{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:38px}
+.reviews__summary{display:flex;align-items:center;gap:16px}
+.reviews__glogo{width:54px;height:54px;flex:none}
+.reviews__line{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:10px}
+.reviews__stars{color:#fbbc05;letter-spacing:2px;font-size:1.1rem}
+.reviews__sub{font-size:.86rem;color:var(--muted)}
+.reviews__titles{text-align:right}
+.reviews__titles .eyebrow{margin-bottom:.4rem}
+.reviews__titles h2{margin:0}
+.reviews__carousel{position:relative;display:flex;align-items:center;gap:10px}
+.reviews__track{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;padding:8px 2px 20px;flex:1;scrollbar-width:none}
+.reviews__track::-webkit-scrollbar{display:none}
+.review-card{flex:0 0 calc((100% - 48px)/3);scroll-snap-align:start;background:#fff;
+  border:1px solid var(--line);border-radius:10px;padding:24px;box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;min-height:230px}
+.review-card__top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.review-card__av{width:46px;height:46px;border-radius:50%;object-fit:cover;flex:none}
+.review-card__id{display:flex;flex-direction:column;line-height:1.25;flex:1;min-width:0}
+.review-card__id strong{font-family:var(--sans);font-weight:700;font-size:.98rem;color:var(--charcoal)}
+.review-card__src{font-size:.76rem;color:var(--muted)}
+.review-card__g{width:22px;height:22px;flex:none}
+.review-card__stars{color:#fbbc05;letter-spacing:2px;font-size:1.02rem;margin-bottom:10px}
+.review-card__text{font-size:.95rem;color:#4a463f;line-height:1.6;margin:0}
+.reviews__nav{flex:none;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);
+  background:#fff;color:var(--rust);font-size:1.4rem;cursor:pointer;transition:.25s var(--ease);box-shadow:var(--shadow-sm);z-index:2}
+.reviews__nav:hover{background:var(--rust);color:#fff;border-color:var(--rust)}
+.reviews__cta{margin-top:26px}
+
+/* Booking.com award feature badge */
+.award-feature{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;
+  background:var(--cream-deep);border:1px solid var(--line);border-radius:12px;
+  padding:20px 30px;max-width:640px;margin:0 auto 46px}
+.award-feature img{width:150px;height:auto;border-radius:8px;box-shadow:var(--shadow-sm)}
+.award-feature__text{text-align:left}
+.award-feature__text strong{display:block;font-family:var(--serif);font-size:1.3rem;color:var(--ink);margin-bottom:4px}
+.award-feature__text span{font-size:.95rem;color:var(--muted)}
+.award-feature__text b{color:var(--rust)}
+
+/* =========================================================
    WELCOME / BRAND STATEMENT
    ========================================================= */
 .welcome{position:relative}
@@ -539,6 +582,12 @@ p{margin-bottom:1.1rem}
   .hero__inner{max-width:none}
   .activity__layout{grid-template-columns:1fr;gap:36px}
   .activity__aside{position:static}
+  .review-card{flex:0 0 calc((100% - 24px)/2)}
+}
+@media (max-width:640px){
+  .review-card{flex:0 0 88%}
+  .reviews__head{flex-direction:column;align-items:flex-start;gap:16px}
+  .reviews__titles{text-align:left}
 }
 @media (max-width:880px){
   .nav{position:fixed;inset:0 0 0 auto;width:min(86vw,360px);background:var(--cream);
