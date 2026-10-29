@@ -1,0 +1,293 @@
+type,old_path,action,new_path,new_site_role,notes
+page,/,KEEP,/,Home,Rebuild at the identical path in the new design.
+page,/activities-near-mjejane/,KEEP,/activities-near-mjejane/,Activities hub (nav dropdown parent),Rebuild at the identical path in the new design.
+page,/activities/,PROPOSED 301,/activities-near-mjejane/,Duplicate of activities hub,Same title+meta as /activities-near-mjejane/. Confirm in GSC before redirecting.
+page,/backlinks/,KEEP (review),/backlinks/,'Useful links' utility page,Thin internal-links page. Candidate for noindex.
+page,/book-now/,KEEP,/book-now/,Book Now / enquiry,Rebuild at the identical path in the new design.
+page,/contact-us/,KEEP,/contact-us/,Contact,Rebuild at the identical path in the new design.
+page,/cookies-and-privacy-policy/,KEEP,/cookies-and-privacy-policy/,Privacy policy,Rebuild at the identical path in the new design.
+page,/facilities/,KEEP,/facilities/,Rates & Facilities,Rebuild at the identical path in the new design.
+page,/full-and-half-day-game-drive-in-the-kruger-park/,KEEP,/full-and-half-day-game-drive-in-the-kruger-park/,Activity: Kruger day drives,Rebuild at the identical path in the new design.
+page,/gallery/,KEEP,/gallery/,Gallery,Rebuild at the identical path in the new design.
+page,/game-drive-mjejane-game-reserve/,KEEP,/game-drive-mjejane-game-reserve/,Activity: private game drives,Rebuild at the identical path in the new design.
+page,/kruger-and-panorama-route-tour-week/,KEEP (review),/kruger-and-panorama-route-tour-week/,2023 package page,"Thin, no meta. Candidate to consolidate into /mjejane-accommodation-prices-and-packages/ once GSC confirms no traffic."
+page,/kruger-and-panorama-route-tour-weekend/,KEEP (review),/kruger-and-panorama-route-tour-weekend/,2023 package page,"Thin, no meta. Candidate to consolidate into /mjejane-accommodation-prices-and-packages/ once GSC confirms no traffic."
+page,/kruger-full-day-safari-with-irving-knight-safaris-at-jacana-river-lodge-1-week/,KEEP (review),/kruger-full-day-safari-with-irving-knight-safaris-at-jacana-river-lodge-1-week/,2023 package page,"Thin, no meta. Candidate to consolidate into /mjejane-accommodation-prices-and-packages/ once GSC confirms no traffic."
+page,/kruger-full-day-safari-with-irving-knight-safaris-at-jacana-river-lodge-weekend/,KEEP (review),/kruger-full-day-safari-with-irving-knight-safaris-at-jacana-river-lodge-weekend/,2023 package page,"Thin, no meta. Candidate to consolidate into /mjejane-accommodation-prices-and-packages/ once GSC confirms no traffic."
+page,/kruger-full-day-safari-with-irving-knight-safaris/,KEEP,/kruger-full-day-safari-with-irving-knight-safaris/,Activity: Irving Knight safaris,Rebuild at the identical path in the new design.
+page,/kruger-full-day-safari-with-lihlosi-safaris-at-jacana-river-lodge-1-week/,KEEP (review),/kruger-full-day-safari-with-lihlosi-safaris-at-jacana-river-lodge-1-week/,2023 package page,"Thin, no meta. Candidate to consolidate into /mjejane-accommodation-prices-and-packages/ once GSC confirms no traffic."
+page,/kruger-full-day-safari-with-lihlosi-safaris-at-jacana-river-lodge-weekend/,KEEP (review),/kruger-full-day-safari-with-lihlosi-safaris-at-jacana-river-lodge-weekend/,2023 package page,"Thin, no meta. Candidate to consolidate into /mjejane-accommodation-prices-and-packages/ once GSC confirms no traffic."
+page,/luxury-self-catering-lodge-accommodation-in-mpumalanga/,KEEP,/luxury-self-catering-lodge-accommodation-in-mpumalanga/,Keyword landing page,Rebuild at the identical path in the new design.
+page,/mjejane-accommodation-prices-and-packages/,KEEP,/mjejane-accommodation-prices-and-packages/,Packages,Rebuild at the identical path in the new design.
+page,/mjejane-accommodation-specials/,KEEP,/mjejane-accommodation-specials/,Specials,Rebuild at the identical path in the new design.
+page,/mjejane-bridge-entrance-to-knp/,KEEP,/mjejane-bridge-entrance-to-knp/,Getting here: Mjejane Bridge,Rebuild at the identical path in the new design.
+page,/mjejane-game-reserve-accommodation-guide/,KEEP,/mjejane-game-reserve-accommodation-guide/,Pillar: Mjejane accommodation guide,Rebuild at the identical path in the new design.
+page,/mjejane-game-reserve-birding-guide/,KEEP,/mjejane-game-reserve-birding-guide/,Activity: birding,Rebuild at the identical path in the new design.
+page,/panorama-tours-packages-and-pricing/,KEEP,/panorama-tours-packages-and-pricing/,Activity: Panorama Route tours,Rebuild at the identical path in the new design.
+page,/rules-and-safety/,KEEP,/rules-and-safety/,Rules & Safety,Rebuild at the identical path in the new design.
+page,/self-catering-family-retreat-in-mpumalanga/,KEEP,/self-catering-family-retreat-in-mpumalanga/,Keyword landing page,Rebuild at the identical path in the new design.
+page,/self-catering-getaway-in-mpumalanga/,KEEP,/self-catering-getaway-in-mpumalanga/,Keyword landing page,Rebuild at the identical path in the new design.
+page,/thank-you-for-your-booking-enquiry/,KEEP,/thank-you-for-your-booking-enquiry/,Form confirmation,Keep path (conversion tracking). Recommend noindex.
+page,/thank-you/,KEEP,/thank-you/,Form confirmation,Keep path (conversion tracking). Recommend noindex.
+page,/wildlife-and-sightings/,KEEP,/wildlife-and-sightings/,Wildlife hub,Rebuild at the identical path in the new design.
+page,/wildlife-and-sightings/sightings/,KEEP,/wildlife-and-sightings/sightings/,Wildlife: sightings,Rebuild at the identical path in the new design.
+page,/wildlife-and-sightings/wildlife-in-mjejane/,KEEP,/wildlife-and-sightings/wildlife-in-mjejane/,Wildlife: species of Mjejane,Rebuild at the identical path in the new design.
+author,/author/mjejane-game-reserve-expert/,KEEP,/author/mjejane-game-reserve-expert/,Author archive,Keep (E-E-A-T author page).
+category,/category/activities/,KEEP,/category/activities/,Category archive,Keep.
+category,/category/game-viewing/,KEEP,/category/game-viewing/,Category archive,Keep.
+category,/category/news/,KEEP,/category/news/,Category archive,Keep.
+category,/category/uncategorized/,KEEP,/category/uncategorized/,Category archive,Recommend noindex.
+portfolio,/portfolio-item/mjejane-dam/,KEEP (review),/portfolio-item/mjejane-dam/,portfolio item,Thin legacy item. Candidate to 301 into a reviews/wildlife page once GSC confirms no traffic.
+portfolio,/portfolio-item/our-lion-pride/,KEEP (review),/portfolio-item/our-lion-pride/,portfolio item,Thin legacy item. Candidate to 301 into a reviews/wildlife page once GSC confirms no traffic.
+portfolio,/portfolio-item/verreaux-eagle-owls/,KEEP (review),/portfolio-item/verreaux-eagle-owls/,portfolio item,Thin legacy item. Candidate to 301 into a reviews/wildlife page once GSC confirms no traffic.
+post,/10-best-5-star-family-self-catering-lodges-near-the-kruger-national-park/,KEEP,/10-best-5-star-family-self-catering-lodges-near-the-kruger-national-park/,Blog post (same slug),Migrate as-is.
+post,/10-memorable-moments-youll-only-have-at-jacana-river-lodge-in-mjejane-game-reserve/,KEEP,/10-memorable-moments-youll-only-have-at-jacana-river-lodge-in-mjejane-game-reserve/,Blog post (same slug),Migrate as-is.
+post,/10-reasons-a-5-star-self-catering-lodge-in-mjejane-game-reserve-is-the-best-family-safari-choice-among-game-lodges-in-mpumalanga/,KEEP,/10-reasons-a-5-star-self-catering-lodge-in-mjejane-game-reserve-is-the-best-family-safari-choice-among-game-lodges-in-mpumalanga/,Blog post (same slug),Migrate as-is.
+post,/10-self-catering-lodge-features-youll-love-at-jacana-river-lodge/,KEEP,/10-self-catering-lodge-features-youll-love-at-jacana-river-lodge/,Blog post (same slug),Migrate as-is.
+post,/12-reasons-private-self-catering-luxury-game-lodges-in-mjejane-game-reserve-beat-traditional-safaris-for-families/,KEEP,/12-reasons-private-self-catering-luxury-game-lodges-in-mjejane-game-reserve-beat-traditional-safaris-for-families/,Blog post (same slug),Migrate as-is.
+post,/13-family-travel-things-to-do-in-near-the-mjejane-game-reserve-knp/,KEEP,/13-family-travel-things-to-do-in-near-the-mjejane-game-reserve-knp/,Blog post (same slug),Migrate as-is.
+post,/2025-wildlife-escapes-luxury-adventure-at-jacana-river-lodge-mjejane-game-reserve/,KEEP,/2025-wildlife-escapes-luxury-adventure-at-jacana-river-lodge-mjejane-game-reserve/,Blog post (same slug),Time-bound slug; refresh or consolidate later (keep URL).
+post,/5-reasons-families-love-self-catering-at-jacana-river-lodge-in-may/,KEEP,/5-reasons-families-love-self-catering-at-jacana-river-lodge-in-may/,Blog post (same slug),Duplicate title with: /why-may-2026-is-one-of-the-best-months-for-a-family-self-catering-safari-at-jacana-river-lodge-in-mjejane-game-reserve/
+post,/5-reasons-why-mjejane-game-reserve-is-one-of-the-best-game-reserves-bordering-the-kruger-national-park/,KEEP,/5-reasons-why-mjejane-game-reserve-is-one-of-the-best-game-reserves-bordering-the-kruger-national-park/,Blog post (same slug),Migrate as-is.
+post,/5-star-self-catering-accommodation/,KEEP,/5-star-self-catering-accommodation/,Blog post (same slug),Migrate as-is.
+post,/6-reasons-to-book-your-june-2026-family-safari-at-jacana-river-lodge-now/,KEEP,/6-reasons-to-book-your-june-2026-family-safari-at-jacana-river-lodge-now/,Blog post (same slug),Time-bound slug; refresh or consolidate later (keep URL).
+post,/8-best-private-game-reserves-bordering-the-kruger-national-park/,KEEP,/8-best-private-game-reserves-bordering-the-kruger-national-park/,Blog post (same slug),Migrate as-is.
+post,/8-reasons-families-choose-self-catering-game-lodges-in-mpumalanga-and-why-jacana-stands-out/,KEEP,/8-reasons-families-choose-self-catering-game-lodges-in-mpumalanga-and-why-jacana-stands-out/,Blog post (same slug),Migrate as-is.
+post,/a-first-timers-guide-to-planning-a-safari-at-jacana-river-lodge/,KEEP,/a-first-timers-guide-to-planning-a-safari-at-jacana-river-lodge/,Blog post (same slug),Migrate as-is.
+post,/a-view-of-beauty-from-the-river-lodge-balcony-jacana-river-lodge/,KEEP,/a-view-of-beauty-from-the-river-lodge-balcony-jacana-river-lodge/,Blog post (same slug),Migrate as-is.
+post,/adventure-awaits-exciting-tour-options-near-jacana-river-lodge/,KEEP,/adventure-awaits-exciting-tour-options-near-jacana-river-lodge/,Blog post (same slug),Migrate as-is.
+post,/african-safari-family-vacation-with-kids-tips-for-success/,KEEP,/african-safari-family-vacation-with-kids-tips-for-success/,Blog post (same slug),Migrate as-is.
+post,/african-safari/,KEEP,/african-safari/,Blog post (same slug),Migrate as-is.
+post,/an-exciting-night-time-encounter-with-leopard-and-cub/,KEEP,/an-exciting-night-time-encounter-with-leopard-and-cub/,Blog post (same slug),Migrate as-is.
+post,/best-five-star-self-catering-lodges-near-kruger-national-park-family-friendly-comparison/,KEEP,/best-five-star-self-catering-lodges-near-kruger-national-park-family-friendly-comparison/,Blog post (same slug),Migrate as-is.
+post,/between-game-drives-a-family-day-beside-the-crocodile-river-crocodile-river-lodge-life-jacana-river-lodge/,KEEP,/between-game-drives-a-family-day-beside-the-crocodile-river-crocodile-river-lodge-life-jacana-river-lodge/,Blog post (same slug),Migrate as-is.
+post,/book-july-2026-family-safari-now-at-jacana-river-lodge-in-mjejane-game-reserv/,KEEP,/book-july-2026-family-safari-now-at-jacana-river-lodge-in-mjejane-game-reserv/,Blog post (same slug),Time-bound slug; refresh or consolidate later (keep URL).
+post,/book-your-2026-family-safari-holiday-at-jacana-river-lodge-a-private-mjejane-retreat/,KEEP,/book-your-2026-family-safari-holiday-at-jacana-river-lodge-a-private-mjejane-retreat/,Blog post (same slug),Time-bound slug; refresh or consolidate later (keep URL).
+post,/chimp-eden/,KEEP,/chimp-eden/,Blog post (same slug),Migrate as-is.
+post,/connecting-with-nature-eco-friendly-practices-at-jacana-river-lodge/,KEEP,/connecting-with-nature-eco-friendly-practices-at-jacana-river-lodge/,Blog post (same slug),Migrate as-is.
+post,/discover-family-friendly-luxury-at-jacana-river-lodge-in-mjejane-game-reserve/,KEEP,/discover-family-friendly-luxury-at-jacana-river-lodge-in-mjejane-game-reserve/,Blog post (same slug),Migrate as-is.
+post,/discover-luxurious-self-catering-accommodation-near-the-kruger-national-park/,KEEP,/discover-luxurious-self-catering-accommodation-near-the-kruger-national-park/,Blog post (same slug),Migrate as-is.
+post,/discover-why-winter-is-the-best-time-to-visit-jacana-river-lodge-in-mjejane-game-reserve/,KEEP,/discover-why-winter-is-the-best-time-to-visit-jacana-river-lodge-in-mjejane-game-reserve/,Blog post (same slug),Migrate as-is.
+post,/discovering-the-mjejane-game-reserve-the-perfect-escape-for-family-groups-at-jacana-river-lodge/,KEEP,/discovering-the-mjejane-game-reserve-the-perfect-escape-for-family-groups-at-jacana-river-lodge/,Blog post (same slug),Migrate as-is.
+post,/educational-wildlife-escapes-discovering-nature-with-kids-at-jacana-river-lodge-near-kruger-national-park/,KEEP,/educational-wildlife-escapes-discovering-nature-with-kids-at-jacana-river-lodge-near-kruger-national-park/,Blog post (same slug),Migrate as-is.
+post,/embrace-family-togetherness-at-jacana-river-lodge-a-self-catering-oasis-in-mjejane-game-reserve/,KEEP,/embrace-family-togetherness-at-jacana-river-lodge-a-self-catering-oasis-in-mjejane-game-reserve/,Blog post (same slug),Migrate as-is.
+post,/embracing-self-catering-a-culinary-journey-at-jacana-river-lodge/,KEEP,/embracing-self-catering-a-culinary-journey-at-jacana-river-lodge/,Blog post (same slug),Migrate as-is.
+post,/escape-to-serenity-family-getaways-at-jacana-river-lodge/,KEEP,/escape-to-serenity-family-getaways-at-jacana-river-lodge/,Blog post (same slug),Thin (279 words).
+post,/experience-mjejane-game-reserve-luxury-self-catering-accommodation-near-the-kruger-national-park-at-jacana-river-lodge/,KEEP,/experience-mjejane-game-reserve-luxury-self-catering-accommodation-near-the-kruger-national-park-at-jacana-river-lodge/,Blog post (same slug),Migrate as-is.
+post,/experience-the-giants-up-close/,KEEP,/experience-the-giants-up-close/,Blog post (same slug),Thin (127 words).
+post,/experience-the-ultimate-safari-retreat-at-jacana-river-lodge/,KEEP,/experience-the-ultimate-safari-retreat-at-jacana-river-lodge/,Blog post (same slug),Migrate as-is.
+post,/explore-affordable-self-catering-luxury-in-the-kruger-national-park-at-mjejane-game-reserve/,KEEP,/explore-affordable-self-catering-luxury-in-the-kruger-national-park-at-mjejane-game-reserve/,Blog post (same slug),Migrate as-is.
+post,/exploring-the-frequently-asked-questions-around-private-game-reserves-with-jacana-river-lodge-and-mjejane-game-reserve/,KEEP,/exploring-the-frequently-asked-questions-around-private-game-reserves-with-jacana-river-lodge-and-mjejane-game-reserve/,Blog post (same slug),Migrate as-is.
+post,/exploring-the-wild-side-top-wildlife-viewing-experiences-at-jacana-river-lodge/,KEEP,/exploring-the-wild-side-top-wildlife-viewing-experiences-at-jacana-river-lodge/,Blog post (same slug),Migrate as-is.
+post,/family-friendly-luxury-retreat-unwind-at-jacana-river-lodge-in-the-shadow-of-kruger-national-park/,KEEP,/family-friendly-luxury-retreat-unwind-at-jacana-river-lodge-in-the-shadow-of-kruger-national-park/,Blog post (same slug),Thin (213 words).
+post,/family-safari-adventure-in-mjejane-game-reserve-jacana-river-lodge/,KEEP,/family-safari-adventure-in-mjejane-game-reserve-jacana-river-lodge/,Blog post (same slug),Migrate as-is.
+post,/family-safari-adventures-at-jacana-river-lodge-experience-wildlife-in-comfort-and-style/,KEEP,/family-safari-adventures-at-jacana-river-lodge-experience-wildlife-in-comfort-and-style/,Blog post (same slug),Migrate as-is.
+post,/game-drives-in-the-kruger-national-park/,KEEP,/game-drives-in-the-kruger-national-park/,Blog post (same slug),Migrate as-is.
+post,/game-lodges-in-mpumalanga-for-families-how-to-plan-a-safari-for-6-10-people/,KEEP,/game-lodges-in-mpumalanga-for-families-how-to-plan-a-safari-for-6-10-people/,Blog post (same slug),Migrate as-is.
+post,/game-lodges-in-mpumalanga-mjejane-game-reserve-family-safari/,KEEP,/game-lodges-in-mpumalanga-mjejane-game-reserve-family-safari/,Blog post (same slug),Migrate as-is.
+post,/gesseligheid-embracing-warmth-the-south-african-way-at-jacana-river-lodge-in-the-mjejane-game-reserve/,KEEP,/gesseligheid-embracing-warmth-the-south-african-way-at-jacana-river-lodge-in-the-mjejane-game-reserve/,Blog post (same slug),Migrate as-is.
+post,/graskop-gorge/,KEEP,/graskop-gorge/,Blog post (same slug),Migrate as-is.
+post,/guest-reviews-memorable-experiences-at-jacana-river-lodge/,KEEP,/guest-reviews-memorable-experiences-at-jacana-river-lodge/,Blog post (same slug),Migrate as-is.
+post,/guided-bush-walks-kruger-national-park/,KEEP,/guided-bush-walks-kruger-national-park/,Blog post (same slug),Migrate as-is.
+post,/how-families-actually-choose-game-lodges-in-mpumalanga-and-why-private-self-catering-wins/,KEEP,/how-families-actually-choose-game-lodges-in-mpumalanga-and-why-private-self-catering-wins/,Blog post (same slug),Migrate as-is.
+post,/how-to-have-the-ultimate-private-safari-experience-without-breaking-the-bank/,KEEP,/how-to-have-the-ultimate-private-safari-experience-without-breaking-the-bank/,Blog post (same slug),Migrate as-is.
+post,/inside-the-lodge-a-room-by-room-look-at-jacana-river-lodges-luxury-self-catering-experience/,KEEP,/inside-the-lodge-a-room-by-room-look-at-jacana-river-lodges-luxury-self-catering-experience/,Blog post (same slug),Migrate as-is.
+post,/introducing-jacana-river-lodge-your-affordable-5-star-luxury-retreat/,KEEP,/introducing-jacana-river-lodge-your-affordable-5-star-luxury-retreat/,Blog post (same slug),Migrate as-is.
+post,/jabulani-elephant-sanctuary/,KEEP,/jabulani-elephant-sanctuary/,Blog post (same slug),Migrate as-is.
+post,/jacana-river-lodge-a-tour/,KEEP,/jacana-river-lodge-a-tour/,Blog post (same slug),Migrate as-is.
+post,/jacana-river-lodge-luxury-and-wildlife-for-the-perfect-family-safari/,KEEP,/jacana-river-lodge-luxury-and-wildlife-for-the-perfect-family-safari/,Blog post (same slug),Migrate as-is.
+post,/kambaku-golf-club-restaurant/,KEEP,/kambaku-golf-club-restaurant/,Blog post (same slug),Thin (131 words).
+post,/kids-on-safari-a-parents-guide-to-stress-free-family-holidays-at-jacana-river-lodge/,KEEP,/kids-on-safari-a-parents-guide-to-stress-free-family-holidays-at-jacana-river-lodge/,Blog post (same slug),Migrate as-is.
+post,/kingsland-recreational-area/,KEEP,/kingsland-recreational-area/,Blog post (same slug),Thin (177 words).
+post,/kruger-national-park-knp-during-covid-19/,KEEP,/kruger-national-park-knp-during-covid-19/,Blog post (same slug),Migrate as-is.
+post,/limited-june-2026-availability-at-jacana-river-lodge-book-your-private-safari-now/,KEEP,/limited-june-2026-availability-at-jacana-river-lodge-book-your-private-safari-now/,Blog post (same slug),Time-bound slug; refresh or consolidate later (keep URL).
+post,/live-the-dream-at-mjejane-lifestyle-game-reserve/,KEEP,/live-the-dream-at-mjejane-lifestyle-game-reserve/,Blog post (same slug),Migrate as-is.
+post,/luxury-family-retreat-at-jacana-river-lodge-where-safari-meets-comfort/,KEEP,/luxury-family-retreat-at-jacana-river-lodge-where-safari-meets-comfort/,Blog post (same slug),Migrate as-is.
+post,/luxury-meets-wilderness-the-ultimate-self-catering-safari-experience-at-jacana-river-lodge/,KEEP,/luxury-meets-wilderness-the-ultimate-self-catering-safari-experience-at-jacana-river-lodge/,Blog post (same slug),Migrate as-is.
+post,/luxury-self-catering-accommodation-in-mjejane-game-reserve-the-perfect-escape-for-families-and-groups/,KEEP,/luxury-self-catering-accommodation-in-mjejane-game-reserve-the-perfect-escape-for-families-and-groups/,Blog post (same slug),Migrate as-is.
+post,/luxury-self-catering-at-jacana-river-lodge-how-to-create-a-five-star-experience/,KEEP,/luxury-self-catering-at-jacana-river-lodge-how-to-create-a-five-star-experience/,Blog post (same slug),Migrate as-is.
+post,/malelane-golf-club/,KEEP,/malelane-golf-club/,Blog post (same slug),Thin (131 words).
+post,/meet-your-mjejane-game-ranger-special-khoza/,KEEP,/meet-your-mjejane-game-ranger-special-khoza/,Blog post (same slug),Migrate as-is.
+post,/mjejane-bridge-reopens/,KEEP,/mjejane-bridge-reopens/,Blog post (same slug),Migrate as-is.
+post,/mjejane-mobile-bush-spa/,KEEP,/mjejane-mobile-bush-spa/,Blog post (same slug),Migrate as-is.
+post,/new/,KEEP,/new/,Blog post (same slug),Migrate as-is.
+post,/news/,KEEP,/news/,Blog index,Rebuild at the identical path in the new design.
+post,/panorama-route-mpumalanga-day-tours/,KEEP,/panorama-route-mpumalanga-day-tours/,Blog post (same slug),Migrate as-is.
+post,/perks-of-self-catering/,KEEP,/perks-of-self-catering/,Blog post (same slug),Migrate as-is.
+post,/plan-your-2025-safari-adventure-at-jacana-river-lodge-in-the-mjejane-game-reserve/,KEEP,/plan-your-2025-safari-adventure-at-jacana-river-lodge-in-the-mjejane-game-reserve/,Blog post (same slug),Time-bound slug; refresh or consolidate later (keep URL).
+post,/plan-your-breakaway-in-the-bush-this-year/,KEEP,/plan-your-breakaway-in-the-bush-this-year/,Blog post (same slug),Migrate as-is.
+post,/planning-the-perfect-group-retreat-at-jacana-river-lodge/,KEEP,/planning-the-perfect-group-retreat-at-jacana-river-lodge/,Blog post (same slug),Migrate as-is.
+post,/planning-the-perfect-self-catering-safari-holiday-in-mjejane/,KEEP,/planning-the-perfect-self-catering-safari-holiday-in-mjejane/,Blog post (same slug),Migrate as-is.
+post,/rhino-conservation-a-journey-with-jacana-river-lodge-in-mjejane-game-reserve/,KEEP,/rhino-conservation-a-journey-with-jacana-river-lodge-in-mjejane-game-reserve/,Blog post (same slug),Migrate as-is.
+post,/rhino-rendezvous-at-jacana-river-lodge-a-5-star-self-catering-escape-in-the-heart-of-mjejane/,KEEP,/rhino-rendezvous-at-jacana-river-lodge-a-5-star-self-catering-escape-in-the-heart-of-mjejane/,Blog post (same slug),Migrate as-is.
+post,/self-catering-accommodation-near-kruger-national-park-why-families-choose-mjejane-game-reserve/,KEEP,/self-catering-accommodation-near-kruger-national-park-why-families-choose-mjejane-game-reserve/,Blog post (same slug),Migrate as-is.
+post,/self-catering-luxury-how-jacana-river-lodge-redefines-the-safari-experience/,KEEP,/self-catering-luxury-how-jacana-river-lodge-redefines-the-safari-experience/,Blog post (same slug),Migrate as-is.
+post,/self-catering-safari-lodge-for-families-near-kruger/,KEEP,/self-catering-safari-lodge-for-families-near-kruger/,Blog post (same slug),Migrate as-is.
+post,/stargazing-mjejane-game-reserve-kruger-national-park/,KEEP,/stargazing-mjejane-game-reserve-kruger-national-park/,Blog post (same slug),Migrate as-is.
+post,/the-3-generation-safari-why-grandparents-parents-and-kids-love-staying-together-in-mjejane-game-reserve/,KEEP,/the-3-generation-safari-why-grandparents-parents-and-kids-love-staying-together-in-mjejane-game-reserve/,Blog post (same slug),Migrate as-is.
+post,/the-best-5-star-luxury-lodges-in-the-greater-kruger-national-park-a-price-comparison-for-2023/,KEEP,/the-best-5-star-luxury-lodges-in-the-greater-kruger-national-park-a-price-comparison-for-2023/,Blog post (same slug),Time-bound slug; refresh or consolidate later (keep URL).
+post,/the-best-priced-private-nature-reserves-near-the-kruger-national-park/,KEEP,/the-best-priced-private-nature-reserves-near-the-kruger-national-park/,Blog post (same slug),Migrate as-is.
+post,/the-best-private-game-reserves-near-kruger-national-park-a-comprehensive-comparison/,KEEP,/the-best-private-game-reserves-near-kruger-national-park-a-comprehensive-comparison/,Blog post (same slug),Migrate as-is.
+post,/the-best-self-catering-lodges-in-mjejane-game-reserve-your-ultimate-guide/,KEEP,/the-best-self-catering-lodges-in-mjejane-game-reserve-your-ultimate-guide/,Blog post (same slug),Migrate as-is.
+post,/the-complete-guide-to-game-lodges-in-mpumalanga-finding-luxury-privacy-wildlife/,KEEP,/the-complete-guide-to-game-lodges-in-mpumalanga-finding-luxury-privacy-wildlife/,Blog post (same slug),Migrate as-is.
+post,/the-complete-guide-to-self-catering-luxury-accommodation-near-kruger-national-park-for-families-mjejane-game-reserve/,KEEP,/the-complete-guide-to-self-catering-luxury-accommodation-near-kruger-national-park-for-families-mjejane-game-reserve/,Blog post (same slug),Migrate as-is.
+post,/the-hidden-luxury-of-doing-safari-your-way-five-star-self-catering-near-the-kruger-national-park/,KEEP,/the-hidden-luxury-of-doing-safari-your-way-five-star-self-catering-near-the-kruger-national-park/,Blog post (same slug),Migrate as-is.
+post,/the-jewel-of-mjejane-jacana-river-lodges-exclusive-safari-experience/,KEEP,/the-jewel-of-mjejane-jacana-river-lodges-exclusive-safari-experience/,Blog post (same slug),Migrate as-is.
+post,/the-kruger-national-park-in-december-a-guide-to-the-best-time-to-visit/,KEEP,/the-kruger-national-park-in-december-a-guide-to-the-best-time-to-visit/,Blog post (same slug),Migrate as-is.
+post,/the-perfect-family-getaway/,KEEP,/the-perfect-family-getaway/,Blog post (same slug),Migrate as-is.
+post,/the-private-game-reserves-near-the-kruger-national-park-a-guide/,KEEP,/the-private-game-reserves-near-the-kruger-national-park-a-guide/,Blog post (same slug),Migrate as-is.
+post,/the-slow-safari-why-families-are-choosing-calm-private-lodges-in-mjejane-game-reserv/,KEEP,/the-slow-safari-why-families-are-choosing-calm-private-lodges-in-mjejane-game-reserv/,Blog post (same slug),Migrate as-is.
+post,/the-top-reasons-to-choose-self-catering-game-lodges-like-jacana-river-lodge/,KEEP,/the-top-reasons-to-choose-self-catering-game-lodges-like-jacana-river-lodge/,Blog post (same slug),Migrate as-is.
+post,/the-ultimate-2026-safari-planning-guide-for-families-why-jacana-river-lodge-is-the-best-school-holiday-base-in-mjejane-game-reserve/,KEEP,/the-ultimate-2026-safari-planning-guide-for-families-why-jacana-river-lodge-is-the-best-school-holiday-base-in-mjejane-game-reserve/,Blog post (same slug),Time-bound slug; refresh or consolidate later (keep URL).
+post,/the-ultimate-guide-to-big-five-viewing-at-jacana-river-lodge/,KEEP,/the-ultimate-guide-to-big-five-viewing-at-jacana-river-lodge/,Blog post (same slug),Migrate as-is.
+post,/the-ultimate-guide-to-family-safaris-at-jacana-river-lodge/,KEEP,/the-ultimate-guide-to-family-safaris-at-jacana-river-lodge/,Blog post (same slug),Migrate as-is.
+post,/the-ultimate-guide-to-game-lodges-in-mpumalanga-why-jacana-river-lodge-stands-out/,KEEP,/the-ultimate-guide-to-game-lodges-in-mpumalanga-why-jacana-river-lodge-stands-out/,Blog post (same slug),Migrate as-is.
+post,/the-ultimate-guide-to-mjejane-game-reserve-accommodation-in-2023/,KEEP,/the-ultimate-guide-to-mjejane-game-reserve-accommodation-in-2023/,Blog post (same slug),Time-bound slug; refresh or consolidate later (keep URL).
+post,/the-ultimate-guide-to-self-catering-safari-accommodation-in-mjejane-game-reserve-why-jacana-river-lodge-stands-out/,KEEP,/the-ultimate-guide-to-self-catering-safari-accommodation-in-mjejane-game-reserve-why-jacana-river-lodge-stands-out/,Blog post (same slug),Migrate as-is.
+post,/top-10-best-game-lodges-in-mpumalanga/,KEEP,/top-10-best-game-lodges-in-mpumalanga/,Blog post (same slug),Migrate as-is.
+post,/top-10-family-friendly-activities-at-jacana-river-lodge/,KEEP,/top-10-family-friendly-activities-at-jacana-river-lodge/,Blog post (same slug),Migrate as-is.
+post,/top-10-luxury-lodges-in-mpumalanga-for-self-catering-holidays/,KEEP,/top-10-luxury-lodges-in-mpumalanga-for-self-catering-holidays/,Blog post (same slug),Migrate as-is.
+post,/top-5-reasons-families-and-large-groups-love-jacana-river-lodge/,KEEP,/top-5-reasons-families-and-large-groups-love-jacana-river-lodge/,Blog post (same slug),Migrate as-is.
+post,/top-private-concessions-in-kruger-national-park-for-2024/,KEEP,/top-private-concessions-in-kruger-national-park-for-2024/,Blog post (same slug),Time-bound slug; refresh or consolidate later (keep URL).
+post,/top-tips-for-your-photographic-safari-in-mjejane-game-reserve/,KEEP,/top-tips-for-your-photographic-safari-in-mjejane-game-reserve/,Blog post (same slug),Migrate as-is.
+post,/ultimate-kruger-national-park-guide-a-journey-into-the-heart-of-africas-wilderness/,KEEP,/ultimate-kruger-national-park-guide-a-journey-into-the-heart-of-africas-wilderness/,Blog post (same slug),Migrate as-is.
+post,/unforgettable-luxury-and-wildlife-experiences-at-jacana-river-lodge-mjejane-game-reserve/,KEEP,/unforgettable-luxury-and-wildlife-experiences-at-jacana-river-lodge-mjejane-game-reserve/,Blog post (same slug),Migrate as-is.
+post,/unveiling-the-majesty-of-mjejanes-rhinos/,KEEP,/unveiling-the-majesty-of-mjejanes-rhinos/,Blog post (same slug),Migrate as-is.
+post,/unveiling-the-splendor-of-mjejane-game-reserve-a-wildlife-lovers-guide/,KEEP,/unveiling-the-splendor-of-mjejane-game-reserve-a-wildlife-lovers-guide/,Blog post (same slug),Migrate as-is.
+post,/what-kids-really-learn-on-safari-the-hidden-educational-benefits-of-a-family-holiday-in-mjejane-game-reserve/,KEEP,/what-kids-really-learn-on-safari-the-hidden-educational-benefits-of-a-family-holiday-in-mjejane-game-reserve/,Blog post (same slug),Migrate as-is.
+post,/what-to-expect-on-a-may-family-safari-at-jacana-river-lodge-in-mjejane-game-reserve/,KEEP,/what-to-expect-on-a-may-family-safari-at-jacana-river-lodge-in-mjejane-game-reserve/,Blog post (same slug),Migrate as-is.
+post,/where-the-wild-roams-free-why-jacana-river-lodge-is-a-true-kruger-escape-for-families/,KEEP,/where-the-wild-roams-free-why-jacana-river-lodge-is-a-true-kruger-escape-for-families/,Blog post (same slug),Migrate as-is.
+post,/why-2025-is-the-perfect-year-for-a-family-safari-at-jacana-river-lodge/,KEEP,/why-2025-is-the-perfect-year-for-a-family-safari-at-jacana-river-lodge/,Blog post (same slug),Time-bound slug; refresh or consolidate later (keep URL). Thin (229 words).
+post,/why-2025-is-the-perfect-year-for-a-safari-at-jacana-river-lodge/,KEEP,/why-2025-is-the-perfect-year-for-a-safari-at-jacana-river-lodge/,Blog post (same slug),Time-bound slug; refresh or consolidate later (keep URL).
+post,/why-august-changes-the-safari-a-winter-stay-at-game-lodges-in-mpumalanga-and-mjejane-game-reserve/,KEEP,/why-august-changes-the-safari-a-winter-stay-at-game-lodges-in-mpumalanga-and-mjejane-game-reserve/,Blog post (same slug),Migrate as-is.
+post,/why-choose-self-catering-game-lodges-in-mpumalanga-a-jacana-river-lodge-case-study/,KEEP,/why-choose-self-catering-game-lodges-in-mpumalanga-a-jacana-river-lodge-case-study/,Blog post (same slug),Migrate as-is.
+post,/why-families-are-choosing-mjejane-game-reserve-for-their-2026-holidays-and-why-jacana-river-lodge-is-fully-booked-first/,KEEP,/why-families-are-choosing-mjejane-game-reserve-for-their-2026-holidays-and-why-jacana-river-lodge-is-fully-booked-first/,Blog post (same slug),Time-bound slug; refresh or consolidate later (keep URL).
+post,/why-jacana-river-lodge-in-mjejane-game-reserve-is-the-ultimate-family-safari-destination-in-2025/,KEEP,/why-jacana-river-lodge-in-mjejane-game-reserve-is-the-ultimate-family-safari-destination-in-2025/,Blog post (same slug),Time-bound slug; refresh or consolidate later (keep URL).
+post,/why-jacana-river-lodge-is-one-of-the-top-rated-game-lodges-in-mpumalanga/,KEEP,/why-jacana-river-lodge-is-one-of-the-top-rated-game-lodges-in-mpumalanga/,Blog post (same slug),Migrate as-is.
+post,/why-jacana-river-lodge-is-the-perfect-5-star-self-catering-choice-for-family-groups-in-mjejane-game-reserve/,KEEP,/why-jacana-river-lodge-is-the-perfect-5-star-self-catering-choice-for-family-groups-in-mjejane-game-reserve/,Blog post (same slug),Migrate as-is.
+post,/why-jacana-river-lodge-is-the-ultimate-family-retreat-in-mjejane-game-reserve-2/,KEEP,/why-jacana-river-lodge-is-the-ultimate-family-retreat-in-mjejane-game-reserve-2/,Blog post (same slug),Duplicate title with: /why-jacana-river-lodge-is-the-ultimate-family-retreat-in-mjejane-game-reserve/
+post,/why-jacana-river-lodge-is-the-ultimate-family-retreat-in-mjejane-game-reserve/,KEEP,/why-jacana-river-lodge-is-the-ultimate-family-retreat-in-mjejane-game-reserve/,Blog post (same slug),Duplicate title with: /why-jacana-river-lodge-is-the-ultimate-family-retreat-in-mjejane-game-reserve-2/
+post,/why-jacana-river-lodge-offers-the-best-family-friendly-accommodation-in-kruger-an-unforgettable-safari-vacation/,KEEP,/why-jacana-river-lodge-offers-the-best-family-friendly-accommodation-in-kruger-an-unforgettable-safari-vacation/,Blog post (same slug),Migrate as-is.
+post,/why-july-2026-is-one-of-the-best-months-for-a-family-safari-at-jacana-river-lodge/,KEEP,/why-july-2026-is-one-of-the-best-months-for-a-family-safari-at-jacana-river-lodge/,Blog post (same slug),Time-bound slug; refresh or consolidate later (keep URL).
+post,/why-june-2026-is-a-great-time-to-book-self-catering-luxury-accommodation-in-mjejane-game-reserve/,KEEP,/why-june-2026-is-a-great-time-to-book-self-catering-luxury-accommodation-in-mjejane-game-reserve/,Blog post (same slug),Time-bound slug; refresh or consolidate later (keep URL).
+post,/why-may-2026-is-one-of-the-best-months-for-a-family-self-catering-safari-at-jacana-river-lodge-in-mjejane-game-reserve/,KEEP,/why-may-2026-is-one-of-the-best-months-for-a-family-self-catering-safari-at-jacana-river-lodge-in-mjejane-game-reserve/,Blog post (same slug),Duplicate title with: /5-reasons-families-love-self-catering-at-jacana-river-lodge-in-may/ Time-bound slug; refresh or consolidate later (keep URL).
+post,/why-mjejane-game-reserve-is-a-hidden-gem-in-mpumalanga/,KEEP,/why-mjejane-game-reserve-is-a-hidden-gem-in-mpumalanga/,Blog post (same slug),Migrate as-is.
+post,/why-mjejane-game-reserve-is-your-ultimate-safari-destination-in-mpumalangasfb/,KEEP,/why-mjejane-game-reserve-is-your-ultimate-safari-destination-in-mpumalangasfb/,Blog post (same slug),Migrate as-is.
+post,/why-self-catering-safari-lodges-are-the-smart-choice-for-families-near-the-kruger-national-park/,KEEP,/why-self-catering-safari-lodges-are-the-smart-choice-for-families-near-the-kruger-national-park/,Blog post (same slug),Migrate as-is.
+post,/wildlife-watching-at-jacana-river-lodge-the-best-times-and-places-to-spot-the-big-five/,KEEP,/wildlife-watching-at-jacana-river-lodge-the-best-times-and-places-to-spot-the-big-five/,Blog post (same slug),Migrate as-is.
+post,/your-next-school-holiday-safari-why-families-are-booking-jacana-river-lodge-in-mjejane-game-reserve/,KEEP,/your-next-school-holiday-safari-why-families-are-booking-jacana-river-lodge-in-mjejane-game-reserve/,Blog post (same slug),Migrate as-is.
+post,/your-perfect-2025-getaway-near-kruger-national-park/,KEEP,/your-perfect-2025-getaway-near-kruger-national-park/,Blog post (same slug),Time-bound slug; refresh or consolidate later (keep URL).
+post_tag,/tag/10-guest-safari-lodge/,KEEP (review),/tag/10-guest-safari-lodge/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/5-star/,KEEP (review),/tag/5-star/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/accommodation-near-kruger-park/,KEEP (review),/tag/accommodation-near-kruger-park/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/african-safari-family-vacation/,KEEP (review),/tag/african-safari-family-vacation/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/african-safari/,KEEP (review),/tag/african-safari/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/best-safari-lodges-2025/,KEEP (review),/tag/best-safari-lodges-2025/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/big-five-safari-mpumalanga/,KEEP (review),/tag/big-five-safari-mpumalanga/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/big-five-safari/,KEEP (review),/tag/big-five-safari/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/blyde-river-canyon/,KEEP (review),/tag/blyde-river-canyon/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/bush-getaway-south-africa/,KEEP (review),/tag/bush-getaway-south-africa/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/crocodile-river-accommodation/,KEEP (review),/tag/crocodile-river-accommodation/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/crocodile-river-safari-lodge/,KEEP (review),/tag/crocodile-river-safari-lodge/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/crocodile-river/,KEEP (review),/tag/crocodile-river/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/eco-friendly-safari-lodge/,KEEP (review),/tag/eco-friendly-safari-lodge/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/elephant-encounter/,KEEP (review),/tag/elephant-encounter/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/elephant-sanctuary/,KEEP (review),/tag/elephant-sanctuary/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/exclusive-use-lodge-mpumalanga/,KEEP (review),/tag/exclusive-use-lodge-mpumalanga/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/exclusive-use-safari-lodge/,KEEP (review),/tag/exclusive-use-safari-lodge/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/family-accommodation-mpumalanga/,KEEP (review),/tag/family-accommodation-mpumalanga/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/family-accommodation-near-kruger-national-park/,KEEP (review),/tag/family-accommodation-near-kruger-national-park/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/family-friendly-accommodation-mpumalanga/,KEEP (review),/tag/family-friendly-accommodation-mpumalanga/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/family-friendly-accommodation-near-kruger/,KEEP (review),/tag/family-friendly-accommodation-near-kruger/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/family-friendly-game-lodges/,KEEP (review),/tag/family-friendly-game-lodges/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/family-friendly-lodge/,KEEP (review),/tag/family-friendly-lodge/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/family-friendly-safari-lodge/,KEEP (review),/tag/family-friendly-safari-lodge/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/family-friendly-safari-lodges/,KEEP (review),/tag/family-friendly-safari-lodges/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/family-group-accommodation/,KEEP (review),/tag/family-group-accommodation/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/family-group-safari/,KEEP (review),/tag/family-group-safari/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/family-holiday-mpumalanga/,KEEP (review),/tag/family-holiday-mpumalanga/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/family-safari-holiday/,KEEP (review),/tag/family-safari-holiday/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/family-safari-itinerary/,KEEP (review),/tag/family-safari-itinerary/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/family-safari-mpumalanga/,KEEP (review),/tag/family-safari-mpumalanga/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/family-safari-near-kruger/,KEEP (review),/tag/family-safari-near-kruger/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/family-safari-planning/,KEEP (review),/tag/family-safari-planning/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/family-safari-south-africa/,KEEP (review),/tag/family-safari-south-africa/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/family-safari/,KEEP (review),/tag/family-safari/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/five-bedroom-safari-lodge/,KEEP (review),/tag/five-bedroom-safari-lodge/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/five-star-self-catering-lodge/,KEEP (review),/tag/five-star-self-catering-lodge/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/game-lodges-in-mpumalanga/,KEEP (review),/tag/game-lodges-in-mpumalanga/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/graskop/,KEEP (review),/tag/graskop/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/greater-kruger-accommodation/,KEEP (review),/tag/greater-kruger-accommodation/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/greater-kruger-safari/,KEEP (review),/tag/greater-kruger-safari/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/group-accommodation-mpumalanga/,KEEP (review),/tag/group-accommodation-mpumalanga/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/group-accommodation-near-kruger-national-park/,KEEP (review),/tag/group-accommodation-near-kruger-national-park/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/group-safari-south-africa/,KEEP (review),/tag/group-safari-south-africa/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/group-travel-south-africa/,KEEP (review),/tag/group-travel-south-africa/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/guided-bush-walks/,KEEP (review),/tag/guided-bush-walks/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/hazyview/,KEEP (review),/tag/hazyview/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/jabulani/,KEEP (review),/tag/jabulani/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/jacana-river-lodge/,KEEP (review),/tag/jacana-river-lodge/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/kruger-family-safari/,KEEP (review),/tag/kruger-family-safari/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/kruger-national-park-accommodation/,KEEP (review),/tag/kruger-national-park-accommodation/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/kruger-national-park/,KEEP (review),/tag/kruger-national-park/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/large-family-safari-accommodation/,KEEP (review),/tag/large-family-safari-accommodation/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/large-group-accommodation-near-kruger/,KEEP (review),/tag/large-group-accommodation-near-kruger/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/large-group-safari-accommodation/,KEEP (review),/tag/large-group-safari-accommodation/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/largest-canyon-in-the-world/,KEEP (review),/tag/largest-canyon-in-the-world/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/lowveld-accommodation/,KEEP (review),/tag/lowveld-accommodation/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/lowveld-safari-lodge/,KEEP (review),/tag/lowveld-safari-lodge/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/lowveld-safari/,KEEP (review),/tag/lowveld-safari/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/luxury-family-safari/,KEEP (review),/tag/luxury-family-safari/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/luxury-safari-accommodation-mpumalanga/,KEEP (review),/tag/luxury-safari-accommodation-mpumalanga/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/luxury-safari-accommodation/,KEEP (review),/tag/luxury-safari-accommodation/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/luxury-safari-lodge/,KEEP (review),/tag/luxury-safari-lodge/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/luxury-self-catering-lodge/,KEEP (review),/tag/luxury-self-catering-lodge/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/mac-mac-falls/,KEEP (review),/tag/mac-mac-falls/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/mjejane-accommodation/,KEEP (review),/tag/mjejane-accommodation/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/mjejane-game-drives/,KEEP (review),/tag/mjejane-game-drives/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/mjejane-game-reserve/,KEEP (review),/tag/mjejane-game-reserve/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/mjejane-lodges/,KEEP (review),/tag/mjejane-lodges/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/mjejane-safari-lodge/,KEEP (review),/tag/mjejane-safari-lodge/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/mjejane-self-catering-accommodation/,KEEP (review),/tag/mjejane-self-catering-accommodation/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/mpumalanga-safari/,KEEP (review),/tag/mpumalanga-safari/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/multi-generational-safari/,KEEP (review),/tag/multi-generational-safari/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/multi-generational-travel/,KEEP (review),/tag/multi-generational-travel/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/planning-a-family-safari/,KEEP (review),/tag/planning-a-family-safari/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/private-family-safari/,KEEP (review),/tag/private-family-safari/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/private-game-reserve/,KEEP (review),/tag/private-game-reserve/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/private-group-safari-lodge/,KEEP (review),/tag/private-group-safari-lodge/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/private-lodge-for-families/,KEEP (review),/tag/private-lodge-for-families/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/private-safari-lodge-mpumalanga/,KEEP (review),/tag/private-safari-lodge-mpumalanga/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/safari-accommodation-mpumalanga/,KEEP (review),/tag/safari-accommodation-mpumalanga/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/safari-accommodation-south-africa/,KEEP (review),/tag/safari-accommodation-south-africa/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/safari-design-trends/,KEEP (review),/tag/safari-design-trends/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/safari-for-families/,KEEP (review),/tag/safari-for-families/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/safari-holiday-south-africa/,KEEP (review),/tag/safari-holiday-south-africa/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/safari-lodge-for-10-guests/,KEEP (review),/tag/safari-lodge-for-10-guests/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/safari-lodge-kruger/,KEEP (review),/tag/safari-lodge-kruger/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/safari-lodge-near-kruger-national-park/,KEEP (review),/tag/safari-lodge-near-kruger-national-park/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/safari-lodges-near-kruger-national-park/,KEEP (review),/tag/safari-lodges-near-kruger-national-park/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/safari-planning-south-africa/,KEEP (review),/tag/safari-planning-south-africa/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/safari-trends-2025/,KEEP (review),/tag/safari-trends-2025/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/safari-with-children/,KEEP (review),/tag/safari-with-children/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/safari-with-kids-south-africa/,KEEP (review),/tag/safari-with-kids-south-africa/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/self-catering-accommodation-2/,KEEP (review),/tag/self-catering-accommodation-2/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/self-catering-accommodation-near-kruger-national-park/,KEEP (review),/tag/self-catering-accommodation-near-kruger-national-park/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/self-catering-accommodation/,KEEP (review),/tag/self-catering-accommodation/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/self-catering-family-holiday/,KEEP (review),/tag/self-catering-family-holiday/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/self-catering-family-safari/,KEEP (review),/tag/self-catering-family-safari/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/self-catering-lodges-mpumalanga/,KEEP (review),/tag/self-catering-lodges-mpumalanga/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/self-catering-safari-lodge/,KEEP (review),/tag/self-catering-safari-lodge/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/south-africa-family-safari/,KEEP (review),/tag/south-africa-family-safari/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/south-africa-safari-holiday/,KEEP (review),/tag/south-africa-safari-holiday/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/south-african-safari-holidays/,KEEP (review),/tag/south-african-safari-holidays/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/three-rondavels/,KEEP (review),/tag/three-rondavels/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+post_tag,/tag/wellness-travel/,KEEP (review),/tag/wellness-travel/,Tag archive,Keep at launch. Recommend noindex after launch (thin archives).
+testimonial,/testimonial-item/708/,KEEP (review),/testimonial-item/708/,testimonial item,Thin legacy item. Candidate to 301 into a reviews/wildlife page once GSC confirms no traffic.
+testimonial,/testimonial-item/an-african-winter-wonderland/,KEEP (review),/testimonial-item/an-african-winter-wonderland/,testimonial item,Thin legacy item. Candidate to 301 into a reviews/wildlife page once GSC confirms no traffic.
+testimonial,/testimonial-item/best-experience-and-atmosphere/,KEEP (review),/testimonial-item/best-experience-and-atmosphere/,testimonial item,Thin legacy item. Candidate to 301 into a reviews/wildlife page once GSC confirms no traffic.
+testimonial,/testimonial-item/everything-was-better-than-it-looks-in-the-pictures/,KEEP (review),/testimonial-item/everything-was-better-than-it-looks-in-the-pictures/,testimonial item,Thin legacy item. Candidate to 301 into a reviews/wildlife page once GSC confirms no traffic.
+testimonial,/testimonial-item/i-will-be-coming-back/,KEEP (review),/testimonial-item/i-will-be-coming-back/,testimonial item,Thin legacy item. Candidate to 301 into a reviews/wildlife page once GSC confirms no traffic.
+testimonial,/testimonial-item/it-surpassed-all-our-expectations/,KEEP (review),/testimonial-item/it-surpassed-all-our-expectations/,testimonial item,Thin legacy item. Candidate to 301 into a reviews/wildlife page once GSC confirms no traffic.
+testimonial,/testimonial-item/no-camera-in-the-world-could-capture-the-beauty-of-this-place/,KEEP (review),/testimonial-item/no-camera-in-the-world-could-capture-the-beauty-of-this-place/,testimonial item,Thin legacy item. Candidate to 301 into a reviews/wildlife page once GSC confirms no traffic.
+testimonial,/testimonial-item/truly-a-five-star-authentic-african-experience/,KEEP (review),/testimonial-item/truly-a-five-star-authentic-african-experience/,testimonial item,Thin legacy item. Candidate to 301 into a reviews/wildlife page once GSC confirms no traffic.
