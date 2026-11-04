@@ -71,14 +71,14 @@ p{margin-bottom:1.1rem}
 /* buttons — solid #A04E29 with a physical "press" on hover.
    --lift is the visible thickness under the button; hover/press sinks it. */
 .btn{
-  --depth:#6b3017;--lift:5px;
+  --depth:#1D1D1E;--lift:5px;
   --bevel:inset 0 1px 0 rgba(255,214,180,.35),inset 0 -2px 0 rgba(0,0,0,.18);
   position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.55em;cursor:pointer;
   font-family:var(--serif);font-weight:600;font-size:1.14rem;letter-spacing:.01em;text-transform:none;line-height:1.05;
   padding:15px 30px;border:0;border-radius:12px;color:#fbf3e1;
   background:#A04E29;
   text-shadow:0 1px 1px rgba(60,20,6,.45);
-  box-shadow:var(--bevel),0 var(--lift) 0 var(--depth),0 calc(var(--lift)*2) calc(var(--lift)*3.4) -4px rgba(30,14,6,.5);
+  box-shadow:var(--bevel),0 var(--lift) 0 var(--depth),0 calc(var(--lift)*2) calc(var(--lift)*3.4) -4px rgba(29,29,30,.45);
   transform:translateY(0);transition:transform .15s ease,box-shadow .15s ease,filter .2s ease;
 }
 .btn:hover{--lift:2px;transform:translateY(3px);filter:brightness(1.05)}
@@ -86,10 +86,10 @@ p{margin-bottom:1.1rem}
 .btn:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 /* secondary buttons keep the same shape and press, in a lighter finish */
 .btn--outline,.btn--ghost-dark{
-  --depth:#cdbb98;--bevel:inset 0 0 0 1.5px var(--rust),inset 0 1px 0 rgba(255,255,255,.6);
+  --bevel:inset 0 0 0 1.5px var(--rust),inset 0 1px 0 rgba(255,255,255,.6);
   background:var(--cream);color:var(--rust);text-shadow:none}
 .btn--ghost{
-  --depth:rgba(0,0,0,.4);--bevel:inset 0 0 0 1.5px rgba(255,255,255,.75);
+  --bevel:inset 0 0 0 1.5px rgba(255,255,255,.75);
   background:rgba(255,255,255,.08);color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.4)}
 .btn--lg{padding:18px 38px;font-size:1.24rem}
 
