@@ -44,58 +44,148 @@
     });
   }
 
-  /* ---------- hero enquiry form ---------- */
-  var heroForm = document.getElementById('heroForm');
-  var heroMsg = document.getElementById('heroFormMsg');
-  if (heroForm) {
-    heroForm.addEventListener('submit', function (e) {
+  /* ---------- hero booking bar ---------- */
+  var MAX_GUESTS = 10; // whole lodge sleeps 10
+  var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function iso(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+  function parse(v) { var p = v.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+  function addDays(d, n) { var x = new Date(d.getTime()); x.setDate(x.getDate() + n); return x; }
+  function longDate(v) { var d = parse(v); return d.getDate() + ' ' + MONTHS[d.getMonth()] + ' ' + d.getFullYear(); }
+  function plural(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
+
+  var bar = document.getElementById('bookBar');
+  var barTouched = false;
+  var stay = null; // { arrival, departure, nights, adults, children }
+  if (bar) {
+    var arr = bar.elements.arrival;
+    var dep = bar.elements.departure;
+    var kids = bar.elements.children;
+    var adultsOut = bar.querySelector('output[name="adults"]');
+    var minus = bar.querySelector('[data-step="-1"]');
+    var plus = bar.querySelector('[data-step="1"]');
+    var note = document.getElementById('bookBarNote');
+    var noteDefault = note ? note.textContent : '';
+    var adults = 2;
+
+    var today = new Date(); today.setHours(0, 0, 0, 0);
+    arr.min = iso(today);
+    arr.value = iso(addDays(today, 7));
+    dep.value = iso(addDays(today, 9));
+
+    var showDate = function (input) {
+      var box = input.parentNode;
+      var d = input.value ? parse(input.value) : null;
+      box.querySelector('[data-day]').textContent = d ? pad(d.getDate()) : '–';
+      box.querySelector('[data-my]').textContent = d ? MONTHS[d.getMonth()] + '. ' + String(d.getFullYear()).slice(2) : '';
+    };
+    var syncDates = function () {
+      if (arr.value) {
+        var minDep = addDays(parse(arr.value), 1);
+        dep.min = iso(minDep);
+        if (!dep.value || parse(dep.value) < minDep) dep.value = iso(addDays(parse(arr.value), 2));
+      }
+      showDate(arr); showDate(dep);
+    };
+    var syncGuests = function () {
+      var c = +kids.value;
+      if (adults + c > MAX_GUESTS) { c = MAX_GUESTS - adults; kids.value = String(c); }
+      adultsOut.textContent = adults;
+      bar.querySelector('[data-children]').textContent = kids.value;
+      minus.disabled = adults <= 1;
+      plus.disabled = adults + c >= MAX_GUESTS;
+      Array.prototype.forEach.call(kids.options, function (o) { o.disabled = +o.value + adults > MAX_GUESTS; });
+    };
+    var setNote = function (msg) {
+      if (!note) return;
+      note.textContent = msg || noteDefault;
+      note.classList.toggle('is-warn', !!msg);
+    };
+
+    [arr, dep].forEach(function (input) {
+      input.addEventListener('click', function () { try { input.showPicker(); } catch (err) { /* older browsers open on focus */ } });
+      input.addEventListener('change', function () { barTouched = true; setNote(''); syncDates(); });
+    });
+    [minus, plus].forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        adults = Math.min(MAX_GUESTS - +kids.value, Math.max(1, adults + +btn.getAttribute('data-step')));
+        barTouched = true; setNote(''); syncGuests();
+      });
+    });
+    kids.addEventListener('change', function () { barTouched = true; syncGuests(); });
+
+    bar.addEventListener('submit', function (e) {
       e.preventDefault();
-      var d = new FormData(heroForm);
+      if (!arr.value || !dep.value || parse(dep.value) <= parse(arr.value)) {
+        setNote('Please choose an arrival and a departure date.');
+        return;
+      }
+      if (parse(arr.value) < today) { setNote('Your arrival date is in the past.'); return; }
+      barTouched = true;
+      openEnquiry(true);
+    });
+
+    var readStay = function () {
+      var nights = Math.round((parse(dep.value) - parse(arr.value)) / 864e5);
+      return { arrival: arr.value, departure: dep.value, nights: nights, adults: adults, children: +kids.value };
+    };
+    syncDates(); syncGuests();
+  }
+
+  /* ---------- enquiry pop-up (contact details only) ---------- */
+  var modal = document.getElementById('enqModal');
+  var enqForm = document.getElementById('enqForm');
+  var enqMsg = document.getElementById('enqMsg');
+  function openEnquiry(withStay) {
+    if (!modal) return;
+    stay = withStay && bar ? readStay() : null;
+    var box = document.getElementById('enqStay');
+    var lead = document.getElementById('enqLead');
+    if (stay) {
+      document.getElementById('enqArr').textContent = longDate(stay.arrival);
+      document.getElementById('enqDep').textContent = longDate(stay.departure);
+      document.getElementById('enqGuests').textContent = plural(stay.adults, 'adult', 'adults') +
+        (stay.children ? ', ' + plural(stay.children, 'child', 'children') : '');
+      document.getElementById('enqTitle').textContent = 'Almost there';
+      lead.textContent = plural(stay.nights, 'night', 'nights') + ' for the whole lodge. Leave your details and we’ll reply with availability and the exact rate.';
+      box.hidden = false;
+    } else {
+      document.getElementById('enqTitle').textContent = 'Enquire about your stay';
+      lead.textContent = 'Leave your details and we’ll get back to you with availability and rates.';
+      box.hidden = true;
+    }
+    enqMsg.textContent = ''; enqMsg.classList.remove('is-ok');
+    if (typeof modal.showModal === 'function') modal.showModal(); else modal.setAttribute('open', '');
+    setTimeout(function () { enqForm.elements.name.focus(); }, 60);
+  }
+  function closeEnquiry() { if (modal.close) modal.close(); else modal.removeAttribute('open'); }
+  if (modal) {
+    document.getElementById('enqClose').addEventListener('click', closeEnquiry);
+    modal.addEventListener('click', function (e) { if (e.target === modal) closeEnquiry(); }); // backdrop
+    document.querySelectorAll('[data-enquire]').forEach(function (a) {
+      a.addEventListener('click', function (e) { e.preventDefault(); openEnquiry(barTouched); });
+    });
+    if (location.hash === '#enquire') {
+      openEnquiry(false);
+      history.replaceState(null, '', location.pathname + location.search);
+    }
+    enqForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var d = new FormData(enqForm);
       var name = (d.get('name') || '').trim();
       var email = (d.get('email') || '').trim();
       var phone = (d.get('phone') || '').trim();
       var validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
       if (!name || (!validEmail && !phone)) {
-        heroMsg.style.color = '#ffd9c9';
-        heroMsg.textContent = 'Please add your name and an email or phone number.';
+        enqMsg.classList.remove('is-ok');
+        enqMsg.textContent = 'Please add your name and an email or phone number.';
         return;
       }
-      heroMsg.style.color = '#ffe9a8';
-      heroMsg.textContent = 'Thank you, ' + name + '! We’ll be in touch shortly with availability.';
-      heroForm.reset();
-      updateDatesLabel();
+      enqMsg.classList.add('is-ok');
+      enqMsg.textContent = 'Thank you, ' + name + '! We’ll be in touch shortly' +
+        (stay ? ' about ' + longDate(stay.arrival) + ' – ' + longDate(stay.departure) : '') + '.';
+      enqForm.reset();
     });
-  }
-
-  /* ---------- hero form: dates / nights / guests panel ---------- */
-  var datesToggle = document.getElementById('datesToggle');
-  var datesPanel = document.getElementById('datesPanel');
-  var datesLabel = document.getElementById('datesLabel');
-  function updateDatesLabel() {
-    if (!heroForm || !datesLabel) return;
-    var arrival = heroForm.elements.arrival.value;
-    var nights = heroForm.elements.nights.value;
-    var guests = heroForm.elements.guests.value;
-    var parts = [];
-    if (arrival) {
-      var d = new Date(arrival + 'T00:00:00');
-      parts.push(d.toLocaleDateString('en-ZA', { day: 'numeric', month: 'short', year: 'numeric' }));
-    }
-    if (nights) parts.push(nights + (nights === '1' ? ' night' : ' nights'));
-    if (guests) parts.push(guests + (guests === '1' ? ' guest' : ' guests'));
-    datesLabel.textContent = parts.length ? parts.join(' \u00b7 ') : 'Preferred Dates / Nights';
-    datesToggle.classList.toggle('has-value', parts.length > 0);
-  }
-  if (datesToggle && datesPanel) {
-    var today = new Date();
-    heroForm.elements.arrival.min = today.toISOString().slice(0, 10);
-    datesToggle.addEventListener('click', function () {
-      var open = datesPanel.hidden;
-      datesPanel.hidden = !open;
-      datesToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      if (open) heroForm.elements.arrival.focus();
-    });
-    datesPanel.addEventListener('change', updateDatesLabel);
   }
 
   /* ---------- hero slider ---------- */

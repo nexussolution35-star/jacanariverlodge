@@ -46,7 +46,7 @@
       <a href="rates.html">Rates</a>
     </nav>
     <div class="header-cta">
-      <a class="btn btn--book" href="#contact">Book Now</a>
+      <a class="btn btn--book" href="#enquire" data-enquire>Enquire</a>
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
         <span></span><span></span><span></span>
       </button>
@@ -68,63 +68,36 @@
         <span class="hero__headline">Your African River Escape</span>
       </h1>
       <p class="hero__lede">A private five-star lodge on the banks of the Crocodile River.</p>
-      <span class="hero__rule" aria-hidden="true"></span>
-      <ul class="hero__keyfacts">
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18v-5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5M3 18h18M3 21v-3m18 3v-3M6 11V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3M12 6v5"/></svg>
-          <div><strong>Sleeps 10</strong><span>5 king en-suite rooms</span></div>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M10.9 12.1 19.5 3.5M16.5 6.5l2.5 2.5M14 9l2 2"/></svg>
-          <div><strong>Exclusive use</strong><span>Never shared with strangers</span></div>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>
-          <div><strong>From R11,950</strong><span>Per night, whole lodge</span></div>
-        </li>
-      </ul>
+      <form class="book-bar" id="bookBar" novalidate aria-label="Check availability">
+        <div class="bb-field bb-date">
+          <span class="bb-label" id="bbArrLbl">Arrival</span>
+          <span class="bb-value" aria-hidden="true"><b data-day>&ndash;</b><small data-my></small></span>
+          <input class="bb-native" type="date" name="arrival" aria-labelledby="bbArrLbl" required>
+        </div>
+        <div class="bb-field bb-date">
+          <span class="bb-label" id="bbDepLbl">Departure</span>
+          <span class="bb-value" aria-hidden="true"><b data-day>&ndash;</b><small data-my></small></span>
+          <input class="bb-native" type="date" name="departure" aria-labelledby="bbDepLbl" required>
+        </div>
+        <div class="bb-field bb-step" role="group" aria-labelledby="bbAdLbl">
+          <span class="bb-label" id="bbAdLbl">Adults</span>
+          <span class="bb-value">
+            <button type="button" class="bb-arrow" data-step="-1" aria-label="Fewer adults"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+            <output name="adults" aria-live="polite">2</output>
+            <button type="button" class="bb-arrow" data-step="1" aria-label="More adults"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+          </span>
+        </div>
+        <div class="bb-field bb-select">
+          <span class="bb-label" id="bbChLbl">Children</span>
+          <span class="bb-value" aria-hidden="true"><b data-children>0</b><svg class="bb-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+          <select class="bb-native" name="children" aria-labelledby="bbChLbl">
+            <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option>
+          </select>
+        </div>
+        <button class="btn bb-submit" type="submit">Book Now</button>
+      </form>
+      <p class="book-bar__note" id="bookBarNote" role="status">Exclusive use &middot; sleeps up to 10 guests</p>
     </div>
-
-    <form class="hero-form" id="heroForm" novalidate aria-labelledby="heroFormTitle">
-      <h2 class="hero-form__title" id="heroFormTitle">Enquire About Your Stay</h2>
-      <label class="field">
-        <span class="sr-only">Your name</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9zm0 2c-4.4 0-8 2.2-8 5v2h16v-2c0-2.8-3.6-5-8-5z"/></svg>
-        <input type="text" name="name" placeholder="Your Name" autocomplete="name" required>
-      </label>
-      <label class="field">
-        <span class="sr-only">Phone number</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.6 1 1 0 0 1-.25 1z"/></svg>
-        <input type="tel" name="phone" placeholder="Phone Number" autocomplete="tel">
-      </label>
-      <label class="field">
-        <span class="sr-only">Email address</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v.4l8 5 8-5V6H4zm16 2.7-7.5 4.7a1 1 0 0 1-1 0L4 8.7V18h16V8.7z"/></svg>
-        <input type="email" name="email" placeholder="Email Address" autocomplete="email">
-      </label>
-      <div class="field">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7zM5 9h14v11H5V9zm2 2v2h2v-2H7zm4 0v2h2v-2h-2zm4 0v2h2v-2h-2zm-8 4v2h2v-2H7zm4 0v2h2v-2h-2z"/></svg>
-        <button type="button" class="field__toggle" id="datesToggle" aria-expanded="false" aria-controls="datesPanel">
-          <span id="datesLabel">Preferred Dates / Nights</span>
-        </button>
-        <svg class="field__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.4 8.6 12 14.2l5.6-5.6L19 10l-7 7-7-7z"/></svg>
-      </div>
-      <div class="dates-panel" id="datesPanel" hidden>
-        <label>Arrival<input type="date" name="arrival"></label>
-        <label>Nights
-          <select name="nights">
-            <option value="">&ndash;</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>10</option><option>14</option>
-          </select>
-        </label>
-        <label>Guests
-          <select name="guests">
-            <option value="">&ndash;</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
-          </select>
-        </label>
-      </div>
-      <button class="btn hero-form__submit" type="submit">Send Enquiry</button>
-      <p class="hero-form__msg" id="heroFormMsg" role="status"></p>
-    </form>
   </div>
 
   <div class="hero-reviews">
@@ -737,6 +710,33 @@
 </div>
 
 <a class="wa-float" href="https://wa.me/27662937100" target="_blank" rel="noopener" aria-label="WhatsApp Enquiry"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.06 24l1.7-6.16a11.86 11.86 0 1 1 4.4 4.42L.06 24zM6.4 20.1l.37.22a9.86 9.86 0 1 0-3.4-3.4l.24.38-1 3.6 3.79-.8zM17.5 14.3c-.15-.25-.55-.4-1.15-.7s-1.38-.68-1.6-.76-.37-.12-.53.12-.6.76-.74.92-.27.18-.5.06a8.1 8.1 0 0 1-2.38-1.47 8.94 8.94 0 0 1-1.65-2.05c-.17-.3 0-.46.13-.6s.25-.3.37-.45.17-.25.25-.42a.46.46 0 0 0 0-.43c-.07-.12-.53-1.28-.73-1.76s-.39-.4-.53-.4h-.46a.88.88 0 0 0-.64.3 2.68 2.68 0 0 0-.83 2 4.64 4.64 0 0 0 .98 2.48 10.66 10.66 0 0 0 4.1 3.63 13.8 13.8 0 0 0 1.37.5 3.3 3.3 0 0 0 1.5.1 2.46 2.46 0 0 0 1.62-1.15 2 2 0 0 0 .14-1.13z"/></svg></a>
+
+<!-- ============ ENQUIRY POP-UP ============ -->
+<dialog class="enq-modal" id="enqModal" aria-labelledby="enqTitle">
+  <form class="enq" id="enqForm" novalidate>
+    <button type="button" class="enq__close" id="enqClose" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <p class="enq__kicker">Jacana River Lodge</p>
+    <h2 class="enq__title" id="enqTitle">Almost there</h2>
+    <div class="enq__stay" id="enqStay" hidden>
+      <div><span>Arrival</span><b id="enqArr"></b></div>
+      <div><span>Departure</span><b id="enqDep"></b></div>
+      <div><span>Guests</span><b id="enqGuests"></b></div>
+    </div>
+    <p class="enq__lead" id="enqLead">Leave your details and we&rsquo;ll reply with availability and the exact rate for your dates.</p>
+    <label class="enq-field"><span class="sr-only">Your name</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9zm0 2c-4.4 0-8 2.2-8 5v2h16v-2c0-2.8-3.6-5-8-5z"/></svg>
+      <input type="text" name="name" placeholder="Your Name" autocomplete="name" required></label>
+    <label class="enq-field"><span class="sr-only">Phone number</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.6 1 1 0 0 1-.25 1z"/></svg>
+      <input type="tel" name="phone" placeholder="Phone Number" autocomplete="tel"></label>
+    <label class="enq-field"><span class="sr-only">Email address</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v.4l8 5 8-5V6H4zm16 2.7-7.5 4.7a1 1 0 0 1-1 0L4 8.7V18h16V8.7z"/></svg>
+      <input type="email" name="email" placeholder="Email Address" autocomplete="email"></label>
+    <button class="btn enq__submit" type="submit">Send Enquiry</button>
+    <p class="enq__msg" id="enqMsg" role="status"></p>
+    <p class="enq__note">No obligation &middot; Book direct for the best rate</p>
+  </form>
+</dialog>
 
 <script src="js/main.js"></script>
 </body>
