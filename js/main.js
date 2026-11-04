@@ -22,6 +22,8 @@
     });
     nav.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', function () {
+        // on mobile the Activities link only expands its submenu
+        if (a.classList.contains('nav-dd__toggle') && window.innerWidth <= 1060) return;
         nav.classList.remove('open');
         toggle.classList.remove('active');
         toggle.setAttribute('aria-expanded', 'false');
@@ -34,7 +36,7 @@
   if (dd) {
     var ddToggle = dd.querySelector('.nav-dd__toggle');
     ddToggle.addEventListener('click', function (e) {
-      if (window.innerWidth <= 880) {
+      if (window.innerWidth <= 1060) {
         e.preventDefault();
         e.stopPropagation();
         dd.classList.toggle('open');
@@ -61,7 +63,39 @@
       heroMsg.style.color = '#ffe9a8';
       heroMsg.textContent = 'Thank you, ' + name + '! We’ll be in touch shortly with availability.';
       heroForm.reset();
+      updateDatesLabel();
     });
+  }
+
+  /* ---------- hero form: dates / nights / guests panel ---------- */
+  var datesToggle = document.getElementById('datesToggle');
+  var datesPanel = document.getElementById('datesPanel');
+  var datesLabel = document.getElementById('datesLabel');
+  function updateDatesLabel() {
+    if (!heroForm || !datesLabel) return;
+    var arrival = heroForm.elements.arrival.value;
+    var nights = heroForm.elements.nights.value;
+    var guests = heroForm.elements.guests.value;
+    var parts = [];
+    if (arrival) {
+      var d = new Date(arrival + 'T00:00:00');
+      parts.push(d.toLocaleDateString('en-ZA', { day: 'numeric', month: 'short', year: 'numeric' }));
+    }
+    if (nights) parts.push(nights + (nights === '1' ? ' night' : ' nights'));
+    if (guests) parts.push(guests + (guests === '1' ? ' guest' : ' guests'));
+    datesLabel.textContent = parts.length ? parts.join(' \u00b7 ') : 'Preferred Dates / Nights';
+    datesToggle.classList.toggle('has-value', parts.length > 0);
+  }
+  if (datesToggle && datesPanel) {
+    var today = new Date();
+    heroForm.elements.arrival.min = today.toISOString().slice(0, 10);
+    datesToggle.addEventListener('click', function () {
+      var open = datesPanel.hidden;
+      datesPanel.hidden = !open;
+      datesToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open) heroForm.elements.arrival.focus();
+    });
+    datesPanel.addEventListener('change', updateDatesLabel);
   }
 
   /* ---------- hero slider ---------- */
