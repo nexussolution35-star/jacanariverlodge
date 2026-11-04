@@ -71,12 +71,12 @@ p{margin-bottom:1.1rem}
 /* buttons — carved wooden plank with a physical "press" on hover.
    --lift is the visible thickness under the button; hover/press sinks it. */
 .btn{
-  --depth:#4a2414;--lift:5px;
+  --depth:#5e3019;--lift:5px;
   --bevel:inset 0 1px 0 rgba(255,214,170,.38),inset 0 -2px 0 rgba(0,0,0,.22),inset 0 0 0 1px rgba(60,25,10,.4);
   position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.55em;cursor:pointer;
   font-family:var(--serif);font-weight:600;font-size:1.14rem;letter-spacing:.01em;text-transform:none;line-height:1.05;
   padding:15px 30px;border:0;border-radius:12px;color:#fbf3e1;
-  background:linear-gradient(180deg,rgba(70,30,10,.06),rgba(40,14,4,.24)),#7a3a1c url(../assets/images/wood-texture.jpg) center/cover;
+  background:linear-gradient(180deg,rgba(255,214,160,.22),rgba(255,190,130,.08) 55%,rgba(60,24,8,.06)),#9a5226 url(../assets/images/wood-texture.jpg) center/cover;
   text-shadow:0 1px 1px rgba(0,0,0,.5),0 -1px 0 rgba(255,220,180,.12);
   box-shadow:var(--bevel),0 var(--lift) 0 var(--depth),0 calc(var(--lift)*2) calc(var(--lift)*3.4) -4px rgba(30,14,6,.5);
   transform:translateY(0);transition:transform .15s ease,box-shadow .15s ease,filter .2s ease;
