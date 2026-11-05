@@ -45,7 +45,6 @@
   }
 
   /* ---------- hero booking bar ---------- */
-  var MAX_GUESTS = 10; // whole lodge sleeps 10
   var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   function pad(n) { return (n < 10 ? '0' : '') + n; }
   function iso(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
@@ -56,17 +55,12 @@
 
   var bar = document.getElementById('bookBar');
   var barTouched = false;
-  var stay = null; // { arrival, departure, nights, adults, children }
+  var stay = null; // { arrival, departure, nights, guests }
   if (bar) {
     var arr = bar.elements.arrival;
     var dep = bar.elements.departure;
-    var kids = bar.elements.children;
-    var adultsOut = bar.querySelector('output[name="adults"]');
-    var minus = bar.querySelector('[data-step="-1"]');
-    var plus = bar.querySelector('[data-step="1"]');
+    var guests = bar.elements.guests;
     var note = document.getElementById('bookBarNote');
-    var noteDefault = note ? note.textContent : '';
-    var adults = 2;
 
     var today = new Date(); today.setHours(0, 0, 0, 0);
     arr.min = iso(today);
@@ -74,10 +68,8 @@
     dep.value = iso(addDays(today, 9));
 
     var showDate = function (input) {
-      var box = input.parentNode;
       var d = input.value ? parse(input.value) : null;
-      box.querySelector('[data-day]').textContent = d ? pad(d.getDate()) : '–';
-      box.querySelector('[data-my]').textContent = d ? MONTHS[d.getMonth()] + '. ' + String(d.getFullYear()).slice(2) : '';
+      input.parentNode.querySelector('[data-val]').textContent = d ? d.getDate() + ' ' + MONTHS[d.getMonth()] : '–';
     };
     var syncDates = function () {
       if (arr.value) {
@@ -87,49 +79,31 @@
       }
       showDate(arr); showDate(dep);
     };
-    var syncGuests = function () {
-      var c = +kids.value;
-      if (adults + c > MAX_GUESTS) { c = MAX_GUESTS - adults; kids.value = String(c); }
-      adultsOut.textContent = adults;
-      bar.querySelector('[data-children]').textContent = kids.value;
-      minus.disabled = adults <= 1;
-      plus.disabled = adults + c >= MAX_GUESTS;
-      Array.prototype.forEach.call(kids.options, function (o) { o.disabled = +o.value + adults > MAX_GUESTS; });
-    };
-    var setNote = function (msg) {
-      if (!note) return;
-      note.textContent = msg || noteDefault;
-      note.classList.toggle('is-warn', !!msg);
-    };
+    var setNote = function (msg) { if (note) note.textContent = msg || ''; };
 
     [arr, dep].forEach(function (input) {
       input.addEventListener('click', function () { try { input.showPicker(); } catch (err) { /* older browsers open on focus */ } });
       input.addEventListener('change', function () { barTouched = true; setNote(''); syncDates(); });
     });
-    [minus, plus].forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        adults = Math.min(MAX_GUESTS - +kids.value, Math.max(1, adults + +btn.getAttribute('data-step')));
-        barTouched = true; setNote(''); syncGuests();
-      });
+    guests.addEventListener('change', function () {
+      barTouched = true;
+      bar.querySelector('[data-guests]').textContent = guests.value;
     });
-    kids.addEventListener('change', function () { barTouched = true; syncGuests(); });
 
     bar.addEventListener('submit', function (e) {
       e.preventDefault();
-      if (!arr.value || !dep.value || parse(dep.value) <= parse(arr.value)) {
-        setNote('Please choose an arrival and a departure date.');
-        return;
-      }
+      if (!arr.value || !dep.value || parse(dep.value) <= parse(arr.value)) { setNote('Please choose your arrival and departure dates.'); return; }
       if (parse(arr.value) < today) { setNote('Your arrival date is in the past.'); return; }
+      setNote('');
       barTouched = true;
       openEnquiry(true);
     });
 
     var readStay = function () {
       var nights = Math.round((parse(dep.value) - parse(arr.value)) / 864e5);
-      return { arrival: arr.value, departure: dep.value, nights: nights, adults: adults, children: +kids.value };
+      return { arrival: arr.value, departure: dep.value, nights: nights, guests: +guests.value };
     };
-    syncDates(); syncGuests();
+    syncDates();
   }
 
   /* ---------- enquiry pop-up (contact details only) ---------- */
@@ -144,8 +118,7 @@
     if (stay) {
       document.getElementById('enqArr').textContent = longDate(stay.arrival);
       document.getElementById('enqDep').textContent = longDate(stay.departure);
-      document.getElementById('enqGuests').textContent = plural(stay.adults, 'adult', 'adults') +
-        (stay.children ? ', ' + plural(stay.children, 'child', 'children') : '');
+      document.getElementById('enqGuests').textContent = plural(stay.guests, 'guest', 'guests');
       document.getElementById('enqTitle').textContent = 'Almost there';
       lead.textContent = plural(stay.nights, 'night', 'nights') + ' for the whole lodge. Leave your details and we’ll reply with availability and the exact rate.';
       box.hidden = false;
