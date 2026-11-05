@@ -159,10 +159,10 @@
     syncDates();
   }
 
-  /* ---------- hero photo slideshow: crossfade + slow zoom, every 5s ---------- */
+  /* ---------- hero photo slideshow: crossfade + slow zoom, every 3s ---------- */
   var heroPics = Array.prototype.slice.call(document.querySelectorAll('#heroSlides .hero__img'));
   if (heroPics.length > 1) {
-    var HERO_MS = 5000, FADE_MS = 1600;
+    var HERO_MS = 3000, FADE_MS = 1200;
     var heroAt = 0, heroTimer = null;
     // only the first photo loads up front; the rest load once the page is ready
     var loadRest = function () {
