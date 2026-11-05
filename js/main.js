@@ -159,31 +159,32 @@
     syncDates();
   }
 
-  /* ---------- hero slider ---------- */
-  var slides = Array.prototype.slice.call(document.querySelectorAll('.hero__slide'));
-  var dotsWrap = document.getElementById('heroDots');
-  var heroIndex = 0;
-  var heroTimer;
-  if (slides.length && dotsWrap) {
-    slides.forEach(function (_, i) {
-      var b = document.createElement('button');
-      if (i === 0) b.classList.add('active');
-      b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-      b.addEventListener('click', function () { goHero(i); resetHero(); });
-      dotsWrap.appendChild(b);
-    });
-    var dots = Array.prototype.slice.call(dotsWrap.children);
+  /* ---------- hero photo slideshow: crossfade + slow zoom, every 5s ---------- */
+  var heroPics = Array.prototype.slice.call(document.querySelectorAll('#heroSlides .hero__img'));
+  if (heroPics.length > 1) {
+    var HERO_MS = 5000, FADE_MS = 1600;
+    var heroAt = 0, heroTimer = null;
+    // only the first photo loads up front; the rest load once the page is ready
+    var loadRest = function () {
+      heroPics.forEach(function (img) { if (img.dataset.src) { img.src = img.dataset.src; img.removeAttribute('data-src'); } });
+    };
+    if (document.readyState === 'complete') loadRest(); else window.addEventListener('load', loadRest);
 
-    function goHero(i) {
-      slides[heroIndex].classList.remove('active');
-      dots[heroIndex].classList.remove('active');
-      heroIndex = (i + slides.length) % slides.length;
-      slides[heroIndex].classList.add('active');
-      dots[heroIndex].classList.add('active');
-    }
-    function nextHero() { goHero(heroIndex + 1); }
-    function resetHero() { clearInterval(heroTimer); heroTimer = setInterval(nextHero, 6000); }
-    resetHero();
+    var showHero = function (i) {
+      var prev = heroPics[heroAt], next = heroPics[i];
+      if (next === prev || !next.complete || !next.naturalWidth) return; // skip a photo that hasn't loaded yet
+      prev.classList.remove('is-active');
+      prev.classList.add('is-prev');            // stays fully visible underneath while the next fades in
+      next.classList.add('is-active');
+      heroAt = i;
+      setTimeout(function () { prev.classList.remove('is-prev'); }, FADE_MS + 100);
+    };
+    var heroTick = function () { showHero((heroAt + 1) % heroPics.length); };
+    var heroPlay = function () { clearInterval(heroTimer); heroTimer = setInterval(heroTick, HERO_MS); };
+    heroPlay();
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) clearInterval(heroTimer); else heroPlay();
+    });
   }
 
   /* ---------- testimonials slider ---------- */
