@@ -7,6 +7,7 @@
   function onScroll() {
     if (!header) return;
     header.classList.toggle('shrink', window.scrollY > 40);
+    document.body.classList.toggle('scrolled', window.scrollY > 160);
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
@@ -54,13 +55,16 @@
   function plural(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
 
   var bar = document.getElementById('bookBar');
-  var barTouched = false;
-  var stay = null; // { arrival, departure, nights, guests }
   if (bar) {
+    var wrap = document.getElementById('bookWrap');
     var arr = bar.elements.arrival;
     var dep = bar.elements.departure;
     var guests = bar.elements.guests;
+    var go = document.getElementById('bbGo');
     var note = document.getElementById('bookBarNote');
+    var msg = document.getElementById('bbMsg');
+    var bbSlides = Array.prototype.slice.call(bar.querySelectorAll('.bb-slide'));
+    var row = bar.querySelector('.bb-row');
 
     var today = new Date(); today.setHours(0, 0, 0, 0);
     arr.min = iso(today);
@@ -79,86 +83,80 @@
       }
       showDate(arr); showDate(dep);
     };
-    var setNote = function (msg) { if (note) note.textContent = msg || ''; };
+    var setNote = function (text) {
+      var open = bar.classList.contains('is-open');
+      if (note) note.textContent = open ? '' : (text || '');
+      if (open) { msg.classList.remove('is-ok'); msg.textContent = text || ''; }
+    };
+    var datesProblem = function () {
+      if (!arr.value || !dep.value || parse(dep.value) <= parse(arr.value)) return 'Please choose your arrival and departure dates.';
+      if (parse(arr.value) < today) return 'Your arrival date is in the past.';
+      return '';
+    };
+
+    // the card is pinned to the bottom of its slot on wide screens, so the slot
+    // needs the collapsed card's height
+    var measure = function () {
+      var cs = getComputedStyle(bar);
+      wrap.style.setProperty('--bb-h', (row.offsetHeight + parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom)) + 'px');
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+
+    var setOpen = function (open) {
+      bar.classList.toggle('is-open', open);
+      go.setAttribute('aria-expanded', open ? 'true' : 'false');
+      bbSlides.forEach(function (sl) { sl.inert = !open; });
+      if (note) note.textContent = '';
+      if (open) setTimeout(function () { bar.elements.name.focus({ preventScroll: true }); }, 320);
+      else go.focus({ preventScroll: true });
+    };
 
     [arr, dep].forEach(function (input) {
       input.addEventListener('click', function () { try { input.showPicker(); } catch (err) { /* older browsers open on focus */ } });
-      input.addEventListener('change', function () { barTouched = true; setNote(''); syncDates(); });
+      input.addEventListener('change', function () { setNote(''); syncDates(); });
     });
-    guests.addEventListener('change', function () {
-      barTouched = true;
-      bar.querySelector('[data-guests]').textContent = guests.value;
+    guests.addEventListener('change', function () { bar.querySelector('[data-guests]').textContent = guests.value; });
+
+    go.addEventListener('click', function () {
+      var problem = datesProblem();
+      if (problem) { setNote(problem); return; }
+      setOpen(true);
     });
+    document.getElementById('bbClose').addEventListener('click', function () { setOpen(false); });
+    bar.addEventListener('keydown', function (e) { if (e.key === 'Escape' && bar.classList.contains('is-open')) setOpen(false); });
 
     bar.addEventListener('submit', function (e) {
       e.preventDefault();
-      if (!arr.value || !dep.value || parse(dep.value) <= parse(arr.value)) { setNote('Please choose your arrival and departure dates.'); return; }
-      if (parse(arr.value) < today) { setNote('Your arrival date is in the past.'); return; }
-      setNote('');
-      barTouched = true;
-      openEnquiry(true);
-    });
-
-    var readStay = function () {
-      var nights = Math.round((parse(dep.value) - parse(arr.value)) / 864e5);
-      return { arrival: arr.value, departure: dep.value, nights: nights, guests: +guests.value };
-    };
-    syncDates();
-  }
-
-  /* ---------- enquiry pop-up (contact details only) ---------- */
-  var modal = document.getElementById('enqModal');
-  var enqForm = document.getElementById('enqForm');
-  var enqMsg = document.getElementById('enqMsg');
-  function openEnquiry(withStay) {
-    if (!modal) return;
-    stay = withStay && bar ? readStay() : null;
-    var box = document.getElementById('enqStay');
-    var lead = document.getElementById('enqLead');
-    if (stay) {
-      document.getElementById('enqArr').textContent = longDate(stay.arrival);
-      document.getElementById('enqDep').textContent = longDate(stay.departure);
-      document.getElementById('enqGuests').textContent = plural(stay.guests, 'guest', 'guests');
-      document.getElementById('enqTitle').textContent = 'Almost there';
-      lead.textContent = plural(stay.nights, 'night', 'nights') + ' for the whole lodge. Leave your details and we’ll reply with availability and the exact rate.';
-      box.hidden = false;
-    } else {
-      document.getElementById('enqTitle').textContent = 'Enquire about your stay';
-      lead.textContent = 'Leave your details and we’ll get back to you with availability and rates.';
-      box.hidden = true;
-    }
-    enqMsg.textContent = ''; enqMsg.classList.remove('is-ok');
-    if (typeof modal.showModal === 'function') modal.showModal(); else modal.setAttribute('open', '');
-    setTimeout(function () { enqForm.elements.name.focus(); }, 60);
-  }
-  function closeEnquiry() { if (modal.close) modal.close(); else modal.removeAttribute('open'); }
-  if (modal) {
-    document.getElementById('enqClose').addEventListener('click', closeEnquiry);
-    modal.addEventListener('click', function (e) { if (e.target === modal) closeEnquiry(); }); // backdrop
-    document.querySelectorAll('[data-enquire]').forEach(function (a) {
-      a.addEventListener('click', function (e) { e.preventDefault(); openEnquiry(barTouched); });
-    });
-    if (location.hash === '#enquire') {
-      openEnquiry(false);
-      history.replaceState(null, '', location.pathname + location.search);
-    }
-    enqForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var d = new FormData(enqForm);
+      if (!bar.classList.contains('is-open')) { go.click(); return; } // Enter pressed in the collapsed bar
+      var problem = datesProblem();
+      if (problem) { setNote(problem); return; }
+      var d = new FormData(bar);
       var name = (d.get('name') || '').trim();
       var email = (d.get('email') || '').trim();
       var phone = (d.get('phone') || '').trim();
       var validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-      if (!name || (!validEmail && !phone)) {
-        enqMsg.classList.remove('is-ok');
-        enqMsg.textContent = 'Please add your name and an email or phone number.';
-        return;
-      }
-      enqMsg.classList.add('is-ok');
-      enqMsg.textContent = 'Thank you, ' + name + '! We’ll be in touch shortly' +
-        (stay ? ' about ' + longDate(stay.arrival) + ' – ' + longDate(stay.departure) : '') + '.';
-      enqForm.reset();
+      if (!name || (!validEmail && !phone)) { setNote('Please add your name and an email or phone number.'); return; }
+      msg.classList.add('is-ok');
+      msg.textContent = 'Thank you, ' + name + '! We’ll be in touch shortly about ' +
+        longDate(arr.value) + ' – ' + longDate(dep.value) + ' (' + plural(+guests.value, 'guest', 'guests') + ').';
+      ['name', 'phone', 'email'].forEach(function (n) { bar.elements[n].value = ''; });
     });
+
+    // "Enquire" in the nav opens the card instead of leaving the page
+    document.querySelectorAll('[data-enquire]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setOpen(true);
+      });
+    });
+    if (location.hash === '#enquire') {
+      setOpen(true);
+      history.replaceState(null, '', location.pathname + location.search);
+    }
+    syncDates();
   }
 
   /* ---------- hero slider ---------- */
