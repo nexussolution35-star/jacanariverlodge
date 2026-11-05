@@ -284,10 +284,10 @@ a.rv:hover .rv__name{color:var(--gold)}
 /* =========================================================
    WELCOME / ABOUT (second section, two text columns)
    ========================================================= */
-.intro{--divider-h:clamp(86px,13.36vw,220px);position:relative;background:var(--cream);
+.intro{--divider-h:clamp(80px,15.35vw,300px);position:relative;background:var(--cream);
   padding:clamp(70px,8vw,110px) 0 calc(var(--divider-h) + clamp(30px,4vw,56px))}
 /* river divider into the next section (its fill is #FFF9F4, the next section's colour) */
-.intro__divider{position:absolute;left:0;right:0;bottom:-1px;height:var(--divider-h);pointer-events:none;background:#FFF9F4}
+.intro__divider{position:absolute;left:0;right:0;bottom:-1px;height:var(--divider-h);pointer-events:none}
 .intro__divider img{display:block;width:100%;height:100%;object-fit:cover;object-position:left bottom}
 .intro__inner{text-align:center;max-width:1180px}
 .intro__eyebrow{margin:0 0 14px;font-family:var(--sans);font-size:.86rem;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:#6f6a62}
