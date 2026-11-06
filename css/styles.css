@@ -414,6 +414,9 @@ a.rv:hover .rv__name{color:var(--gold)}
 .reviews__stars.rv-stars::before{color:rgba(50,49,50,.18)}
 .reviews__stars.rv-stars::after{color:#fbbc05}
 .reviews__sub{font-size:.86rem;color:var(--muted)}
+a.reviews__summary{color:inherit;border-radius:10px;transition:opacity .2s}
+a.reviews__summary:hover .reviews__sub{color:var(--rust);text-decoration:underline;text-underline-offset:3px}
+a.reviews__summary:focus-visible{outline:2px solid var(--gold);outline-offset:6px}
 .reviews__titles{text-align:right}
 .reviews__titles .eyebrow{margin-bottom:.4rem}
 .reviews__titles h2{margin:0}
