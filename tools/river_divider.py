@@ -5,13 +5,13 @@ Above the top water line is transparent; below it is filled with the next
 section's colour (#FFF9F4). Re-run after tweaking the numbers below."""
 import math, sys
 
-W, H = 2000, 175          # viewBox
+W, H = 2000, 150          # viewBox
 PAPER = "#FFF9F4"
 BLUE, BLUE_LIGHT = "#60B2FD", "#9DCBF4"
 GREEN, GREEN_DARK = "#7AB123", "#689A1C"
 
 def ty(y):                # artwork y (2000x667 source) -> viewBox y; flattens the waves
-    return round(0.5 * (y - 270) + 70, 2)
+    return round(0.5 * (y - 270) + 45, 2)
 
 def spline(pts, n=14):
     """Catmull-Rom through pts, returns dense list of (x, y)."""
@@ -68,16 +68,17 @@ def pad(cx, cy, rx, ry, notch=(-24, -10)):
 S = lambda pts: [(x, ty(y)) for x, y in pts]
 
 # --- water lines (centrelines traced from the artwork) ---
-lineA = S([(40, 402), (120, 375), (220, 348), (320, 318), (420, 299), (520, 291), (620, 294), (720, 311), (820, 337),
+fullA = S([(40, 402), (120, 375), (220, 348), (320, 318), (420, 299), (520, 291), (620, 294), (720, 311), (820, 337),
            (920, 362), (1020, 374), (1100, 378), (1170, 371), (1270, 341), (1370, 318), (1470, 312), (1570, 319),
            (1670, 337), (1770, 351), (1870, 348), (1920, 333), (1985, 300)])
+lineA = [p for p in fullA if 150 <= p[0] <= 1870]   # keep the drawn lines clear of the screen edges
 lineB = S([(330, 352), (470, 327), (570, 331), (670, 343), (770, 361), (870, 383), (970, 395), (1050, 393), (1110, 384)])
 lineC = S([(1060, 420), (1170, 418), (1270, 406), (1370, 385), (1470, 363), (1570, 352), (1670, 360), (1770, 385),
-           (1840, 392), (1920, 372), (1990, 340)])
-ripple = S([(30, 378), (110, 352), (200, 330)])
+           (1840, 392), (1880, 386)])
+ripple = S([(130, 352), (200, 334), (260, 320)])
 
 # paper fill: everything under line A (extended to both edges)
-fill_line = spline([(0, ty(410))] + lineA + [(W, ty(286))])
+fill_line = spline([(0, ty(410))] + fullA + [(W, ty(286))])
 fill = "M" + " ".join(f"{f(x)} {f(y + 1)}" for x, y in fill_line) + f" L{W} {H} L0 {H}Z"
 
 shapes = [f'<path fill="{PAPER}" d="{fill}"/>',
@@ -96,12 +97,12 @@ def reeds(bx, by, spec, flip=1):
     for (cdx, cdy, tdx, tdy, w, col) in spec:
         out.append(f'<path fill="{col}" d="{blade((bx, by), (bx + flip * cdx, by + cdy), (bx + flip * tdx, by + tdy), w)}"/>')
     return out
-spec = [(-14, -44, -62, -84, 15, GREEN),        # long blade leaning out
-        (-2, -52, -14, -100, 15, GREEN_DARK),   # tall, slightly back
-        (8, -50, 22, -104, 16, GREEN),          # tallest, upright
-        (22, -34, 66, -58, 14, GREEN),          # arching to the side
-        (-26, -20, -84, -30, 11, GREEN_DARK),   # low blade along the water
-        (30, -14, 82, -18, 10, GREEN_DARK)]     # low blade, other side
+spec = [(-12, -27, -48, -50, 12, GREEN),        # long blade leaning out
+        (-2, -32, -10, -60, 12, GREEN_DARK),    # tall, slightly back
+        (6, -31, 16, -63, 13, GREEN),           # tallest, upright
+        (17, -21, 50, -36, 11, GREEN),          # arching to the side
+        (-20, -12, -62, -19, 9, GREEN_DARK),    # low blade along the water
+        (23, -9, 60, -12, 8, GREEN_DARK)]       # low blade, other side
 shapes += reeds(206, ty(342), spec, flip=1)
 shapes += reeds(1742, ty(368), spec, flip=-1)
 

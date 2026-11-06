@@ -284,7 +284,7 @@ a.rv:hover .rv__name{color:var(--gold)}
 /* =========================================================
    WELCOME / ABOUT (second section, two text columns)
    ========================================================= */
-.intro{--divider-h:clamp(64px,8.75vw,190px);position:relative;background:var(--cream);
+.intro{--divider-h:clamp(56px,7.5vw,165px);position:relative;background:var(--cream);
   padding:clamp(70px,8vw,110px) 0 calc(var(--divider-h) + clamp(30px,4vw,56px))}
 /* river divider into the next section (its fill is #FFF9F4, the next section's colour) */
 .intro__divider{position:absolute;left:0;right:0;bottom:-1px;height:var(--divider-h);pointer-events:none}
