@@ -306,7 +306,11 @@ a.rv:hover .rv__name{color:var(--gold)}
 /* =========================================================
    EXPLORE / ACTIVITIES — expanding cards on #FFF9F4
    ========================================================= */
-.xp{background:#FFF9F4;padding:clamp(30px,4vw,56px) 0 clamp(70px,8vw,110px)}
+.xp{--divider-h:clamp(56px,7.5vw,165px);position:relative;background:#FFF9F4;
+  padding:clamp(30px,4vw,56px) 0 calc(var(--divider-h) + clamp(40px,5vw,70px))}
+/* closing river divider into the cream reviews section */
+.xp__divider{position:absolute;left:0;right:0;bottom:-1px;height:var(--divider-h);pointer-events:none}
+.xp__divider img{display:block;width:100%;height:100%;object-fit:cover;object-position:left bottom}
 .xp__wrap{position:relative}
 .xp__track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;scrollbar-width:none;
   padding:10px 2px 36px;margin-bottom:-20px} /* room for the card shadows inside the scroller */

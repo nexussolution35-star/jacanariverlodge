@@ -2,11 +2,12 @@
 """Generate assets/images/river-divider.svg: a flat vector river divider
 (reeds, lily pads, tapered water lines) traced from the supplied artwork.
 Above the top water line is transparent; below it is filled with the next
-section's colour (#FFF9F4). Re-run after tweaking the numbers below."""
+section's colour (#FFF9F4). Re-run after tweaking the numbers below.
+Usage: river_divider.py [out.svg] [fill colour]"""
 import math, sys
 
 W, H = 2000, 150          # viewBox
-PAPER = "#FFF9F4"
+PAPER = sys.argv[2] if len(sys.argv) > 2 else "#FFF9F4"   # colour below the water line (the next section)
 BLUE, BLUE_LIGHT = "#60B2FD", "#9DCBF4"
 GREEN, GREEN_DARK = "#7AB123", "#689A1C"
 
