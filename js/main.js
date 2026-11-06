@@ -187,6 +187,43 @@
     });
   }
 
+  /* ---------- explore: expanding activity cards ---------- */
+  var xpTrack = document.getElementById('xpTrack');
+  if (xpTrack) {
+    var xCards = Array.prototype.slice.call(xpTrack.querySelectorAll('.xcard'));
+    var xPrev = document.querySelector('.xp__nav--prev');
+    var xNext = document.querySelector('.xp__nav--next');
+    var phone = window.matchMedia('(max-width: 760px)');
+    var lastPointer = 'mouse';
+    var openCard = function (card) {
+      xCards.forEach(function (c) { c.classList.toggle('is-open', c === card); });
+    };
+    xCards.forEach(function (card) {
+      card.addEventListener('mouseenter', function () { openCard(card); });
+      card.addEventListener('focus', function () { openCard(card); });
+      card.addEventListener('pointerdown', function (e) { lastPointer = e.pointerType; });
+      // on touch screens the first tap opens a closed card, the second follows the link
+      card.addEventListener('click', function (e) {
+        if (!phone.matches && lastPointer !== 'mouse' && !card.classList.contains('is-open')) {
+          e.preventDefault();
+          openCard(card);
+        }
+      });
+    });
+    var syncNav = function () {
+      var max = xpTrack.scrollWidth - xpTrack.clientWidth - 2;
+      xPrev.hidden = xpTrack.scrollLeft <= 2;
+      xNext.hidden = xpTrack.scrollLeft >= max;
+    };
+    var step = function (dir) { xpTrack.scrollBy({ left: dir * (xCards[0].offsetWidth + 14) * 2, behavior: 'smooth' }); };
+    xPrev.addEventListener('click', function () { step(-1); });
+    xNext.addEventListener('click', function () { step(1); });
+    xpTrack.addEventListener('scroll', syncNav, { passive: true });
+    window.addEventListener('resize', syncNav);
+    xCards.forEach(function (c) { c.addEventListener('transitionend', syncNav); });
+    syncNav();
+  }
+
   /* ---------- testimonials slider ---------- */
   var tSlides = Array.prototype.slice.call(document.querySelectorAll('.testi__slide'));
   var tIndex = 0, tTimer;
