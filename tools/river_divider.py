@@ -28,14 +28,18 @@ def spline(pts, n=14):
 
 def f(v): return f"{v:.1f}".rstrip("0").rstrip(".")
 
-def ribbon(pts, wmax, taper=0.55):
-    """Filled shape around a centreline whose width swells in the middle and tapers to points."""
+def ribbon(pts, wmax, taper=0.55, open_start=False, open_end=False):
+    """Filled shape around a centreline that tapers to points; an 'open' end runs
+    off the edge of the screen at full width instead of tapering."""
     c = spline(pts); n = len(c); top, bot = [], []
     for i, (x, y) in enumerate(c):
         a, b = c[max(i - 1, 0)], c[min(i + 1, n - 1)]
         dx, dy = b[0] - a[0], b[1] - a[1]; L = math.hypot(dx, dy) or 1
         nx, ny = -dy / L, dx / L
-        w = wmax * math.sin(math.pi * i / (n - 1)) ** taper / 2
+        t = i / (n - 1)
+        if open_start and t < 0.5: t = 0.5
+        if open_end and t > 0.5: t = 0.5
+        w = wmax * math.sin(math.pi * t) ** taper / 2
         top.append((x + nx * w, y + ny * w)); bot.append((x - nx * w, y - ny * w))
     ring = top + bot[::-1]
     return "M" + " ".join(f"{f(x)} {f(y)}" for x, y in ring) + "Z"
@@ -71,21 +75,21 @@ S = lambda pts: [(x, ty(y)) for x, y in pts]
 fullA = S([(40, 402), (120, 375), (220, 348), (320, 318), (420, 299), (520, 291), (620, 294), (720, 311), (820, 337),
            (920, 362), (1020, 374), (1100, 378), (1170, 371), (1270, 341), (1370, 318), (1470, 312), (1570, 319),
            (1670, 337), (1770, 351), (1870, 348), (1920, 333), (1985, 300)])
-lineA = [p for p in fullA if 150 <= p[0] <= 1870]   # keep the drawn lines clear of the screen edges
+lineA = [(0, ty(410))] + fullA + [(W, ty(286))]     # runs off both screen edges
 lineB = S([(330, 352), (470, 327), (570, 331), (670, 343), (770, 361), (870, 383), (970, 395), (1050, 393), (1110, 384)])
 lineC = S([(1060, 420), (1170, 418), (1270, 406), (1370, 385), (1470, 363), (1570, 352), (1670, 360), (1770, 385),
-           (1840, 392), (1880, 386)])
-ripple = S([(130, 352), (200, 334), (260, 320)])
+           (1840, 392), (1920, 372), (W, 334)])
+ripple = S([(0, 392), (110, 352), (200, 330), (260, 318)])
 
 # paper fill: everything under line A (extended to both edges)
-fill_line = spline([(0, ty(410))] + fullA + [(W, ty(286))])
+fill_line = spline(lineA)
 fill = "M" + " ".join(f"{f(x)} {f(y + 1)}" for x, y in fill_line) + f" L{W} {H} L0 {H}Z"
 
 shapes = [f'<path fill="{PAPER}" d="{fill}"/>',
-          f'<path fill="{BLUE}" d="{ribbon(lineA, 11)}"/>',
+          f'<path fill="{BLUE}" d="{ribbon(lineA, 11, open_start=True, open_end=True)}"/>',
           f'<path fill="{BLUE}" d="{ribbon(lineB, 10)}"/>',
-          f'<path fill="{BLUE_LIGHT}" d="{ribbon(lineC, 8)}"/>',
-          f'<path fill="{BLUE_LIGHT}" d="{ribbon(ripple, 3)}"/>']
+          f'<path fill="{BLUE_LIGHT}" d="{ribbon(lineC, 8, open_end=True)}"/>',
+          f'<path fill="{BLUE_LIGHT}" d="{ribbon(ripple, 3, open_start=True)}"/>']
 
 # --- lily pads ---
 for cx, cy, rx, ry in [(357, 329, 62, 17), (522, 377, 58, 15), (1550, 373, 64, 17)]:
