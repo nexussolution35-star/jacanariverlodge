@@ -224,6 +224,21 @@
     syncNav();
   }
 
+  /* ---------- lodge video: load YouTube only when asked ---------- */
+  var xpVideo = document.getElementById('xpVideo');
+  if (xpVideo) {
+    xpVideo.querySelector('.xp-video__poster').addEventListener('click', function () {
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + xpVideo.getAttribute('data-yt') + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+      f.title = 'Jacana River Lodge video';
+      f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      f.setAttribute('allowfullscreen', '');
+      xpVideo.innerHTML = '';
+      xpVideo.appendChild(f);
+      f.focus();
+    });
+  }
+
   /* ---------- testimonials slider ---------- */
   var tSlides = Array.prototype.slice.call(document.querySelectorAll('.testi__slide'));
   var tIndex = 0, tTimer;
