@@ -50,8 +50,6 @@ p{margin-bottom:1.1rem}
   letter-spacing:.32em;text-transform:uppercase;font-size:.72rem;
   color:var(--rust);margin-bottom:1rem;
 }
-.eyebrow::before{content:"";display:inline-block;width:28px;height:2px;
-  background:var(--rust);vertical-align:middle;margin-right:12px;transform:translateY(-3px)}
 .section{padding:clamp(64px,8vw,118px) 0;position:relative}
 .section--cream{background:var(--cream)}
 .section--sand{background:linear-gradient(180deg,var(--cream-deep),var(--sand))}
@@ -59,7 +57,6 @@ p{margin-bottom:1.1rem}
 .section--ink h2,.section--ink h3,.section--ink h4{color:#fff}
 .lead{font-size:clamp(1.05rem,1.6vw,1.22rem);color:var(--muted)}
 .center{text-align:center}
-.center .eyebrow::before{display:none}
 .section-head{max-width:760px;margin:0 auto 54px}
 .section-head.center{text-align:center}
 
@@ -693,7 +690,6 @@ body:has(.hero):not(.scrolled) .wa-float{opacity:0;transform:translateY(14px);po
 .page-hero .container{position:relative;z-index:2}
 .page-hero h1{color:#fff;font-size:clamp(2.2rem,4.6vw,3.7rem);font-weight:600;line-height:1.05;margin-bottom:1rem;max-width:900px;text-shadow:0 4px 30px rgba(0,0,0,.4)}
 .page-hero .eyebrow{color:#f0c33c}
-.page-hero .eyebrow::before{background:#f0c33c}
 .page-hero__sub{font-size:clamp(1.02rem,1.6vw,1.25rem);color:#f1ece0;max-width:680px}
 .crumbs{font-size:.8rem;letter-spacing:.04em;margin-bottom:18px;color:#e8e0cd}
 .crumbs a{color:#f0c33c}
