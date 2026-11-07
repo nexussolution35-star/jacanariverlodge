@@ -355,7 +355,7 @@ a.rv:hover .rv__name{color:var(--gold)}
 }
 
 /* accommodation block at the top of the Explore section */
-:root{--photo-r:2px}
+:root{--photo-r:5px}
 /* image-led: wider than the text container (same width as the nav bar), photo takes ~60% */
 .stay{--stay-w:min(calc(100vw - 2*clamp(16px,4vw,64px)),1520px);
   display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:clamp(30px,5vw,90px);align-items:center;
