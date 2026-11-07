@@ -239,6 +239,38 @@
     });
   }
 
+  /* ---------- FAQ: one open at a time, smooth height animation ---------- */
+  var faqItems = Array.prototype.slice.call(document.querySelectorAll('.faq__item'));
+  if (faqItems.length) {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var animate = function (item, open) {
+      var panel = item.querySelector('.faq__a');
+      if (item._anim) item._anim.cancel();
+      if (reduce || !panel.animate) { item.open = open; return; }
+      if (open) {
+        item.open = true;
+        var cs = getComputedStyle(panel), h = panel.offsetHeight;
+        item._anim = panel.animate([{ height: '0px', paddingTop: '0px', paddingBottom: '0px', opacity: 0 },
+          { height: h + 'px', paddingTop: cs.paddingTop, paddingBottom: cs.paddingBottom, opacity: 1 }],
+          { duration: 380, easing: 'cubic-bezier(.22,.61,.36,1)' });
+      } else {
+        var cs2 = getComputedStyle(panel), from = panel.offsetHeight;
+        item._anim = panel.animate([{ height: from + 'px', paddingTop: cs2.paddingTop, paddingBottom: cs2.paddingBottom, opacity: 1 },
+          { height: '0px', paddingTop: '0px', paddingBottom: '0px', opacity: 0 }],
+          { duration: 300, easing: 'cubic-bezier(.22,.61,.36,1)' });
+        item._anim.onfinish = function () { item.open = false; item._anim = null; };
+      }
+    };
+    faqItems.forEach(function (item) {
+      item.querySelector('summary').addEventListener('click', function (e) {
+        e.preventDefault();
+        var opening = !item.open || (item._anim && item._anim.onfinish);
+        faqItems.forEach(function (other) { if (other !== item && other.open) animate(other, false); });
+        animate(item, opening);
+      });
+    });
+  }
+
   /* ---------- testimonials slider ---------- */
   var tSlides = Array.prototype.slice.call(document.querySelectorAll('.testi__slide'));
   var tIndex = 0, tTimer;

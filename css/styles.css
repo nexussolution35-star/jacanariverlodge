@@ -433,7 +433,7 @@ a.rv:hover .rv__name{color:var(--gold)}
 .faq__icon{flex:none;width:26px;height:26px;fill:none;stroke:#fff9f4;stroke-width:2;stroke-linecap:round}
 .faq__icon path{transition:opacity .25s}
 .faq__item[open] .faq__v{opacity:0} /* plus becomes minus */
-.faq__a{background:#FFF9F4;padding:clamp(22px,2.6vw,34px) clamp(22px,3.4vw,50px) clamp(24px,2.8vw,36px);
+.faq__a{box-sizing:border-box;overflow:hidden;background:#FFF9F4;padding:clamp(22px,2.6vw,34px) clamp(22px,3.4vw,50px) clamp(24px,2.8vw,36px);
   font-family:var(--sans);font-size:1.02rem;line-height:1.75;color:#4a3b31}
 .faq__a p{margin:0 0 12px;max-width:780px}
 .faq__a p:last-child{margin-bottom:0}
