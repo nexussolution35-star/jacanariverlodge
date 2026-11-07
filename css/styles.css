@@ -598,12 +598,21 @@ a.reviews__summary:focus-visible{outline:2px solid var(--gold);outline-offset:6p
 .newsletter .container{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
 .newsletter h2{color:#fff}
 .newsletter p{color:#f5e7df}
+/* enquiry band: left column stretches to the form's height, heading at the top, contacts at the bottom */
+#send-enquiry .container{align-items:stretch}
+.enq-intro{display:flex;flex-direction:column}
+.enq-intro h2{margin-bottom:.6rem}
+.enq-intro .enq-contacts{margin-top:auto;padding-top:clamp(24px,2.6vw,34px)}
+#send-enquiry .nl-msg:empty{display:none}
 /* clickable contact details under the enquiry intro */
-.enq-contacts{list-style:none;margin:clamp(24px,2.6vw,34px) 0 0;padding:0;display:grid;gap:16px}
-.enq-contacts a{display:inline-flex;align-items:center;gap:14px;color:#fff;font-weight:600;font-size:1.02rem;line-height:1.3}
+.enq-contacts{list-style:none;margin:clamp(24px,2.6vw,34px) 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 24px}
+.enq-contacts a{display:flex;align-items:center;gap:14px;color:#fff;font-weight:600;font-size:.98rem;line-height:1.3;min-width:0}
 .enq-contacts__ic{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.1);transition:background .2s,border-color .2s}
 .enq-contacts__ic svg{width:19px;height:19px;fill:#fff}
-.enq-contacts a>span:last-child{display:grid;gap:3px}
+.enq-contacts a>span:last-child{display:grid;gap:3px;min-width:0}
+@media (max-width:1240px){.enq-contacts{gap:20px 16px}.enq-contacts a{gap:11px;font-size:.9rem}.enq-contacts__ic{width:38px;height:38px}.enq-contacts small{font-size:.66rem;letter-spacing:.12em}}
+@media (max-width:1000px){#send-enquiry .container{grid-template-columns:1fr;gap:40px}.enq-contacts{max-width:560px}.enq-contacts a{font-size:.98rem}.enq-contacts__ic{width:42px;height:42px}}
+@media (max-width:620px){.enq-contacts{grid-template-columns:1fr}.enq-contacts a{font-size:.98rem}}
 .enq-contacts small{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#f3d9cb}
 .enq-contacts a:hover .enq-contacts__ic{background:rgba(255,255,255,.22);border-color:#fff}
 .enq-contacts a:hover>span:last-child{text-decoration:underline;text-underline-offset:4px}
