@@ -311,12 +311,13 @@ a.rv:hover .rv__name{color:var(--gold)}
 /* closing river divider into the cream reviews section */
 .xp__divider{position:absolute;left:0;right:0;bottom:-1px;height:var(--divider-h);pointer-events:none}
 .xp__divider img{display:block;width:100%;height:100%;object-fit:cover;object-position:left bottom}
-/* full-bleed: the carousel runs edge to edge of the screen */
-.xp__wrap{position:relative;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}
-.xp__track{display:flex;gap:clamp(12px,1.4vw,22px);overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;scrollbar-width:none;
-  padding:10px clamp(10px,1vw,16px) 36px;scroll-padding-inline:clamp(10px,1vw,16px);margin-bottom:-20px} /* room for the card shadows inside the scroller */
+/* near full-bleed: an even gap at both screen edges; one open + four closed cards fill the row exactly */
+.xp__wrap{--edge:clamp(12px,1.25vw,24px);--gap:clamp(12px,1.4vw,22px);--ratio:1.9;
+  position:relative;container-type:inline-size;margin-left:calc(50% - 50vw + var(--edge));margin-right:calc(50% - 50vw + var(--edge))}
+.xp__track{display:flex;gap:var(--gap);overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;scrollbar-width:none;
+  padding:10px 0 36px;margin-bottom:-20px} /* room for the card shadows inside the scroller */
 .xp__track::-webkit-scrollbar{display:none}
-.xcard{--closed:clamp(210px,17.2vw,340px);--open:clamp(380px,33vw,640px);
+.xcard{--closed:calc((100cqw - 4 * var(--gap)) / (4 + var(--ratio)));--open:calc(var(--closed) * var(--ratio));
   position:relative;flex:0 0 var(--closed);height:clamp(340px,33vw,560px);border-radius:var(--photo-r);overflow:hidden;scroll-snap-align:start;
   color:#fff;background:var(--charcoal);box-shadow:0 10px 16px -12px rgba(33,31,31,.5);
   transition:flex-basis .55s var(--ease),box-shadow .4s var(--ease)}
