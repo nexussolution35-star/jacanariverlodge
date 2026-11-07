@@ -598,11 +598,11 @@ a.reviews__summary:focus-visible{outline:2px solid var(--gold);outline-offset:6p
 .newsletter .container{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
 .newsletter h2{color:#fff}
 .newsletter p{color:#f5e7df}
-/* enquiry band: left column stretches to the form's height, heading at the top, contacts at the bottom */
+/* enquiry band: left column sits centred against the form, contacts straight under the paragraph */
 #send-enquiry .container{align-items:stretch}
-.enq-intro{display:flex;flex-direction:column}
+.enq-intro{display:flex;flex-direction:column;justify-content:center}
 .enq-intro h2{margin-bottom:.6rem}
-.enq-intro .enq-contacts{margin-top:auto;padding-top:clamp(24px,2.6vw,34px)}
+.enq-intro .enq-contacts{margin-top:clamp(22px,2.2vw,30px)}
 #send-enquiry .nl-msg:empty{display:none}
 /* clickable contact details under the enquiry intro */
 .enq-contacts{list-style:none;margin:clamp(24px,2.6vw,34px) 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 24px}
