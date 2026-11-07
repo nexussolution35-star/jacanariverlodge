@@ -288,28 +288,7 @@
     resetTesti();
   }
 
-  /* ---------- contact enquiry form (front-end validation only) ---------- */
-  var gitForm = document.getElementById('gitForm');
-  if (gitForm) {
-    var gitMsg = document.getElementById('gitFormMsg');
-    gitForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var d = new FormData(gitForm);
-      var name = (d.get('name') || '').trim();
-      var phoneNo = (d.get('phone') || '').trim();
-      var mail = (d.get('email') || '').trim();
-      gitMsg.classList.remove('is-ok');
-      if (!name || !phoneNo || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) {
-        gitMsg.textContent = 'Please add your full name, phone number and a valid email address.';
-        return;
-      }
-      gitMsg.classList.add('is-ok');
-      gitMsg.textContent = 'Thank you, ' + name.split(' ')[0] + '! We’ll be in touch shortly.';
-      gitForm.reset();
-    });
-  }
-
-  /* ---------- newsletter (front-end validation only) ---------- */
+  /* ---------- enquiry form below the FAQ (front-end validation only) ---------- */
   var nlForm = document.getElementById('nlForm');
   var nlMsg = document.getElementById('nlMsg');
   if (nlForm) {
@@ -319,13 +298,14 @@
       var name = (data.get('name') || '').trim();
       var email = (data.get('email') || '').trim();
       var validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-      if (!name || !validEmail) {
+      var surname = (data.get('surname') || '').trim();
+      if (!name || !surname || !validEmail) {
         nlMsg.style.color = '#ffe2d6';
-        nlMsg.textContent = 'Please enter your name and a valid email address.';
+        nlMsg.textContent = 'Please enter your name, surname and a valid email address.';
         return;
       }
       nlMsg.style.color = '#fff';
-      nlMsg.textContent = 'Thank you, ' + name + '! You are on the list — watch your inbox for bush inspiration.';
+      nlMsg.textContent = 'Thank you, ' + name + '! We\u2019ll be in touch shortly with availability and rates.';
       nlForm.reset();
     });
   }
