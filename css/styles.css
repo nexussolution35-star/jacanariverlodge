@@ -311,12 +311,13 @@ a.rv:hover .rv__name{color:var(--gold)}
 /* closing river divider into the cream reviews section */
 .xp__divider{position:absolute;left:0;right:0;bottom:-1px;height:var(--divider-h);pointer-events:none}
 .xp__divider img{display:block;width:100%;height:100%;object-fit:cover;object-position:left bottom}
-.xp__wrap{position:relative}
-.xp__track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;scrollbar-width:none;
-  padding:10px 2px 36px;margin-bottom:-20px} /* room for the card shadows inside the scroller */
+/* full-bleed: the carousel runs edge to edge of the screen */
+.xp__wrap{position:relative;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}
+.xp__track{display:flex;gap:clamp(12px,1.4vw,22px);overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;scrollbar-width:none;
+  padding:10px clamp(10px,1vw,16px) 36px;scroll-padding-inline:clamp(10px,1vw,16px);margin-bottom:-20px} /* room for the card shadows inside the scroller */
 .xp__track::-webkit-scrollbar{display:none}
-.xcard{--closed:190px;--open:clamp(340px,32vw,460px);
-  position:relative;flex:0 0 var(--closed);height:clamp(280px,24vw,340px);border-radius:var(--photo-r);overflow:hidden;scroll-snap-align:start;
+.xcard{--closed:clamp(210px,17.2vw,340px);--open:clamp(380px,33vw,640px);
+  position:relative;flex:0 0 var(--closed);height:clamp(340px,33vw,560px);border-radius:var(--photo-r);overflow:hidden;scroll-snap-align:start;
   color:#fff;background:var(--charcoal);box-shadow:0 10px 16px -12px rgba(33,31,31,.5);
   transition:flex-basis .55s var(--ease),box-shadow .4s var(--ease)}
 .xcard.is-open{flex-basis:var(--open);box-shadow:0 14px 22px -14px rgba(33,31,31,.6)}
@@ -324,7 +325,7 @@ a.rv:hover .rv__name{color:var(--gold)}
 .xcard.is-open img{transform:scale(1.04)}
 .xcard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,14,8,0) 42%,rgba(20,14,8,.78) 100%)}
 .xcard__body{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:18px 20px 20px;display:grid;grid-template-columns:minmax(0,1fr);gap:6px}
-.xcard__title{font-family:var(--sans);font-weight:700;font-size:1rem;line-height:1.25;text-shadow:0 2px 10px rgba(0,0,0,.45)}
+.xcard__title{font-family:var(--sans);font-weight:700;font-size:clamp(1rem,1.25vw,1.3rem);line-height:1.25;text-shadow:0 2px 10px rgba(0,0,0,.45)}
 .xcard.is-open .xcard__title{padding-right:52px}
 .xcard__text{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .45s var(--ease),opacity .25s}
 .xcard__text>span{min-height:0;overflow:hidden;width:calc(var(--open) - 90px);max-width:100%;
@@ -340,8 +341,8 @@ a.rv:hover .rv__name{color:var(--gold)}
   background:#fff;color:var(--ink);cursor:pointer;box-shadow:0 8px 20px -8px rgba(33,31,31,.45);transform:translateY(-50%);transition:opacity .25s,background .2s}
 .xp__nav svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .xp__nav:hover{background:var(--cream)}
-.xp__nav--prev{left:-18px}
-.xp__nav--next{right:-18px}
+.xp__nav--prev{left:clamp(16px,2.6vw,48px)}
+.xp__nav--next{right:clamp(16px,2.6vw,48px)}
 .xp__nav[hidden]{display:none}
 .xp__more{margin:clamp(22px,2.6vw,34px) 0 0;text-align:center}
 @media (max-width:760px){
