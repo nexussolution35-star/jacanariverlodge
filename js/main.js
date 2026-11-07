@@ -288,6 +288,27 @@
     resetTesti();
   }
 
+  /* ---------- contact enquiry form (front-end validation only) ---------- */
+  var gitForm = document.getElementById('gitForm');
+  if (gitForm) {
+    var gitMsg = document.getElementById('gitFormMsg');
+    gitForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var d = new FormData(gitForm);
+      var name = (d.get('name') || '').trim();
+      var phoneNo = (d.get('phone') || '').trim();
+      var mail = (d.get('email') || '').trim();
+      gitMsg.classList.remove('is-ok');
+      if (!name || !phoneNo || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) {
+        gitMsg.textContent = 'Please add your full name, phone number and a valid email address.';
+        return;
+      }
+      gitMsg.classList.add('is-ok');
+      gitMsg.textContent = 'Thank you, ' + name.split(' ')[0] + '! We’ll be in touch shortly.';
+      gitForm.reset();
+    });
+  }
+
   /* ---------- newsletter (front-end validation only) ---------- */
   var nlForm = document.getElementById('nlForm');
   var nlMsg = document.getElementById('nlMsg');

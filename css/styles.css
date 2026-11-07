@@ -441,8 +441,36 @@ a.rv:hover .rv__name{color:var(--gold)}
 .faq__a li{margin-bottom:4px}
 .faq__a a{color:#4a3b31;font-weight:600;text-decoration:underline;text-underline-offset:3px}
 .faq__a a:hover{color:#A04E29}
-.faq__more{margin-top:clamp(30px,3.6vw,46px);text-align:center}
-.faq__more p{margin:0 0 16px;font-family:var(--serif);font-size:1.5rem;color:var(--ink)}
+
+/* contact: details + Google map + enquiry form */
+.getintouch{position:relative;background:#A04E29;color:#fff;padding:clamp(70px,8vw,110px) 0;overflow:hidden}
+.getintouch::before{content:"";position:absolute;inset:0;background:url('../assets/images/Homepage-Bottom-Background-Image-65c7aab9.jpg') center/cover;opacity:.14}
+.getintouch__grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(34px,5vw,80px);align-items:start}
+.getintouch .sec-eyebrow{color:#f7e2d6}
+.getintouch .sec-title{color:#fff;font-size:clamp(2rem,3.4vw,3rem)}
+.getintouch .sec-lead{color:#f8e9e0;margin:clamp(14px,1.6vw,20px) 0 0;max-width:520px}
+.git-list{list-style:none;margin:clamp(26px,3vw,36px) 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:20px 28px}
+.git-list li{display:flex;align-items:flex-start;gap:14px;min-width:0}
+.git-ic{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(255,249,244,.14);border:1px solid rgba(255,249,244,.3)}
+.git-ic svg{width:19px;height:19px;fill:#fff9f4}
+.git-list li>span:last-child{display:grid;gap:3px;min-width:0}
+.git-list small{font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#f3d9cb}
+.git-list a{color:#fff;font-weight:600;font-size:1rem;line-height:1.4;overflow-wrap:anywhere;text-decoration:underline;text-decoration-color:rgba(255,255,255,.35);text-underline-offset:4px;transition:text-decoration-color .2s}
+.git-list a:hover{text-decoration-color:#fff}
+.git-map{border-radius:var(--photo-r);overflow:hidden;aspect-ratio:16/10;background:#e9e3d2}
+.git-map iframe{display:block;width:100%;height:100%;border:0}
+.git-form{display:grid;gap:12px;background:#FFF9F4;color:var(--ink);border-radius:16px;padding:clamp(26px,3vw,40px)}
+.git-form__title{margin:0 0 8px;font-family:var(--serif);font-weight:600;font-size:clamp(1.6rem,2.2vw,2rem);color:var(--ink)}
+.git-msg textarea{width:100%;min-height:140px;resize:vertical;padding:14px 16px;border:1px solid rgba(50,49,50,.22);border-radius:8px;background:#fffdf3;
+  font:500 .96rem/1.6 var(--sans);color:var(--ink);transition:.2s}
+.git-msg textarea::placeholder{color:#8a847a}
+.git-msg textarea:focus{outline:none;border-color:var(--rust);box-shadow:0 0 0 3px rgba(160,78,41,.16)}
+.git-form__submit{width:100%;height:54px;margin:6px 0 5px;font-size:1rem}
+.git-form__status{margin:0;font-size:.92rem;font-weight:600;text-align:center;color:#A04E29}
+.git-form__status:empty{display:none}
+.git-form__status.is-ok{color:#2f6b3b}
+@media (max-width:980px){.getintouch__grid{grid-template-columns:1fr}}
+@media (max-width:560px){.git-list{grid-template-columns:1fr}}
 
 /* =========================================================
    PARTNERS STRIP
