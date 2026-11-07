@@ -450,7 +450,11 @@
       <input type="text" name="surname" placeholder="Surname*" aria-label="Surname" autocomplete="family-name" required>
       <input class="full" type="email" name="email" placeholder="Email address*" aria-label="Email address" autocomplete="email" required>
       <textarea class="full" name="message" rows="4" placeholder="Your message: preferred dates, number of guests, any questions" aria-label="Message"></textarea>
-      <p class="nl-note full"><svg class="i-lock" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-1V6a5 5 0 0 0-5-5zm3 8H9V6a3 3 0 0 1 6 0v3z"/></svg> Your information is secure and encrypted.</p>
+      <label class="nl-consent full">
+        <input type="checkbox" name="consent" value="yes" checked required>
+        <span class="nl-consent__box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"/></svg></span>
+        <span>I consent to Jacana River Lodge using my details to respond to this enquiry.</span>
+      </label>
       <button class="btn full" type="submit">Send Enquiry</button>
       <p class="nl-msg" id="nlMsg" role="status"></p>
     </form>

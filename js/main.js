@@ -299,6 +299,11 @@
       var email = (data.get('email') || '').trim();
       var validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
       var surname = (data.get('surname') || '').trim();
+      if (!nlForm.elements.consent.checked) {
+        nlMsg.style.color = '#ffe2d6';
+        nlMsg.textContent = 'Please tick the consent box so we can respond to your enquiry.';
+        return;
+      }
       if (!name || !surname || !validEmail) {
         nlMsg.style.color = '#ffe2d6';
         nlMsg.textContent = 'Please enter your name, surname and a valid email address.';
@@ -306,7 +311,7 @@
       }
       nlMsg.style.color = '#fff';
       nlMsg.textContent = 'Thank you, ' + name + '! We\u2019ll be in touch shortly with availability and rates.';
-      nlForm.reset();
+      nlForm.reset(); // consent box returns to ticked
     });
   }
 

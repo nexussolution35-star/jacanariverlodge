@@ -617,6 +617,17 @@ a.reviews__summary:focus-visible{outline:2px solid var(--gold);outline-offset:6p
 .enq-contacts a:hover .enq-contacts__ic{background:rgba(255,255,255,.22);border-color:#fff}
 .enq-contacts a:hover>span:last-child{text-decoration:underline;text-underline-offset:4px}
 .enq-contacts a:focus-visible{outline:2px solid #fff;outline-offset:4px;border-radius:6px}
+/* consent checkbox (custom box, real checkbox underneath for keyboard and screen readers) */
+.nl-consent{position:relative;display:flex;align-items:flex-start;gap:12px;margin-top:4px;cursor:pointer;
+  font-family:var(--sans);font-size:.86rem;line-height:1.5;color:#f5e7df;user-select:none;margin-bottom:6px}
+.nl-form .nl-consent input{position:absolute;left:0;top:1px;opacity:0;width:20px;height:20px;margin:0;padding:0;border:0;cursor:pointer}
+.nl-consent__box{flex:none;width:20px;height:20px;margin-top:1px;border:1.5px solid rgba(255,255,255,.75);border-radius:4px;
+  display:grid;place-items:center;background:rgba(255,255,255,.08);transition:background .2s,border-color .2s}
+.nl-consent__box svg{width:14px;height:14px;fill:none;stroke:#A04E29;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;opacity:0;transform:scale(.6);transition:.2s}
+.nl-consent input:checked+.nl-consent__box{background:#fff;border-color:#fff}
+.nl-consent input:checked+.nl-consent__box svg{opacity:1;transform:none}
+.nl-consent input:focus-visible+.nl-consent__box{outline:2px solid #fff;outline-offset:3px}
+.nl-consent:hover .nl-consent__box{border-color:#fff}
 .nl-form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .nl-form .full{grid-column:1/-1}
 /* message box matches the transparent inputs */
