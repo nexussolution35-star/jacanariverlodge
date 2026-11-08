@@ -298,19 +298,19 @@
       var name = (data.get('name') || '').trim();
       var email = (data.get('email') || '').trim();
       var validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-      var surname = (data.get('surname') || '').trim();
+      var phoneNo = (data.get('phone') || '').trim();
       if (!nlForm.elements.consent.checked) {
         nlMsg.style.color = '#ffe2d6';
         nlMsg.textContent = 'Please tick the consent box so we can respond to your enquiry.';
         return;
       }
-      if (!name || !surname || !validEmail) {
+      if (!name || phoneNo.replace(/\D/g, '').length < 9 || !validEmail) {
         nlMsg.style.color = '#ffe2d6';
-        nlMsg.textContent = 'Please enter your name, surname and a valid email address.';
+        nlMsg.textContent = 'Please enter your full name, phone number and a valid email address.';
         return;
       }
       nlMsg.style.color = '#fff';
-      nlMsg.textContent = 'Thank you, ' + name + '! We\u2019ll be in touch shortly with availability and rates.';
+      nlMsg.textContent = 'Thank you, ' + name.split(' ')[0] + '! We\u2019ll be in touch shortly with availability and rates.';
       nlForm.reset(); // consent box returns to ticked
     });
   }
