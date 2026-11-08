@@ -477,7 +477,11 @@ a.rv:hover .rv__name{color:var(--gold)}
 @media (max-width:980px){.dir__grid{grid-template-columns:1fr}}
 
 /* latest journal posts: photo cards with the text inside */
-.posts{background:#FFF9F4;padding:clamp(70px,8vw,110px) 0}
+.posts{--divider-h:clamp(56px,7.5vw,165px);position:relative;background:#FFF9F4;
+  padding:clamp(70px,8vw,110px) 0 calc(var(--divider-h) + clamp(50px,6vw,80px))}
+/* river divider into the dark footer */
+.posts__divider{position:absolute;left:0;right:0;bottom:-1px;height:var(--divider-h);pointer-events:none}
+.posts__divider img{display:block;width:100%;height:100%;object-fit:cover;object-position:left bottom}
 .posts__head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px 30px;flex-wrap:wrap;margin-bottom:clamp(28px,3.2vw,42px)}
 .posts .sec-title{font-size:clamp(1.8rem,3vw,2.7rem);letter-spacing:.06em}
 .posts__head .btn{flex:none}
