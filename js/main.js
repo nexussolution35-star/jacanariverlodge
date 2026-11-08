@@ -310,7 +310,7 @@
         return;
       }
       nlMsg.style.color = '#fff';
-      nlMsg.textContent = 'Thank you, ' + name.split(' ')[0] + '! We\u2019ll be in touch shortly with availability and rates.';
+      nlMsg.textContent = 'Thank you, ' + name.split(' ')[0] + '! We\u2019ve received your message and will be in touch shortly.';
       nlForm.reset(); // consent box returns to ticked
     });
   }
