@@ -444,10 +444,10 @@ a.rv:hover .rv__name{color:var(--gold)}
 
 
 /* where we are: copy + South Africa map */
-.where{--edge-h:clamp(50px,6vw,120px);position:relative;background:#FFEFD4;padding:clamp(54px,6vw,84px) 0 calc(var(--edge-h) + clamp(20px,3vw,44px));overflow:hidden}
-/* bushveld skyline edge into the blog section */
+.where{--edge-h:clamp(56px,7.5vw,165px);position:relative;background:#FFEFD4;padding:clamp(54px,6vw,84px) 0 calc(var(--edge-h) + clamp(20px,3vw,44px));overflow:hidden}
+/* same wave as the river dividers, plain, into the blog section */
 .where__edge{position:absolute;left:0;right:0;bottom:-1px;height:var(--edge-h);pointer-events:none}
-.where__edge img{display:block;width:100%;height:100%}
+.where__edge img{display:block;width:100%;height:100%;object-fit:cover;object-position:left bottom}
 .where__grid{--w:min(calc(100vw - 2*clamp(16px,4vw,64px)),1520px);display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);
   gap:clamp(24px,3.5vw,60px);align-items:center;width:var(--w);max-width:none;margin-left:auto;margin-right:auto;padding:0 0 0 clamp(10px,3.4vw,50px)}
 .where .sec-title{font-size:clamp(1.7rem,2.6vw,2.4rem);letter-spacing:.05em}

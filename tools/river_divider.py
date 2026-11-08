@@ -3,11 +3,12 @@
 (reeds, lily pads, tapered water lines) traced from the supplied artwork.
 Above the top water line is transparent; below it is filled with the next
 section's colour (#FFF9F4). Re-run after tweaking the numbers below.
-Usage: river_divider.py [out.svg] [fill colour]"""
+Usage: river_divider.py [out.svg] [fill colour] [--plain]"""
 import math, sys
 
 W, H = 2000, 150          # viewBox
 PAPER = sys.argv[2] if len(sys.argv) > 2 else "#FFF9F4"   # colour below the water line (the next section)
+PLAIN = "--plain" in sys.argv   # just the wave shape: no water lines, pads or reeds
 BLUE, BLUE_LIGHT = "#60B2FD", "#9DCBF4"
 GREEN, GREEN_DARK = "#7AB123", "#689A1C"
 
@@ -111,6 +112,7 @@ spec = [(-12, -27, -48, -50, 12, GREEN),        # long blade leaning out
 shapes += reeds(206, ty(342), spec, flip=1)
 shapes += reeds(1742, ty(368), spec, flip=-1)
 
+if PLAIN: shapes = shapes[:1]
 svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" aria-hidden="true" focusable="false">'
        + "".join(shapes) + "</svg>\n")
 open(sys.argv[1] if len(sys.argv) > 1 else "assets/images/river-divider.svg", "w").write(svg)
