@@ -444,9 +444,10 @@ a.rv:hover .rv__name{color:var(--gold)}
 
 
 /* where we are: copy + South Africa map */
-.where{background:#FFEFD4;padding:clamp(70px,8vw,110px) 0}
-.where__grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(30px,5vw,80px);align-items:center}
-.where .sec-title{font-size:clamp(1.8rem,3vw,2.7rem);letter-spacing:.06em}
+.where{background:#FFEFD4;padding:clamp(54px,6vw,84px) 0;overflow:hidden}
+.where__grid{--w:min(calc(100vw - 2*clamp(16px,4vw,64px)),1520px);display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);
+  gap:clamp(24px,3.5vw,60px);align-items:center;width:var(--w);max-width:none;margin-left:auto;margin-right:auto;padding:0 0 0 clamp(10px,3.4vw,50px)}
+.where .sec-title{font-size:clamp(1.7rem,2.6vw,2.4rem);letter-spacing:.05em}
 .where .sec-lead{margin:clamp(14px,1.6vw,20px) 0 0;max-width:520px}
 .where .sec-title+.sec-lead{margin-top:clamp(18px,2vw,26px)}
 .where__facts{list-style:none;margin:clamp(26px,3vw,36px) 0 clamp(28px,3vw,38px);padding:0;display:flex;flex-wrap:nowrap}
@@ -459,8 +460,9 @@ a.rv:hover .rv__name{color:var(--gold)}
 .where__map{margin:0}
 .where__map img{display:block;width:100%;height:auto}
 @media (max-width:980px){
-  .where__grid{grid-template-columns:1fr}
+  .where__grid{grid-template-columns:1fr;width:auto;padding:0 26px}
   .where__map{max-width:640px;margin:0 auto}
+  .where__map img{width:100%;margin-left:0}
 }
 @media (max-width:520px){
   .where__facts{row-gap:14px}
