@@ -4,6 +4,23 @@ A luxury marketing website for **Jacana River Lodge**, a 5-star exclusive self-c
 safari lodge on the Crocodile River in the Mjejane Private Game Reserve (Greater Kruger,
 Mpumalanga, South Africa).
 
+## URLs, SEO and shared parts (read this first)
+
+Every page lives at the **same path as on the live jacanariverlodge.com**, as `folder/index.html`
+(e.g. Rates & Facilities is `/facilities/`), with root-relative links. Keep it that way: the live
+URLs carry the site's Google rankings. The preservation plan is in `seo/` (`seo/README.md`, `url-map.csv`).
+
+After editing pages, regenerate the shared parts from the repo root:
+
+```bash
+python3 tools/header.py   # floating nav (menu, Activities dropdown, Book Now button)
+python3 tools/footer.py   # site footer
+python3 tools/seo.py      # live titles/meta, canonicals, /activities/ copy, sitemap_index.xml + page-sitemap.xml
+```
+
+`robots.txt` is the live site's file. Preview deploys must replace it with `Disallow: /`
+so the preview never competes with the live site in Google.
+
 ## How this was built
 
 This site was produced from two reference inputs:
