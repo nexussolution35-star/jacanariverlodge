@@ -35,6 +35,7 @@ body{
   line-height:1.7;
   font-size:17px;
   overflow-x:hidden;
+  overflow-x:clip; /* same as hidden, but doesn't break position:sticky */
 }
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
@@ -408,27 +409,49 @@ a.rv:hover .rv__name{color:var(--gold)}
 .xp-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 @media (prefers-reduced-motion:reduce){.xp-video__play::before{animation:none}}
 
-/* homepage gallery: photo mosaic, opens in the lightbox */
-.mosaic{background:#FFF9F4;padding:clamp(70px,8vw,110px) 0}
-.mosaic .sec-title{font-size:clamp(1.8rem,3vw,2.7rem);letter-spacing:.06em}
-.mosaic__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:clamp(170px,17vw,270px);gap:clamp(10px,1.2vw,16px);
-  grid-template-areas:"a a b c" "a a d e" "f f g h"}
-.mosaic__item{position:relative;display:block;padding:0;border:0;margin:0;border-radius:var(--photo-r);overflow:hidden;background:#e9e3d2;cursor:zoom-in}
-.mosaic__item--a{grid-area:a}.mosaic__item--b{grid-area:b}.mosaic__item--c{grid-area:c}.mosaic__item--d{grid-area:d}
-.mosaic__item--e{grid-area:e}.mosaic__item--f{grid-area:f}.mosaic__item--g{grid-area:g}.mosaic__item--h{grid-area:h}
-.mosaic__item img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
-.mosaic__item::after{content:"";position:absolute;inset:0;background:rgba(20,14,8,0);transition:background .35s}
-.mosaic__zoom{position:absolute;right:12px;bottom:12px;z-index:1;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
-  background:rgba(255,249,244,.92);opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s var(--ease)}
-.mosaic__zoom svg{width:17px;height:17px;fill:none;stroke:#A04E29;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.mosaic__item:hover img{transform:scale(1.05)}
-.mosaic__item:hover::after{background:rgba(20,14,8,.18)}
-.mosaic__item:hover .mosaic__zoom,.mosaic__item:focus-visible .mosaic__zoom{opacity:1;transform:none}
-.mosaic__item:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+/* homepage gallery: photo wall that lies flat, rises and settles as you scroll
+   (vanilla port of the "animated gallery" pattern; driven by --p in main.js) */
+.agal{position:relative;background:#FFF9F4;padding-top:clamp(70px,8vw,110px)}
+.agal__glow{position:absolute;left:0;right:0;top:clamp(160px,18vw,260px);height:70vh;pointer-events:none;
+  background:linear-gradient(90deg,#f3d6b8,#e8b48f 35%,#f7e3c4 65%,#e9c7a3);filter:blur(84px);opacity:.55}
+.agal__head{position:relative;z-index:3;text-align:center;max-width:780px;margin-bottom:-3rem}
+.agal__head .sec-lead{margin:clamp(14px,1.6vw,20px) auto 0;max-width:620px}
+.agal__head .btn{margin-top:clamp(18px,2vw,26px)}
+/* heading lines blur in one after another */
+.agal__in{opacity:0;filter:blur(10px);transform:translateY(10px);transition:opacity .7s var(--ease),filter .7s var(--ease),transform .7s var(--ease)}
+.agal__head.is-in .agal__in{opacity:1;filter:blur(0);transform:none}
+.agal__head.is-in .agal__in:nth-child(2){transition-delay:.15s}
+.agal__head.is-in .agal__in:nth-child(3){transition-delay:.3s}
+.agal__head.is-in .agal__in:nth-child(4){transition-delay:.45s}
+.agal__head.is-in .agal__in:nth-child(5){transition-delay:.6s}
+.agal__scroll{--p:0;position:relative;height:300vh;perspective:1000px;perspective-origin:center top}
+.agal__sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;perspective:1000px;perspective-origin:center top}
+.agal__wall{--rise:clamp(0,var(--p)*2,1);--settle:clamp(0,(var(--p) - .5)/.4,1);--drift:clamp(0,(var(--p) - .5)*2,1);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(8px,.9vw,14px);height:100%;
+  padding:0 clamp(12px,1.25vw,24px);transform-style:preserve-3d;transform-origin:50% 0;
+  transform:rotateX(calc((1 - var(--rise))*75deg)) scale(calc(1.2 - .2*var(--settle)));will-change:transform}
+.agal__col{display:flex;flex-direction:column;gap:clamp(8px,.9vw,14px);will-change:transform}
+.agal__col--1,.agal__col--3{margin-top:-8px;transform:translateY(calc(-10% + 12%*var(--drift)))}
+.agal__col--2{margin-top:-50%;transform:translateY(calc(15% - 10%*var(--drift)))}
+.agal__tile{display:block;padding:0;border:0;margin:0;border-radius:var(--photo-r);overflow:hidden;background:#e9e3d2;cursor:zoom-in;aspect-ratio:16/9;min-height:28vh;min-height:28svh}
+.agal__tile--xs{display:none} /* extra row, phones only */
+.agal__tile img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.agal__tile:hover img{transform:scale(1.05)}
+.agal__tile:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 @media (max-width:760px){
-  .mosaic__grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:clamp(140px,40vw,220px);
-    grid-template-areas:"a a" "a a" "b c" "d e" "f f" "g h"}
-  .mosaic__zoom{opacity:1;transform:none;width:32px;height:32px}
+  .agal__scroll{height:220vh}
+  .agal__tile{aspect-ratio:3/4;min-height:22vh;min-height:22svh}
+  .agal__tile--xs{display:block}
+  .agal__head{margin-bottom:-1.5rem}
+}
+/* no motion: a plain three-column wall */
+@media (prefers-reduced-motion:reduce){
+  .agal__scroll{height:auto;perspective:none}
+  .agal__sticky{position:static;height:auto;overflow:visible;padding:clamp(60px,6vw,90px) 0}
+  .agal__wall{transform:none;height:auto}
+  .agal__col--1,.agal__col--2,.agal__col--3{transform:none;margin-top:0}
+  .agal__in{opacity:1;filter:none;transform:none}
+  .agal__head{margin-bottom:0}
 }
 
 /* FAQ: brown question bars; the open answer sits on a light panel */

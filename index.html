@@ -371,49 +371,41 @@
   </div>
 </section>
 
-<!-- ============ GALLERY (photo mosaic + lightbox) ============ -->
-<section class="mosaic" id="gallery-preview" aria-labelledby="galTitle">
-  <div class="container">
-    <div class="posts__head">
-      <div>
-        <p class="sec-eyebrow">Gallery</p>
-        <h2 class="sec-title" id="galTitle">Life at Jacana</h2>
+<!-- ============ GALLERY (scroll-animated photo wall) ============ -->
+<section class="agal" id="gallery-preview" aria-labelledby="galTitle">
+  <div class="agal__glow" aria-hidden="true"></div>
+  <div class="container agal__head" data-stagger>
+    <p class="sec-eyebrow agal__in">Gallery</p>
+    <h2 class="sec-title agal__in" id="galTitle">Life at Jacana</h2>
+    <p class="sec-script agal__in">Paradise on the &lsquo;Croc&rsquo;</p>
+    <p class="sec-lead agal__in">Lazy afternoons by the pool, sundowners over the river and the Big&nbsp;5 on your doorstep. Scroll through a few of our favourite moments.</p>
+    <p class="agal__in"><a class="btn" href="gallery.html">View Full Gallery</a></p>
+  </div>
+  <div class="agal__scroll" id="agalScroll">
+    <div class="agal__sticky">
+      <div class="agal__wall" id="galleryGrid">
+        <div class="agal__col agal__col--1">
+          <button class="agal__tile" type="button" aria-label="View larger: The covered deck and lounge at Jacana River Lodge, looking over the infinity pool to the river"><img src="assets/images/Jacana-River-Lodge-Gallery-90-0bb171b1.jpg" alt="The covered deck and lounge at Jacana River Lodge, looking over the infinity pool to the river" loading="lazy" decoding="async"></button>
+          <button class="agal__tile" type="button" aria-label="View larger: A white rhino in the Mjejane Game Reserve"><img src="assets/images/nicole-wreyford-rhino-mjejane-game-reserve-jacana-river-lodge-eca3473e.jpg" alt="A white rhino in the Mjejane Game Reserve" loading="lazy" decoding="async"></button>
+          <button class="agal__tile" type="button" aria-label="View larger: The open-plan kitchen and dining room under a thatched roof"><img src="assets/images/jacana-river-lodge-kitchen-dining.jpg" alt="The open-plan kitchen and dining room under a thatched roof" loading="lazy" decoding="async"></button>
+          <button class="agal__tile" type="button" aria-label="View larger: Guests stargazing under the Milky Way in the Mjejane"><img src="assets/images/stargazing-near-the-kruger-national-park-mjejane-game-reserve-c8e0e8c0.jpg" alt="Guests stargazing under the Milky Way in the Mjejane" loading="lazy" decoding="async"></button>
+          <button class="agal__tile agal__tile--xs" type="button" aria-label="View larger: The games room with a pool table and bar"><img src="assets/images/Jacana-River-Lodge-Gallery-12.-3a8e3a32.jpg" alt="The games room with a pool table and bar" loading="lazy" decoding="async"></button>
+        </div>
+        <div class="agal__col agal__col--2">
+          <button class="agal__tile" type="button" aria-label="View larger: The infinity pool and timber deck at sunset"><img src="assets/images/jacana-river-lodge-infinity-pool.jpg" alt="The infinity pool and timber deck at sunset" loading="lazy" decoding="async"></button>
+          <button class="agal__tile" type="button" aria-label="View larger: A leopard caught in the spotlight on a night drive"><img src="assets/images/Game-Drive-Spotting-1-77f0347d.jpg" alt="A leopard caught in the spotlight on a night drive" loading="lazy" decoding="async"></button>
+          <button class="agal__tile" type="button" aria-label="View larger: A king suite with a canopy bed and zebra-hide rug, opening onto the bush"><img src="assets/images/jacana-river-lodge-king-suite.jpg" alt="A king suite with a canopy bed and zebra-hide rug, opening onto the bush" loading="lazy" decoding="async"></button>
+          <button class="agal__tile" type="button" aria-label="View larger: Two lion cubs in the grass"><img src="assets/images/mjejane-game-reserve-safari-photos-wildlife-sightings-4-987effc2.jpg" alt="Two lion cubs in the grass" loading="lazy" decoding="async"></button>
+          <button class="agal__tile agal__tile--xs" type="button" aria-label="View larger: The patio looking out over the Crocodile River"><img src="assets/images/jacana-river-lodge-patio-river-view.jpg" alt="The patio looking out over the Crocodile River" loading="lazy" decoding="async"></button>
+        </div>
+        <div class="agal__col agal__col--3">
+          <button class="agal__tile" type="button" aria-label="View larger: A child with binoculars on the lodge deck, looking out over the Crocodile River"><img src="assets/images/Jacana-River-Lodge-Views-25-f99b8421.jpg" alt="A child with binoculars on the lodge deck, looking out over the Crocodile River" loading="lazy" decoding="async"></button>
+          <button class="agal__tile" type="button" aria-label="View larger: A parent and child in the infinity pool watching an elephant on the river bank"><img src="assets/images/Pool-Elephant-9f597f21.jpg" alt="A parent and child in the infinity pool watching an elephant on the river bank" loading="lazy" decoding="async"></button>
+          <button class="agal__tile" type="button" aria-label="View larger: The upper-level bar, set up for sundowners over the river"><img src="assets/images/Jacana-River-Lodge-Views-17-c9d4cf09.jpg" alt="The upper-level bar, set up for sundowners over the river" loading="lazy" decoding="async"></button>
+          <button class="agal__tile" type="button" aria-label="View larger: Children jumping into the infinity pool"><img src="assets/images/DSC_6666-scaled-506f0b26.jpg" alt="Children jumping into the infinity pool" loading="lazy" decoding="async"></button>
+          <button class="agal__tile agal__tile--xs" type="button" aria-label="View larger: A king bedroom with views into the bush"><img src="assets/images/jacana-river-lodge-king-bedroom.jpg" alt="A king bedroom with views into the bush" loading="lazy" decoding="async"></button>
+        </div>
       </div>
-      <a class="btn" href="gallery.html">View Full Gallery</a>
-    </div>
-    <div class="mosaic__grid" id="galleryGrid">
-      <button class="mosaic__item mosaic__item--a" type="button" aria-label="View larger: The covered deck and lounge at Jacana River Lodge, looking over the infinity pool to the river">
-        <img src="assets/images/Jacana-River-Lodge-Gallery-90-0bb171b1.jpg" alt="The covered deck and lounge at Jacana River Lodge, looking over the infinity pool to the river" loading="lazy" decoding="async">
-        <span class="mosaic__zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
-      </button>
-      <button class="mosaic__item mosaic__item--b" type="button" aria-label="View larger: A white rhino in the Mjejane Game Reserve">
-        <img src="assets/images/nicole-wreyford-rhino-mjejane-game-reserve-jacana-river-lodge-eca3473e.jpg" alt="A white rhino in the Mjejane Game Reserve" loading="lazy" decoding="async">
-        <span class="mosaic__zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
-      </button>
-      <button class="mosaic__item mosaic__item--c" type="button" aria-label="View larger: A child with binoculars on the lodge deck, looking out over the Crocodile River">
-        <img src="assets/images/Jacana-River-Lodge-Views-25-f99b8421.jpg" alt="A child with binoculars on the lodge deck, looking out over the Crocodile River" loading="lazy" decoding="async">
-        <span class="mosaic__zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
-      </button>
-      <button class="mosaic__item mosaic__item--d" type="button" aria-label="View larger: A leopard caught in the spotlight on a night drive">
-        <img src="assets/images/Game-Drive-Spotting-1-77f0347d.jpg" alt="A leopard caught in the spotlight on a night drive" loading="lazy" decoding="async">
-        <span class="mosaic__zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
-      </button>
-      <button class="mosaic__item mosaic__item--e" type="button" aria-label="View larger: Two lion cubs in the grass">
-        <img src="assets/images/mjejane-game-reserve-safari-photos-wildlife-sightings-4-987effc2.jpg" alt="Two lion cubs in the grass" loading="lazy" decoding="async">
-        <span class="mosaic__zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
-      </button>
-      <button class="mosaic__item mosaic__item--f" type="button" aria-label="View larger: The infinity pool at Jacana River Lodge with views over the bush">
-        <img src="assets/images/SWIMMING-POOL-VIEWS-1f3feeb6.jpg" alt="The infinity pool at Jacana River Lodge with views over the bush" loading="lazy" decoding="async">
-        <span class="mosaic__zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
-      </button>
-      <button class="mosaic__item mosaic__item--g" type="button" aria-label="View larger: The upper-level bar at Jacana River Lodge, set up for sundowners over the river">
-        <img src="assets/images/Jacana-River-Lodge-Views-17-c9d4cf09.jpg" alt="The upper-level bar at Jacana River Lodge, set up for sundowners over the river" loading="lazy" decoding="async">
-        <span class="mosaic__zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
-      </button>
-      <button class="mosaic__item mosaic__item--h" type="button" aria-label="View larger: Guests stargazing under the Milky Way in the Mjejane">
-        <img src="assets/images/stargazing-near-the-kruger-national-park-mjejane-game-reserve-c8e0e8c0.jpg" alt="Guests stargazing under the Milky Way in the Mjejane" loading="lazy" decoding="async">
-        <span class="mosaic__zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
-      </button>
     </div>
   </div>
 </section>

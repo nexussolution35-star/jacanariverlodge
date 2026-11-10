@@ -328,6 +328,33 @@
     reveals.forEach(function (el) { el.classList.add('in'); });
   }
 
+  /* ---------- gallery: scroll-driven photo wall + blur-in heading ---------- */
+  var agal = document.getElementById('agalScroll');
+  if (agal && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var agalTick = false;
+    // progress 0 when the wrapper's top reaches the top of the screen, 1 when its bottom reaches the bottom
+    var agalUpdate = function () {
+      agalTick = false;
+      var r = agal.getBoundingClientRect();
+      var span = r.height - window.innerHeight;
+      var p = span > 0 ? Math.min(1, Math.max(0, -r.top / span)) : 1;
+      agal.style.setProperty('--p', p.toFixed(4));
+    };
+    var agalOnScroll = function () { if (!agalTick) { agalTick = true; requestAnimationFrame(agalUpdate); } };
+    window.addEventListener('scroll', agalOnScroll, { passive: true });
+    window.addEventListener('resize', agalOnScroll);
+    agalUpdate();
+  }
+  var agalHead = document.querySelector('.agal__head');
+  if (agalHead) {
+    if ('IntersectionObserver' in window) {
+      var agalIo = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) { agalHead.classList.add('is-in'); agalIo.disconnect(); } });
+      }, { threshold: 0.25 });
+      agalIo.observe(agalHead);
+    } else { agalHead.classList.add('is-in'); }
+  }
+
   /* ---------- gallery lightbox ---------- */
   var lb = document.getElementById('lightbox');
   var lbImg = document.getElementById('lightboxImg');
