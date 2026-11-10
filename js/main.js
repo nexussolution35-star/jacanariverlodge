@@ -386,6 +386,20 @@
   }
 
   /* ---------- google reviews carousel ---------- */
+  // long reviews: clamp to six lines with a "Read more" toggle (full text stays in the page)
+  Array.prototype.forEach.call(document.querySelectorAll('.review-card__text'), function (t) {
+    if (t.textContent.length < 260) return;
+    t.classList.add('is-clamped');
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'review-card__more'; b.textContent = 'Read more';
+    b.setAttribute('aria-expanded', 'false');
+    b.addEventListener('click', function () {
+      var open = t.classList.toggle('is-clamped') === false;
+      b.textContent = open ? 'Show less' : 'Read more';
+      b.setAttribute('aria-expanded', String(open));
+    });
+    t.parentNode.appendChild(b);
+  });
   var rTrack = document.getElementById('reviewsTrack');
   if (rTrack) {
     var rPrev = document.getElementById('reviewsPrev');

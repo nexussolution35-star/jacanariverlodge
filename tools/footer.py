@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Write the shared site footer into every page (run from the repo root).
-Pages one folder down (activities/) get '../' in front of local links."""
+Links are root-relative and match the live jacanariverlodge.com URLs."""
 import os, re
 
 def footer(r):
@@ -17,14 +17,14 @@ def footer(r):
                ('whatsapp', 'WhatsApp', 'https://wa.me/27662937100'),
                ('tripadvisor', 'Tripadvisor', 'https://www.tripadvisor.co.za/VacationRentalReview-g657276-d19114871-Jacana_River_Lodge-Hectorspruit_Mpumalanga.html')]
     soc = "\n".join(f'          <li><a href="{u}" target="_blank" rel="noopener" aria-label="Jacana River Lodge on {n}"><svg viewBox="0 0 24 24" aria-hidden="true">{ic[k]}</svg></a></li>' for k, n, u in socials)
-    home = f'{r}index.html'
+    home = '/'
     return f'''<footer class="footer">
   <div class="container">
     <div class="footer__grid">
       <div class="footer__brand">
         <a class="footer__logo" href="{home}" aria-label="Jacana River Lodge home">
-          <img class="brand-foot" src="{r}assets/images/logo-footer.png" alt="Jacana River Lodge" width="560" height="332" loading="lazy">
-          <img class="footer__stars" src="{r}assets/images/tgcsa-5-star.png" alt="5-star graded by the TGCSA" width="198" height="50" loading="lazy">
+          <img class="brand-foot" src="/assets/images/logo-footer.png" alt="Jacana River Lodge" width="560" height="332" loading="lazy">
+          <img class="footer__stars" src="/assets/images/tgcsa-5-star.png" alt="5-star graded by the TGCSA" width="198" height="50" loading="lazy">
         </a>
         <ul class="footer__social">
 {soc}
@@ -33,20 +33,22 @@ def footer(r):
       <nav class="footer__col" aria-label="Useful links">
         <h4>Useful links</h4>
         <ul>
-          <li><a href="{r}about.html">About the Lodge</a></li>
-          <li><a href="{r}activities/index.html">Activities</a></li>
-          <li><a href="{r}mjejane-reserve.html">Mjejane Reserve</a></li>
-          <li><a href="{r}gallery.html">Gallery</a></li>
-          <li><a href="{r}blogs.html">News &amp; Stories</a></li>
-          <li><a href="{r}specials.html">Specials</a></li>
+          <li><a href="/luxury-self-catering-lodge-accommodation-in-mpumalanga/">About the Lodge</a></li>
+          <li><a href="/activities-near-mjejane/">Activities</a></li>
+          <li><a href="/mjejane-game-reserve-accommodation-guide/">Mjejane Reserve</a></li>
+          <li><a href="/gallery/">Gallery</a></li>
+          <li><a href="/news/">News &amp; Stories</a></li>
+          <li><a href="/mjejane-accommodation-specials/">Specials</a></li>
+          <li><a href="/mjejane-accommodation-prices-and-packages/">Packages</a></li>
         </ul>
       </nav>
       <nav class="footer__col" aria-label="Information">
         <h4>Information</h4>
         <ul>
-          <li><a href="{r}rates.html">Rates &amp; Facilities</a></li>
-          <li><a href="{home}#enquire">Book Your Stay</a></li>
-          <li><a href="{r}directions.html">Directions</a></li>
+          <li><a href="/facilities/">Rates &amp; Facilities</a></li>
+          <li><a href="/book-now/">Book Your Stay</a></li>
+          <li><a href="/contact-us/">Contact Us</a></li>
+          <li><a href="/directions/">Directions</a></li>
           <li><a href="{home}#faq">FAQs</a></li>
           <li><a href="tel:+27662937100">+27 (0)66 293 7100</a></li>
           <li><a href="mailto:info@jacanariverlodge.com">info@jacanariverlodge.com</a></li>
@@ -55,7 +57,7 @@ def footer(r):
       <div class="footer__col footer__awards">
         <h4>Awarded &amp; graded</h4>
         <ul class="badges">
-          <li class="badge badge--tgcsa"><img src="{r}assets/images/tgcsa-5-star.png" alt="" width="198" height="50" loading="lazy"><b>5-Star</b><span>TGCSA graded</span></li>
+          <li class="badge badge--tgcsa"><img src="/assets/images/tgcsa-5-star.png" alt="" width="198" height="50" loading="lazy"><b>5-Star</b><span>TGCSA graded</span></li>
           <li><a class="badge badge--booking" href="{home}#reviews" aria-label="Booking.com Traveller Review Awards 2026: 9.6 out of 10"><span class="badge__logo">Booking.com</span><b>9.6</b><span>Traveller Review<br>Award 2026</span></a></li>
           <li><a class="badge badge--google" href="https://g.page/jacana-river-lodge?share" target="_blank" rel="noopener" aria-label="Rated 4.5 out of 5 on Google"><span class="badge__logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg></span><b>4.5</b><span>Google<br>guest rating</span></a></li>
         </ul>
@@ -66,8 +68,8 @@ def footer(r):
       <ul class="footer__legal">
         <li><a href="https://jacanariverlodge.com/cookies-and-privacy-policy/">Cookie &amp; privacy policy</a></li>
         <li><a href="https://jacanariverlodge.com/rules-and-safety/">Rules &amp; safety</a></li>
-        <li><a href="{r}directions.html">Find us</a></li>
-        <li><a href="{home}#send-enquiry">Contact us</a></li>
+        <li><a href="/directions/">Find us</a></li>
+        <li><a href="/contact-us/">Contact us</a></li>
       </ul>
     </div>
   </div>
@@ -80,7 +82,7 @@ for root, dirs, files in os.walk('.'):
         if not f.endswith('.html'): continue
         p = os.path.join(root, f); t = open(p).read()
         if '<footer class="footer">' not in t: continue
-        r = '../' * (p.count('/') - 1)
+        r = '/'
         a = t.index('<footer class="footer">'); b = t.index('</footer>', a) + len('</footer>')
         t2 = t[:a] + footer(r) + t[b:]
         if t2 != t: open(p, 'w').write(t2); n += 1
