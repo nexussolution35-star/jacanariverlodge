@@ -343,7 +343,8 @@
   function closeLb() { lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; }
   if (lb && galleryImgs.length) {
     galleryImgs.forEach(function (img, i) {
-      img.addEventListener('click', function () { openLb(i); });
+      // homepage tiles are buttons (keyboard friendly); the gallery page binds the image itself
+      (img.closest('button') || img).addEventListener('click', function () { openLb(i); });
     });
     document.getElementById('lightboxClose').addEventListener('click', closeLb);
     document.getElementById('lightboxNext').addEventListener('click', function () { showLb(lbIndex + 1); });

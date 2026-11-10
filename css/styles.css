@@ -408,17 +408,28 @@ a.rv:hover .rv__name{color:var(--gold)}
 .xp-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 @media (prefers-reduced-motion:reduce){.xp-video__play::before{animation:none}}
 
-/* journal call-to-action: fixed-background parallax band */
-.cta-par{position:relative;display:flex;align-items:center;min-height:clamp(460px,72vh,640px);padding:clamp(70px,9vw,120px) 0;
-  background-size:cover;background-position:center 35%;background-attachment:fixed;color:#fff;text-align:center}
-.cta-par::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,18,14,.62),rgba(22,18,14,.55))}
-.cta-par__inner{position:relative;z-index:1;max-width:820px}
-.cta-par .sec-eyebrow{color:#efe6d4}
-.cta-par .sec-title{color:#fff}
-.cta-par .sec-lead{max-width:680px;margin:0 auto 16px;color:#f1eadb;text-shadow:0 1px 12px rgba(0,0,0,.35)}
-.cta-par .sec-title+.sec-lead{margin-top:clamp(20px,2.2vw,28px)}
-.cta-par .btn{margin-top:clamp(14px,1.6vw,22px)}
-@media (max-width:880px),(hover:none){.cta-par{background-attachment:scroll}}
+/* homepage gallery: photo mosaic, opens in the lightbox */
+.mosaic{background:#FFF9F4;padding:clamp(70px,8vw,110px) 0}
+.mosaic .sec-title{font-size:clamp(1.8rem,3vw,2.7rem);letter-spacing:.06em}
+.mosaic__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:clamp(170px,17vw,270px);gap:clamp(10px,1.2vw,16px);
+  grid-template-areas:"a a b c" "a a d e" "f f g h"}
+.mosaic__item{position:relative;display:block;padding:0;border:0;margin:0;border-radius:var(--photo-r);overflow:hidden;background:#e9e3d2;cursor:zoom-in}
+.mosaic__item--a{grid-area:a}.mosaic__item--b{grid-area:b}.mosaic__item--c{grid-area:c}.mosaic__item--d{grid-area:d}
+.mosaic__item--e{grid-area:e}.mosaic__item--f{grid-area:f}.mosaic__item--g{grid-area:g}.mosaic__item--h{grid-area:h}
+.mosaic__item img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.mosaic__item::after{content:"";position:absolute;inset:0;background:rgba(20,14,8,0);transition:background .35s}
+.mosaic__zoom{position:absolute;right:12px;bottom:12px;z-index:1;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+  background:rgba(255,249,244,.92);opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s var(--ease)}
+.mosaic__zoom svg{width:17px;height:17px;fill:none;stroke:#A04E29;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mosaic__item:hover img{transform:scale(1.05)}
+.mosaic__item:hover::after{background:rgba(20,14,8,.18)}
+.mosaic__item:hover .mosaic__zoom,.mosaic__item:focus-visible .mosaic__zoom{opacity:1;transform:none}
+.mosaic__item:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+@media (max-width:760px){
+  .mosaic__grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:clamp(140px,40vw,220px);
+    grid-template-areas:"a a" "a a" "b c" "d e" "f f" "g h"}
+  .mosaic__zoom{opacity:1;transform:none;width:32px;height:32px}
+}
 
 /* FAQ: brown question bars; the open answer sits on a light panel */
 .faq{background:#FFEFD4;padding:clamp(70px,8vw,110px) 0}
