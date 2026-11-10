@@ -414,16 +414,14 @@ a.rv:hover .rv__name{color:var(--gold)}
 .agal{position:relative;background:#FFF9F4;padding-top:clamp(70px,8vw,110px)}
 .agal__glow{position:absolute;left:0;right:0;top:clamp(160px,18vw,260px);height:70vh;pointer-events:none;
   background:linear-gradient(90deg,#f3d6b8,#e8b48f 35%,#f7e3c4 65%,#e9c7a3);filter:blur(84px);opacity:.55}
-.agal__head{position:relative;z-index:3;text-align:center;max-width:780px;margin-bottom:-3rem}
+.agal__head{position:relative;z-index:3;text-align:center;max-width:780px;margin-bottom:clamp(36px,4.5vw,64px)}
 .agal__head .sec-lead{margin:clamp(14px,1.6vw,20px) auto 0;max-width:620px}
-.agal__head .btn{margin-top:clamp(18px,2vw,26px)}
 /* heading lines blur in one after another */
 .agal__in{opacity:0;filter:blur(10px);transform:translateY(10px);transition:opacity .7s var(--ease),filter .7s var(--ease),transform .7s var(--ease)}
 .agal__head.is-in .agal__in{opacity:1;filter:blur(0);transform:none}
 .agal__head.is-in .agal__in:nth-child(2){transition-delay:.15s}
 .agal__head.is-in .agal__in:nth-child(3){transition-delay:.3s}
 .agal__head.is-in .agal__in:nth-child(4){transition-delay:.45s}
-.agal__head.is-in .agal__in:nth-child(5){transition-delay:.6s}
 .agal__scroll{--p:0;position:relative;height:300vh;perspective:1000px;perspective-origin:center top}
 .agal__sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;perspective:1000px;perspective-origin:center top}
 .agal__wall{--rise:clamp(0,var(--p)*2,1);--settle:clamp(0,(var(--p) - .5)/.4,1);--drift:clamp(0,(var(--p) - .5)*2,1);
@@ -438,11 +436,21 @@ a.rv:hover .rv__name{color:var(--gold)}
 .agal__tile img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
 .agal__tile:hover img{transform:scale(1.05)}
 .agal__tile:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+/* warm brand wash over the photos while they lie flat; clears as they rise */
+.agal__veil{position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:linear-gradient(180deg,rgba(248,229,208,.8) 0%,rgba(240,205,172,.5) 20%,rgba(232,180,143,.2) 45%,rgba(255,249,244,0) 72%),
+             linear-gradient(90deg,rgba(243,214,184,.32),rgba(232,180,143,.22) 40%,rgba(247,227,196,.28) 70%,rgba(233,199,163,.32));
+  opacity:calc(1 - clamp(0,var(--p)*2.2,1))}
+/* the wall dissolves into the page at the bottom, so the section ends softly */
+.agal__fade{position:absolute;left:0;right:0;bottom:0;height:38%;pointer-events:none;z-index:2;
+  background:linear-gradient(180deg,rgba(255,249,244,0) 0%,rgba(255,249,244,.8) 30%,#FFF9F4 55%);
+  opacity:clamp(0,(var(--p) - .55)/.35,1)}
+.agal__end{position:relative;z-index:3;text-align:center;margin-top:-11vh;padding-bottom:clamp(70px,8vw,110px)}
 @media (max-width:760px){
   .agal__scroll{height:220vh}
   .agal__tile{aspect-ratio:3/4;min-height:22vh;min-height:22svh}
   .agal__tile--xs{display:block}
-  .agal__head{margin-bottom:-1.5rem}
+  .agal__end{margin-top:-11vh}
 }
 /* no motion: a plain three-column wall */
 @media (prefers-reduced-motion:reduce){
@@ -451,7 +459,8 @@ a.rv:hover .rv__name{color:var(--gold)}
   .agal__wall{transform:none;height:auto}
   .agal__col--1,.agal__col--2,.agal__col--3{transform:none;margin-top:0}
   .agal__in{opacity:1;filter:none;transform:none}
-  .agal__head{margin-bottom:0}
+  .agal__veil,.agal__fade{display:none}
+  .agal__end{margin-top:0}
 }
 
 /* FAQ: brown question bars; the open answer sits on a light panel */
