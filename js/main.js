@@ -138,10 +138,9 @@
       var phone = (d.get('phone') || '').trim();
       var validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
       if (!name || (!validEmail && !phone)) { setNote('Please add your name and an email or phone number.'); return; }
-      msg.classList.add('is-ok');
-      msg.textContent = 'Thank you, ' + name + '! We’ll be in touch shortly about ' +
-        longDate(arr.value) + ' – ' + longDate(dep.value) + ' (' + plural(+guests.value, 'guest', 'guests') + ').';
-      ['name', 'phone', 'email'].forEach(function (n) { bar.elements[n].value = ''; });
+      // TODO(back-end): submit to the CRM/NightsBridge first. The success URL must be a full page load:
+      // the live site's Google Ads conversions are page views of these thank-you pages.
+      window.location.href = '/thank-you-for-your-booking-enquiry/';
     });
 
     // "Enquire" in the nav opens the card instead of leaving the page
@@ -309,9 +308,8 @@
         nlMsg.textContent = 'Please enter your full name, phone number and a valid email address.';
         return;
       }
-      nlMsg.style.color = '#fff';
-      nlMsg.textContent = 'Thank you, ' + name.split(' ')[0] + '! We\u2019ve received your message and will be in touch shortly.';
-      nlForm.reset(); // consent box returns to ticked
+      // TODO(back-end): submit to the CRM first, then go to the success page (full page load for conversions).
+      window.location.href = '/thank-you/';
     });
   }
 

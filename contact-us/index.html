@@ -240,9 +240,8 @@
       return;
     }
     msg.textContent = '';
-    form.style.display = 'none';
-    thanks.style.display = 'block';
-    thanks.focus();
+    // TODO(back-end): submit to the CRM first, then go to the success page (full page load for conversions).
+    window.location.href = '/thank-you/';
   });
 })();
 </script>

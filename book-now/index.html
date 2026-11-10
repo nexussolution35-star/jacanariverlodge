@@ -233,9 +233,9 @@
       return;
     }
     msg.textContent = '';
-    form.style.display = 'none';
-    thanks.style.display = 'block';
-    thanks.focus();
+    // TODO(back-end): submit to the CRM/NightsBridge first, then go to the success page.
+    // A full page load of the success URL keeps the live site's page-view conversions working.
+    window.location.href = '/thank-you-for-your-booking-enquiry/';
   });
 })();
 </script>

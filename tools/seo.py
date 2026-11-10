@@ -7,6 +7,7 @@ For each folder/index.html page:
   * every page gets a self-referencing canonical on https://jacanariverlodge.com
     plus og:url / og:title / og:description and an absolute og:image;
   * /activities/ (a live duplicate of /activities-near-mjejane/) is copied from the hub;
+  * absolute links to live URLs that exist in this build are made root-relative;
   * sitemap_index.xml + page-sitemap.xml list every page in this build (same names as Yoast).
 """
 import csv, html, os, re, shutil
@@ -58,7 +59,11 @@ for path, url in pages():
     if desc:
         head = set_tag(head, r'<meta property="og:description" content="[^"]*">', '<meta property="og:description" content="' + attr(desc) + '">')
     head = re.sub(r'(<meta property="og:image" content=")/', r'\g<1>' + DOMAIN + '/', head)
-    t2 = t[:a] + head + t[b:]
+    # body links to live URLs that now exist in this build become root-relative
+    rest = re.sub(r'href="' + re.escape(DOMAIN) + r'(/[^"#?]*)([^"]*)"',
+                  lambda m: f'href="{m.group(1)}{m.group(2)}"' if os.path.exists('.' + m.group(1).rstrip('/') + '/index.html') else m.group(0),
+                  t[b:])
+    t2 = t[:a] + head + rest
     if t2 != t:
         open(path, 'w').write(t2)
     noindex = re.search(r'<meta name="robots" content="[^"]*noindex', head)
