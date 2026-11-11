@@ -556,7 +556,7 @@ a.rv:hover .rv__name{color:var(--gold)}
 /* inner pages: photo grid + single figure (flat, 5px corners, no shadows) */
 .page-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin:28px 0}
 .page-gallery figure,.page-figure{margin:0}
-.page-gallery img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--photo-r)}
+.page-gallery img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:var(--photo-r)}
 .page-gallery figcaption,.page-figure figcaption{font-size:.84rem;color:var(--muted);margin-top:6px;line-height:1.45}
 .page-figure{margin:28px 0}
 .page-figure img{display:block;width:100%;height:auto;border-radius:var(--photo-r)}
