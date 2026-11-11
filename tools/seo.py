@@ -16,6 +16,12 @@ DOMAIN = 'https://jacanariverlodge.com'
 SKIP = {'.git', 'seo', 'tools', 'assets', 'css', 'js', 'node_modules'}
 inv = {r['path']: r for r in csv.DictReader(open('seo/url-inventory.csv'))}
 
+# SEO decisions that deliberately replace a live value (documented in the SEO report)
+META_OVERRIDES = {
+    # live page reused /book-now/'s description word for word
+    '/mjejane-accommodation-specials/': 'Low-season special at Jacana River Lodge: stay 3 nights and get the 4th night at 50% off at our 5-star self-catering lodge in the Mjejane Game Reserve.',
+}
+
 # live duplicate kept at its own URL until Search Console says it can be redirected
 os.makedirs('activities', exist_ok=True)
 shutil.copyfile('activities-near-mjejane/index.html', 'activities/index.html')
@@ -47,7 +53,10 @@ for path, url in pages():
     live = inv.get(url)
     if live and live['title']:
         head = re.sub(r'<title>.*?</title>', '<title>' + attr(live['title']) + '</title>', head, count=1, flags=re.S)
-    if live and live['meta_description']:
+    if url in META_OVERRIDES:
+        head = set_tag(head, r'<meta name="description" content="[^"]*">',
+                       '<meta name="description" content="' + attr(META_OVERRIDES[url]) + '">')
+    elif live and live['meta_description']:
         head = set_tag(head, r'<meta name="description" content="[^"]*">',
                        '<meta name="description" content="' + attr(live['meta_description']) + '">')
     title = html.unescape(re.search(r'<title>(.*?)</title>', head, re.S).group(1))

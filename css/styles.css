@@ -217,7 +217,7 @@ html{scroll-padding-top:150px}
 .rv__text{display:grid;gap:5px;line-height:1}
 .rv__score{display:flex;align-items:center;gap:8px}
 .rv__score b{font-family:var(--sans);font-size:1.12rem;font-weight:700;color:#fff;line-height:1;font-variant-numeric:lining-nums}
-.rv__muted{font-size:.82rem;color:#e2d9c8}
+.rv__muted{font-size:.82rem;color:#FFC400} /* same gold as the review stars */
 .rv__name{font-size:.84rem;color:#ece4d4;transition:color .2s}
 a.rv:hover .rv__name{color:var(--gold)}
 .rv-stars{--fill:100%;position:relative;display:inline-block;font-size:.95rem;letter-spacing:2px;line-height:1}
@@ -552,6 +552,16 @@ a.rv:hover .rv__name{color:var(--gold)}
   .posts__row::-webkit-scrollbar{display:none}
   .post-card{flex:0 0 78%;scroll-snap-align:start;min-height:380px}
 }
+
+/* inner pages: photo grid + single figure (flat, 5px corners, no shadows) */
+.page-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin:28px 0}
+.page-gallery figure,.page-figure{margin:0}
+.page-gallery img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--photo-r)}
+.page-gallery figcaption,.page-figure figcaption{font-size:.84rem;color:var(--muted);margin-top:6px;line-height:1.45}
+.page-figure{margin:28px 0}
+.page-figure img{display:block;width:100%;height:auto;border-radius:var(--photo-r)}
+.page-figure--poster img{max-width:560px;margin:0 auto}
+@media (max-width:560px){.page-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}}
 
 /* =========================================================
    PARTNERS STRIP
