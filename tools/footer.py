@@ -30,32 +30,32 @@ def footer(r):
 {soc}
         </ul>
       </div>
-      <nav class="footer__col" aria-label="Useful links">
-        <h4>Useful links</h4>
+      <nav class="footer__col" aria-label="Explore">
+        <h2 class="footer__h">Explore</h2>
         <ul>
-          <li><a href="/luxury-self-catering-lodge-accommodation-in-mpumalanga/">About the Lodge</a></li>
+          <li><a href="/luxury-self-catering-lodge-accommodation-in-mpumalanga/">The Lodge</a></li>
+          <li><a href="/facilities/">Rates &amp; Facilities</a></li>
           <li><a href="/activities-near-mjejane/">Activities</a></li>
           <li><a href="/mjejane-game-reserve-accommodation-guide/">Mjejane Reserve</a></li>
-          <li><a href="/gallery/">Gallery</a></li>
+          <li><a href="/guest-reviews/">Guest Reviews</a></li>
           <li><a href="/news/">News &amp; Stories</a></li>
-          <li><a href="/mjejane-accommodation-specials/">Specials</a></li>
-          <li><a href="/mjejane-accommodation-prices-and-packages/">Packages</a></li>
+          <li><a href="/accommodation-near-malelane/">Accommodation near Malelane</a></li>
+          <li><a href="/accommodation-near-komatipoort/">Accommodation near Komatipoort</a></li>
         </ul>
       </nav>
-      <nav class="footer__col" aria-label="Information">
-        <h4>Information</h4>
+      <nav class="footer__col" aria-label="Plan your stay">
+        <h2 class="footer__h">Plan your stay</h2>
         <ul>
-          <li><a href="/facilities/">Rates &amp; Facilities</a></li>
           <li><a href="/book-now/">Book Your Stay</a></li>
           <li><a href="/contact-us/">Contact Us</a></li>
           <li><a href="/directions/">Directions</a></li>
-          <li><a href="{home}#faq">FAQs</a></li>
+          <li><a href="/faq/">FAQ</a></li>
           <li><a href="tel:+27662937100">+27 (0)66 293 7100</a></li>
           <li><a href="mailto:info@jacanariverlodge.com">info@jacanariverlodge.com</a></li>
         </ul>
       </nav>
       <div class="footer__col footer__awards">
-        <h4>Awarded &amp; graded</h4>
+        <h2 class="footer__h">Awarded &amp; graded</h2>
         <ul class="badges">
           <li class="badge badge--tgcsa"><img src="/assets/images/tgcsa-5-star.png" alt="" width="198" height="50" loading="lazy"><b>5-Star</b><span>TGCSA graded</span></li>
           <li><a class="badge badge--booking" href="{home}#reviews" aria-label="Booking.com Traveller Review Awards 2026: 9.6 out of 10"><span class="badge__logo">Booking.com</span><b>9.6</b><span>Traveller Review<br>Award 2026</span></a></li>

@@ -10,13 +10,26 @@ Every page lives at the **same path as on the live jacanariverlodge.com**, as `f
 (e.g. Rates & Facilities is `/facilities/`), with root-relative links. Keep it that way: the live
 URLs carry the site's Google rankings. The preservation plan is in `seo/` (`seo/README.md`, `url-map.csv`).
 
-After editing pages, regenerate the shared parts from the repo root:
+After editing pages, regenerate the shared parts from the repo root, in this order:
 
 ```bash
-python3 tools/header.py   # floating nav (menu, Activities dropdown, Book Now button)
-python3 tools/footer.py   # site footer
-python3 tools/seo.py      # live titles/meta, canonicals, /activities/ copy, sitemap_index.xml + page-sitemap.xml
+python3 tools/header.py   # floating nav: Stay / Activities / Mjejane Reserve dropdowns, News, Contact Us, Book Now
+python3 tools/footer.py   # site footer (Explore, Plan your stay, awards)
+python3 tools/silo.py     # breadcrumbs + BreadcrumbList schema + "more in this section" block
+python3 tools/seo.py      # titles/meta (live, or the approved spec overrides), canonicals, /activities/ copy, sitemaps
+python3 tools/audit.py    # report-only SEO scorecard
 ```
+
+**Silo structure.** `tools/silo_map.py` holds the approved structure (`seo/Jacana-Site-Structure.pdf`):
+every page's label, parent, silo and one-line blurb, plus the menu. The menu, breadcrumbs and the
+"more in this section" block all come from it, so a new page needs one line there (pick its parent
+in the same silo) and then the commands above. Links run hub ⇄ page and between siblings, never
+across silos; Book Now and Contact Us are open to every page. The block sits between
+`<!-- SILO -->` and `<!-- /SILO -->` before the footer; don't edit it by hand.
+
+**Titles and descriptions.** Pages that exist on the live site keep their live title and description
+(`seo/url-inventory.csv`) unless `TITLE_OVERRIDES` / `META_OVERRIDES` in `tools/seo.py` carry an
+approved change (SEO Spec Part 1: Home & Stay). New pages keep what is in their own `<head>`.
 
 `robots.txt` is the live site's file. Preview deploys must replace it with `Disallow: /`
 so the preview never competes with the live site in Google.

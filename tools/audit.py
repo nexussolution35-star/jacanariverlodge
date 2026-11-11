@@ -72,7 +72,7 @@ for path, url in pages():
             named = pre.rfind('<label') > pre.rfind('</label>')
         if not named: unnamed += 1
     if unnamed: checks['form controls have accessible names'].append(f'{url} ({unnamed})')
-    ld = ' '.join(re.findall(r'<script type="application/ld\+json">(.*?)</script>', h, re.S))
+    ld = ' '.join(re.findall(r'<script type="application/ld\+json"[^>]*>(.*?)</script>', h, re.S))
     if url in ('/', '/contact-us/') and not re.search(r'"(LodgingBusiness|LocalBusiness|Hotel|Resort)"', ld):
         checks['schema: LodgingBusiness/LocalBusiness on home + contact'].append(url)
     if url != '/' and 'BreadcrumbList' not in ld: checks['schema: BreadcrumbList on deep pages'].append(url)

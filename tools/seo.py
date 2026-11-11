@@ -3,7 +3,8 @@
 
 For each folder/index.html page:
   * pages that replace a live URL get the live <title> and meta description
-    (from seo/url-inventory.csv) so Google sees no change in the snippet;
+    (from seo/url-inventory.csv), except where TITLE_/META_OVERRIDES carry an
+    approved SEO-spec change; new pages keep the title/description in their own <head>;
   * every page gets a self-referencing canonical on https://jacanariverlodge.com
     plus og:url / og:title / og:description and an absolute og:image;
   * /activities/ (a live duplicate of /activities-near-mjejane/) is copied from the hub;
@@ -16,11 +17,26 @@ DOMAIN = 'https://jacanariverlodge.com'
 SKIP = {'.git', 'seo', 'tools', 'assets', 'css', 'js', 'node_modules'}
 inv = {r['path']: r for r in csv.DictReader(open('seo/url-inventory.csv'))}
 
-# SEO decisions that deliberately replace a live value (documented in the SEO report)
+# SEO decisions that deliberately replace a live value.
+# Approved in "SEO Spec, Part 1: Home & Stay" (seo/Jacana-SEO-Plan-Part-1-Home-and-Stay.pdf).
+# Pages not listed here keep their live title and description word for word.
+TITLE_OVERRIDES = {
+    '/': 'Jacana River Lodge | Kruger Park Lodge in Mpumalanga',
+    '/luxury-self-catering-lodge-accommodation-in-mpumalanga/': 'Self-Catering Lodge in Mpumalanga | Jacana River Lodge',
+    '/self-catering-getaway-in-mpumalanga/': 'Bush Getaway in Mpumalanga | Jacana River Lodge',
+    '/mjejane-accommodation-specials/': 'Mjejane Accommodation Specials | Jacana River Lodge',
+}
 META_OVERRIDES = {
+    '/': 'Exclusive-use, 5-star self-catering safari lodge on the Crocodile River in the Mjejane Game Reserve, Greater Kruger. Sleeps 10. Book direct.',
+    '/luxury-self-catering-lodge-accommodation-in-mpumalanga/': 'A private 5-star self-catering lodge in the Mjejane Game Reserve, Mpumalanga, with 5 king en-suite rooms, an infinity pool and Crocodile River views.',
+    '/facilities/': '2026 rates for Jacana River Lodge, a self-catering lodge near the Kruger National Park: from R11 950 a night for the whole lodge, up to 10 guests.',
+    '/self-catering-getaway-in-mpumalanga/': 'Plan a bush getaway in Mpumalanga at Jacana River Lodge: a private self-catering lodge for up to 10 on the Crocodile River, 4 hours from Johannesburg.',
     # live page reused /book-now/'s description word for word
     '/mjejane-accommodation-specials/': 'Low-season special at Jacana River Lodge: stay 3 nights and get the 4th night at 50% off at our 5-star self-catering lodge in the Mjejane Game Reserve.',
 }
+for _d in (TITLE_OVERRIDES, META_OVERRIDES):
+    for _u, _v in _d.items():
+        assert len(_v) <= (60 if _d is TITLE_OVERRIDES else 160), (_u, len(_v))
 
 # live duplicate kept at its own URL until Search Console says it can be redirected
 os.makedirs('activities', exist_ok=True)
@@ -51,8 +67,9 @@ for path, url in pages():
     a = t.index('<head>'); b = t.index('</head>') + len('</head>')
     head = t[a:b]
     live = inv.get(url)
-    if live and live['title']:
-        head = re.sub(r'<title>.*?</title>', '<title>' + attr(live['title']) + '</title>', head, count=1, flags=re.S)
+    new_title = TITLE_OVERRIDES.get(url) or (live and live['title'])
+    if new_title:
+        head = re.sub(r'<title>.*?</title>', '<title>' + attr(new_title) + '</title>', head, count=1, flags=re.S)
     if url in META_OVERRIDES:
         head = set_tag(head, r'<meta name="description" content="[^"]*">',
                        '<meta name="description" content="' + attr(META_OVERRIDES[url]) + '">')
@@ -88,4 +105,4 @@ with open('page-sitemap.xml', 'w') as f:
 with open('sitemap_index.xml', 'w') as f:
     f.write('<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
             f'  <sitemap><loc>{DOMAIN}/page-sitemap.xml</loc></sitemap>\n</sitemapindex>\n')
-print('pages:', len(urls), '| live titles kept:', sum(1 for u in urls if u in inv))
+print('pages:', len(urls), '| live titles kept:', sum(1 for u in urls if u in inv and u not in TITLE_OVERRIDES), '| spec titles:', len(TITLE_OVERRIDES))

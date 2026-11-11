@@ -32,18 +32,30 @@
     });
   }
 
-  /* ---------- activities dropdown (mobile expand) ---------- */
-  var dd = document.getElementById('navDd');
-  if (dd) {
+  /* ---------- silo dropdowns (Stay / Activities / Mjejane Reserve) ---------- */
+  // desktop: open on hover; mobile: the top link only expands its submenu
+  // (each submenu starts with a link to its hub page). One open at a time.
+  var dds = Array.prototype.slice.call(document.querySelectorAll('.nav-dd'));
+  dds.forEach(function (dd) {
     var ddToggle = dd.querySelector('.nav-dd__toggle');
+    if (!ddToggle) return;
     ddToggle.addEventListener('click', function (e) {
       if (window.innerWidth <= 1060) {
         e.preventDefault();
         e.stopPropagation();
-        dd.classList.toggle('open');
+        var open = !dd.classList.contains('open');
+        dds.forEach(function (o) {
+          o.classList.remove('open');
+          var t = o.querySelector('.nav-dd__toggle');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        });
+        dd.classList.toggle('open', open);
+        ddToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       }
     });
-  }
+    dd.addEventListener('mouseenter', function () { ddToggle.setAttribute('aria-expanded', 'true'); });
+    dd.addEventListener('mouseleave', function () { ddToggle.setAttribute('aria-expanded', 'false'); });
+  });
 
   /* ---------- hero booking bar ---------- */
   var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];

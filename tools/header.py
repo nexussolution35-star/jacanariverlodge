@@ -1,51 +1,49 @@
 #!/usr/bin/env python3
 """Write the shared header (floating nav) into every page (run from the repo root).
 Links are root-relative and match the live jacanariverlodge.com URLs."""
-import os
+import html, os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from silo_map import PAGES, MENU, MENU_LINKS, silo_of
 
-NAV = [
-    ('Home', '/'),
-    ('About', '/luxury-self-catering-lodge-accommodation-in-mpumalanga/'),
-    ('Activities', '/activities-near-mjejane/'),          # dropdown
-    ('Mjejane Reserve', '/mjejane-game-reserve-accommodation-guide/'),
-    ('Gallery', '/gallery/'),
-    ('Rates', '/facilities/'),
-    ('Contact Us', '/contact-us/'),
-]
-ACTIVITIES = [
-    ('All Activities', '/activities-near-mjejane/'),
-    ('Private Game Drives', '/game-drive-mjejane-game-reserve/'),
-    ('Kruger Drives with Ranger Special Khoza', '/kruger-private-drives-special-khoza/'),
-    ('Kruger Safaris with Irving Knight', '/kruger-full-day-safari-with-irving-knight-safaris/'),
-    ('Mjejane Bush Walks', '/guided-bush-walks-kruger-national-park/'),
-    ('Mjejane Bush Spa', '/mjejane-mobile-bush-spa/'),
-    ('Birding on the Mjejane', '/mjejane-game-reserve-birding-guide/'),
-    ('Kingsland Recreational Area', '/kingsland-recreational-area/'),
-    ('Wildlife &amp; Sightings', '/wildlife-and-sightings/'),
-]
-ACT_PATHS = {u for _, u in ACTIVITIES} | {'/activities/'}
+HUB_LABEL = {'Stay': 'The Lodge', 'Activities': 'All Activities', 'Mjejane Reserve': 'Mjejane Reserve Guide'}
+
 
 def header(url):
-    def cur(u):
-        return ' class="active" aria-current="page"' if u == url else ''
+    def link(u, label, indent):
+        cur = ' aria-current="page"' if u == url else ''
+        return f'{indent}<a href="{u}"{cur}>{label}</a>'
+
     items = []
-    for label, u in NAV:
-        if label == 'Activities':
-            on = url in ACT_PATHS
-            here = ' aria-current="page"'
-            sub = "\n".join(
-                f'          <a href="{au}"{here if au == url else ""}>'
-                + (f'<strong>{al}</strong>' if al == 'All Activities' else al) + '</a>'
-                for al, au in ACTIVITIES)
-            items.append(f'''      <div class="nav-dd" id="navDd">
-        <a href="{u}" class="nav-dd__toggle{' active' if on else ''}"{' aria-current="page"' if url == u else ''}>Activities <span class="caret" aria-hidden="true">&#9662;</span></a>
-        <div class="nav-dd__menu">
-{sub}
+    for label, hub, groups in MENU:
+        silo = silo_of(hub)
+        on = silo_of(url) == silo and url != '/'
+        ind = ' ' * 10
+        rows = []
+        multi = len(groups) > 1
+        if multi:   # "All Activities" sits above the columns
+            rows.append(link(hub, f'<strong>{HUB_LABEL[label]}</strong>', ind))
+        for heading, urls in groups:
+            g = []
+            for u in urls:
+                name = html.escape(PAGES[u][0], quote=False)
+                if u == hub: name = f'<strong>{HUB_LABEL[label]}</strong>'
+                g.append(link(u, name, ind + ('  ' if multi else '')))
+            if multi:
+                rows.append(f'{ind}<div class="nav-dd__group"><span class="nav-dd__label">{heading}</span>\n' + "\n".join(g) + f'\n{ind}</div>')
+            else:
+                rows += g
+        cls = 'nav-dd__menu' + (' nav-dd__menu--cols' if multi else '')
+        items.append(f'''      <div class="nav-dd">
+        <a href="{hub}" class="nav-dd__toggle{' active' if on else ''}" aria-haspopup="true" aria-expanded="false"{' aria-current="page"' if url == hub else ''}>{label} <span class="caret" aria-hidden="true">&#9662;</span></a>
+        <div class="{cls}">
+{chr(10).join(rows)}
         </div>
       </div>''')
-        else:
-            items.append(f'      <a href="{u}"{cur(u)}>{label}</a>')
+    for label, u in MENU_LINKS:
+        cur = ' class="active" aria-current="page"' if u == url else ''
+        items.append(f'      <a href="{u}"{cur}>{label}</a>')
     nav = "\n".join(items)
+    cur = lambda u: ' aria-current="page"' if u == url else ''
     return f'''<header class="site-header" id="siteHeader">
   <div class="nav-shell">
     <div class="nav-bg" aria-hidden="true"><span class="nav-bg__bar"></span><span class="nav-bg__tab"></span></div>
@@ -56,7 +54,7 @@ def header(url):
 {nav}
     </nav>
     <div class="header-cta">
-      <a class="btn btn--book" href="/book-now/"{cur('/book-now/').replace(' class="active"', '')}>Book Now</a>
+      <a class="btn btn--book" href="/book-now/"{cur('/book-now/')}>Book Now</a>
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
         <span></span><span></span><span></span>
       </button>
