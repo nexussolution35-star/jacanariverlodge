@@ -38,7 +38,10 @@ for _d in (TITLE_OVERRIDES, META_OVERRIDES):
     for _u, _v in _d.items():
         assert len(_v) <= (60 if _d is TITLE_OVERRIDES else 160), (_u, len(_v))
 
-# live duplicate kept at its own URL until Search Console says it can be redirected
+# /activities/ is the live site's older copy of the Activities hub (5 internal links point at it,
+# last edited 2021). The URL keeps working, but its canonical points at the hub so Google ranks one
+# page, and it leaves the sitemap. At the Lovable launch it becomes a 301 to the hub.
+CANONICAL_TO = {'/activities/': '/activities-near-mjejane/'}
 os.makedirs('activities', exist_ok=True)
 shutil.copyfile('activities-near-mjejane/index.html', 'activities/index.html')
 
@@ -79,8 +82,9 @@ for path, url in pages():
     title = html.unescape(re.search(r'<title>(.*?)</title>', head, re.S).group(1))
     m = re.search(r'<meta name="description" content="([^"]*)">', head)
     desc = html.unescape(m.group(1)) if m else ''
-    head = set_tag(head, r'<link rel="canonical" href="[^"]*">', f'<link rel="canonical" href="{DOMAIN}{url}">')
-    head = set_tag(head, r'<meta property="og:url" content="[^"]*">', f'<meta property="og:url" content="{DOMAIN}{url}">')
+    canon = CANONICAL_TO.get(url, url)
+    head = set_tag(head, r'<link rel="canonical" href="[^"]*">', f'<link rel="canonical" href="{DOMAIN}{canon}">')
+    head = set_tag(head, r'<meta property="og:url" content="[^"]*">', f'<meta property="og:url" content="{DOMAIN}{canon}">')
     head = set_tag(head, r'<meta property="og:title" content="[^"]*">', '<meta property="og:title" content="' + attr(title) + '">')
     if desc:
         head = set_tag(head, r'<meta property="og:description" content="[^"]*">', '<meta property="og:description" content="' + attr(desc) + '">')
@@ -93,7 +97,7 @@ for path, url in pages():
     if t2 != t:
         open(path, 'w').write(t2)
     noindex = re.search(r'<meta name="robots" content="[^"]*noindex', head)
-    if not noindex:
+    if not noindex and url not in CANONICAL_TO:
         urls.append(url)
 
 # same file names as the live Yoast setup, so Search Console's registered sitemap keeps working

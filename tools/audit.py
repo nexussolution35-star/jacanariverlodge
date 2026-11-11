@@ -7,6 +7,7 @@ import html, json, os, re, sys
 DOMAIN = 'https://jacanariverlodge.com'
 SKIP = {'.git', 'seo', 'tools', 'assets', 'css', 'js', 'node_modules'}
 NOINDEX_EXPECTED = {'/thank-you/', '/thank-you-for-your-booking-enquiry/'}
+CANONICAL_TO = {'/activities/': '/activities-near-mjejane/'}   # deliberate duplicate (see tools/seo.py)
 
 
 def pages():
@@ -49,7 +50,7 @@ for path, url in pages():
     if skips: checks['heading levels sequential'].append(f'{url} ({", ".join(sorted(set(skips)))})')
     c = re.search(r'<link rel="canonical" href="([^"]*)"', head)
     c = c.group(1) if c else ''
-    if c != DOMAIN + url: checks['canonical == served URL'].append(f'{url} ({c or "missing"})')
+    if c != DOMAIN + CANONICAL_TO.get(url, url): checks['canonical == served URL'].append(f'{url} ({c or "missing"})')
     o = re.search(r'<meta property="og:url" content="([^"]*)"', head)
     if not o or o.group(1) != c: checks['og:url == canonical'].append(url)
     oi = re.search(r'<meta property="og:image" content="([^"]*)"', head)
@@ -80,11 +81,13 @@ for path, url in pages():
     if 'AggregateRating' in ld: checks['no AggregateRating'].append(url)
     if url in NOINDEX_EXPECTED and not noindex: checks['noindex where required'].append(url)
     if noindex and url not in NOINDEX_EXPECTED: checks['no stray noindex'].append(url)
-    if not noindex and url not in sitemap: checks['sitemap lists every indexable page'].append(url)
+    if not noindex and url not in CANONICAL_TO and url not in sitemap: checks['sitemap lists every indexable page'].append(url)
     if 'rel="icon"' not in head: checks['favicon declared'].append(url)
 for t, us in titles.items():
+    us = [u for u in us if u not in CANONICAL_TO]
     if t and len(us) > 1: checks['title: present + unique'] += [f'duplicate: {", ".join(us)}']
 for m, us in metas.items():
+    us = [u for u in us if u not in CANONICAL_TO]
     if m and len(us) > 1: checks['meta: present + unique'] += [f'duplicate: {", ".join(us)}']
 
 n = sum(1 for _ in pages())
