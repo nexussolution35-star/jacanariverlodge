@@ -23,13 +23,13 @@ inv = {r['path']: r for r in csv.DictReader(open('seo/url-inventory.csv'))}
 # Approved in "SEO Spec, Part 1: Home & Stay" (seo/Jacana-SEO-Plan-Part-1-Home-and-Stay.pdf).
 # Pages not listed here keep their live title and description word for word.
 TITLE_OVERRIDES = {
-    '/': 'Jacana River Lodge | Kruger Park Lodge in Mpumalanga',
+    '/': 'Jacana River Lodge | Safari Lodge in Mpumalanga near Kruger',
     '/luxury-self-catering-lodge-accommodation-in-mpumalanga/': 'Self-Catering Lodge in Mpumalanga | Jacana River Lodge',
     '/self-catering-getaway-in-mpumalanga/': 'Bush Getaway in Mpumalanga | Jacana River Lodge',
     '/mjejane-accommodation-specials/': 'Mjejane Accommodation Specials | Jacana River Lodge',
 }
 META_OVERRIDES = {
-    '/': 'Exclusive-use, 5-star self-catering safari lodge on the Crocodile River in the Mjejane Game Reserve, Greater Kruger. Sleeps 10. Book direct.',
+    '/': 'Exclusive-use, 5-star self-catering safari lodge in Mpumalanga, on the Crocodile River in the Mjejane Game Reserve beside the Kruger. Sleeps 10. Book direct.',
     '/luxury-self-catering-lodge-accommodation-in-mpumalanga/': 'A private 5-star self-catering lodge in the Mjejane Game Reserve, Mpumalanga, with 5 king en-suite rooms, an infinity pool and Crocodile River views.',
     '/facilities/': '2026 rates for Jacana River Lodge, a self-catering lodge near the Kruger National Park: from R11 950 a night for the whole lodge, up to 10 guests.',
     '/self-catering-getaway-in-mpumalanga/': 'Plan a bush getaway in Mpumalanga at Jacana River Lodge: a private self-catering lodge for up to 10 on the Crocodile River, 4 hours from Johannesburg.',
