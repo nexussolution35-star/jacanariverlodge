@@ -9,9 +9,11 @@ For each folder/index.html page:
     plus og:url / og:title / og:description and an absolute og:image;
   * /activities/ (a live duplicate of /activities-near-mjejane/) is copied from the hub;
   * absolute links to live URLs that exist in this build are made root-relative;
-  * sitemap_index.xml + page-sitemap.xml list every page in this build (same names as Yoast).
+  * sitemap_index.xml + page-sitemap.xml list every page in this build (same names as Yoast);
+  * twitter:card on every page, one <main> landmark per page, LodgingBusiness schema on Home + Contact;
+  * /activities/ keeps working but canonicals to the Activities hub (CANONICAL_TO).
 """
-import csv, html, os, re, shutil
+import csv, html, json, os, re, shutil
 
 DOMAIN = 'https://jacanariverlodge.com'
 SKIP = {'.git', 'seo', 'tools', 'assets', 'css', 'js', 'node_modules'}
@@ -44,6 +46,34 @@ for _d in (TITLE_OVERRIDES, META_OVERRIDES):
 CANONICAL_TO = {'/activities/': '/activities-near-mjejane/'}
 os.makedirs('activities', exist_ok=True)
 shutil.copyfile('activities-near-mjejane/index.html', 'activities/index.html')
+
+
+# LodgingBusiness schema for Home and Contact. Facts only from the site; no review stars
+# (Google ignores self-published ratings and can penalise them). Geo left out until we have the
+# exact pin from the Google Business Profile, not the map embed's centre.
+LODGE_SCHEMA_ON = {'/', '/contact-us/'}
+LODGE = {
+    '@context': 'https://schema.org', '@type': 'LodgingBusiness', '@id': DOMAIN + '/#lodge',
+    'name': 'Jacana River Lodge', 'url': DOMAIN + '/',
+    'description': 'Exclusive-use, 5-star self-catering lodge for up to 10 guests in five en-suite king rooms, '
+                   'on the Crocodile River in the Mjejane Private Game Reserve on the Kruger National Park\'s southern boundary.',
+    'logo': DOMAIN + '/assets/images/logo-640.png',
+    'image': DOMAIN + '/assets/images/Jacana-River-Lodge-c6d2d807.jpg',
+    'telephone': '+27 66 293 7100', 'email': 'info@jacanariverlodge.com',
+    'address': {'@type': 'PostalAddress', 'addressLocality': 'Hectorspruit', 'addressRegion': 'Mpumalanga',
+                'streetAddress': 'Mjejane Private Game Reserve', 'addressCountry': 'ZA'},
+    'hasMap': 'https://g.page/jacana-river-lodge?share',
+    'priceRange': 'From R11 950 per night for the whole lodge',
+    'currenciesAccepted': 'ZAR',
+    'numberOfRooms': 5,
+    'starRating': {'@type': 'Rating', 'ratingValue': '5', 'author': {'@type': 'Organization', 'name': 'Tourism Grading Council of South Africa'}},
+    'amenityFeature': [{'@type': 'LocationFeatureSpecification', 'name': n, 'value': True} for n in
+                       ['Infinity pool', 'Self-catering kitchen', 'Air-conditioning', 'Wheelchair-friendly room', 'Braai area', 'Boma']],
+    'sameAs': ['https://www.facebook.com/jacanariverlodge/', 'https://www.instagram.com/jacana_river_lodge/',
+               'https://www.youtube.com/@jacanariverlodge9550',
+               'https://www.tripadvisor.co.za/VacationRentalReview-g657276-d19114871-Jacana_River_Lodge-Hectorspruit_Mpumalanga.html',
+               'https://g.page/jacana-river-lodge?share'],
+}
 
 
 def pages():
@@ -89,10 +119,20 @@ for path, url in pages():
     if desc:
         head = set_tag(head, r'<meta property="og:description" content="[^"]*">', '<meta property="og:description" content="' + attr(desc) + '">')
     head = re.sub(r'(<meta property="og:image" content=")/', r'\g<1>' + DOMAIN + '/', head)
+    # X/Twitter reads the og: tags for title, description and image; it only needs the card type
+    head = set_tag(head, r'<meta name="twitter:card" content="[^"]*">', '<meta name="twitter:card" content="summary_large_image">')
+    if url in LODGE_SCHEMA_ON:
+        ld = '<script type="application/ld+json" id="ld-lodge">' + json.dumps(LODGE, ensure_ascii=False) + '</script>'
+        head = (re.sub(r'<script type="application/ld\+json" id="ld-lodge">.*?</script>', lambda m: ld, head, count=1, flags=re.S)
+                if 'id="ld-lodge"' in head else head.replace('</head>', ld + '\n</head>', 1))
     # body links to live URLs that now exist in this build become root-relative
     rest = re.sub(r'href="' + re.escape(DOMAIN) + r'(/[^"#?]*)([^"]*)"',
                   lambda m: f'href="{m.group(1)}{m.group(2)}"' if os.path.exists('.' + m.group(1).rstrip('/') + '/index.html') else m.group(0),
                   t[b:])
+    # one <main> landmark: everything between the site header and the footer
+    if '<main' not in rest and '</header>' in rest and '<footer class="footer"' in rest:
+        rest = rest.replace('</header>', '</header>\n<main id="main">', 1)
+        rest = rest.replace('<footer class="footer"', '</main>\n<footer class="footer"', 1)
     t2 = t[:a] + head + rest
     if t2 != t:
         open(path, 'w').write(t2)

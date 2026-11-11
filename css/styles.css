@@ -202,6 +202,11 @@ html{scroll-padding-top:150px}
   letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;line-height:1.4}
 .hero__headline{display:block;font-family:var(--serif);font-size:clamp(3rem,6.1vw,6.1rem);line-height:.98;
   letter-spacing:-.005em;max-width:12.5ch;text-shadow:0 4px 34px rgba(0,0,0,.4)}
+.hero__headline .hl-line{display:inline}
+@media (min-width:621px){
+  .hero__headline{font-size:clamp(3rem,5.5vw,5.6rem);max-width:none}
+  .hero__headline .hl-line{display:block;white-space:nowrap}
+}
 .hero__lede{font-family:var(--serif);font-size:clamp(1.2rem,1.75vw,1.6rem);line-height:1.35;color:#f1eadb;margin:22px 0 0;max-width:30ch}
 
 /* inner-page hero fact row */
