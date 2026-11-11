@@ -73,7 +73,7 @@ PAGES = {
     '/kruger-and-panorama-route-tour-weekend/': ('Kruger & Panorama: Weekend', PAN, A, 'Four nights, Thursday to Sunday, with a full-day Panorama Route tour.'),
     # Nearby & day trips
     DAY: ('Day Trips', ACT, A, 'Graskop Gorge Lift, Chimp Eden, Jabulani and the Panorama Route.'),
-    '/golf-near-kruger/': ('Golf near the Kruger', DAY, A, 'Kambaku, Malelane and Leopard Creek.'),
+    '/golf-near-kruger/': ('Golf near the Kruger', DAY, A, 'Kambaku and Malelane, two 9-hole courses near the Kruger.'),
 
     # ---------------- MJEJANE RESERVE ----------------
     RES: ('Mjejane Reserve', None, R, 'The private reserve on the Kruger\'s southern boundary.'),
