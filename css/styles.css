@@ -222,8 +222,7 @@ html{scroll-padding-top:150px}
 .rv__text{display:grid;gap:5px;line-height:1}
 .rv__score{display:flex;align-items:center;gap:8px}
 .rv__score b{font-family:var(--sans);font-size:1.12rem;font-weight:700;color:#fff;line-height:1;font-variant-numeric:lining-nums}
-.rv__muted{font-size:.82rem;color:#ece4d4}
-.rv__score b.rv__gold{color:#FFC400} /* same gold as the review stars */
+.rv__muted{font-size:.82rem;color:#FFC400} /* same gold as the review stars */
 .rv__name{font-size:.84rem;color:#ece4d4;transition:color .2s}
 a.rv:hover .rv__name{color:var(--gold)}
 .rv-stars{--fill:100%;position:relative;display:inline-block;font-size:.95rem;letter-spacing:2px;line-height:1}

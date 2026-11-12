@@ -79,7 +79,7 @@ PAGES = {
     RES: ('Mjejane Reserve', None, R, 'The private reserve on the Kruger\'s southern boundary.'),
     WILD: ('Wildlife & Sightings', RES, R, 'What lives in the Mjejane and what guests have seen.'),
     '/big-5-safari-mjejane/': ('The Big 5', RES, R, 'Lion, leopard, elephant, rhino and buffalo in the Mjejane.'),
-    '/best-time-to-visit-kruger/': ('Best Time to Visit', RES, R, 'The seasons in the southern Kruger, month by month.'),
+    '/best-time-to-visit-kruger/': ('Best Time to Visit', RES, R, 'The seasons in the Mjejane and the southern Kruger.'),
     '/mjejane-bridge-entrance-to-knp/': ('Bridge to the Kruger', RES, R, 'How the Mjejane bridge entrance to the Kruger works.'),
     '/rules-and-safety/': ('Rules & Safety', RES, R, 'The lodge and reserve rules every guest signs.'),
     '/wildlife-and-sightings/sightings/': ('Sightings', WILD, R, 'Wildlife experiences of our guests and rangers.'),
