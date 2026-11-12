@@ -476,7 +476,7 @@
     var words = (cols.textContent || '').trim().split(/\s+/).length;
     var first = cols.querySelector('.intro__col');
     var paras = first ? first.querySelectorAll(':scope > p') : [];
-    if (words < 220 || paras.length < 2) return;
+    if (words < 180 || paras.length < 2) return;
     cols.classList.add('is-long', 'is-clamped');
     if (!cols.id) cols.id = 'introMore' + n;
     var btn = document.createElement('button');
@@ -502,6 +502,48 @@
       });
     });
     t.classList.add('is-stacked');
+  });
+
+  /* ---------- any long text block on phones (image-beside-text copy, prose blocks): the opening, then "Read more" ----------
+     Text after the cut is hidden on phones only; buttons stay visible below the link. Desktop shows everything. */
+  Array.prototype.forEach.call(document.querySelectorAll('main .stay__copy, main .prose-block, main .sec-intro'), function (box, n) {
+    if (box.closest('.intro__cols') || box.querySelector('.intro__more, .rm-more')) return;
+    var kids = Array.prototype.slice.call(box.children);
+    var count = function (el) { return (el.textContent || '').trim().split(/\s+/).filter(Boolean).length; };
+    var total = kids.reduce(function (a, el) { return a + (el.matches('.btn, .activity__cta, .faq__list') ? 0 : count(el)); }, 0);
+    if (total < 170) return;
+    var acc = 0, cut = -1;
+    for (var i = 0; i < kids.length; i++) {
+      var el = kids[i];
+      if (el.matches('.btn, .activity__cta')) continue;
+      acc += count(el);
+      if (acc >= 70 && (el.tagName === 'P' || el.tagName === 'BLOCKQUOTE')) { cut = i; break; }
+    }
+    if (cut < 0 || cut >= kids.length - 1) return;
+    var hidden = kids.slice(cut + 1).filter(function (el) { return !el.matches('.btn, .activity__cta'); });
+    if (hidden.reduce(function (a, el) { return a + count(el); }, 0) < 40) return;
+    box.classList.add('rm-box', 'is-clamped');
+    kids[cut].classList.add('rm-fade');
+    hidden.forEach(function (el) { el.classList.add('rm-hide'); });
+    var btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'rm-more'; btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<span>Read more</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+    btn.addEventListener('click', function () { box.classList.remove('is-clamped'); btn.setAttribute('aria-expanded', 'true'); btn.hidden = true; });
+    kids[cut].parentNode.insertBefore(btn, kids[cut].nextSibling);
+  });
+
+  /* ---------- very long lists on phones (e.g. the Mjejane rules): first items, then "Show all" ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('main ol, main ul'), function (list) {
+    if (list.closest('nav, .faq__a, .xp__track, .posts__row, .enq-contacts, .footer') || list.classList.contains('rm-list')) return;
+    var items = list.children;
+    if (items.length < 8 || (list.textContent || '').trim().split(/\s+/).length < 200) return;
+    list.classList.add('rm-list', 'is-clamped');
+    for (var i = 4; i < items.length; i++) items[i].classList.add('rm-hide');
+    var btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'rm-more'; btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<span>Show all ' + items.length + '</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+    btn.addEventListener('click', function () { list.classList.remove('is-clamped'); btn.setAttribute('aria-expanded', 'true'); btn.hidden = true; });
+    list.parentNode.insertBefore(btn, list.nextSibling);
   });
 
   /* ---------- year ---------- */

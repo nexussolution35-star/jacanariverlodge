@@ -1558,3 +1558,21 @@ main .prose-block li svg,main .prose-list svg,main .info-card li svg,main .stay_
 main .prose-block li:has(> span > svg),main .info-card li:has(> span > svg),main .faq__a li:has(> span > svg){list-style:none;display:flex;align-items:center;gap:10px}
 /* image-beside-text: the photo matches the copy height, but never grows past 1000px (very long copy) */
 @media (min-width:981px){.stay--fill .stay__media{max-height:1000px}}
+/* cards never move on hover (the photo inside may still zoom) */
+.exp-card:hover,.story-card:hover,.contact-card:hover,.special-card:hover,.silo__card:hover,.post-card:hover,.xcard:hover,.review-card:hover,.partner:hover,a.badge:hover{transform:none!important}
+/* "Read more" for any long text block on phones (desktop: link hidden, nothing clamped) */
+.rm-more{display:none}
+@media (max-width:760px){
+  .rm-box.is-clamped > .rm-hide{display:none!important}
+  .rm-box.is-clamped > .rm-fade{position:relative;max-height:7.4em;overflow:hidden;margin-bottom:0!important}
+  .rm-box.is-clamped > .rm-fade::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3.6em;background:linear-gradient(rgba(247,243,220,0),var(--rm-bg,var(--cream)))}
+  .rm-more{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin:14px 0 0;padding:0;border:0;background:none;cursor:pointer;
+    font:700 .95rem var(--sans);color:var(--rust);text-decoration:underline;text-underline-offset:4px}
+  .rm-more[hidden]{display:none}
+  .rm-more svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .rm-box.is-clamped > .btn,.rm-box.is-clamped > .activity__cta{margin-top:clamp(26px,6vw,34px)}
+  .xp .rm-box{--rm-bg:#FFF9F4}
+  .section--sand .rm-box{--rm-bg:var(--sand)}
+  .sec-intro.rm-box{text-align:left}
+}
+@media (max-width:760px){.rm-list.is-clamped > .rm-hide{display:none!important}}

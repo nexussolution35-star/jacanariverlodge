@@ -56,11 +56,29 @@ def crumb_ld(trail):
         for i, u in enumerate(trail)]}
 
 
+def hub_lists_children(url):
+    """True for a hub page whose own content already links to most of its child pages (e.g. the Activities hub)."""
+    label, parent, silo, _ = PAGES[url]
+    if parent is not None or silo is None:
+        return False
+    hub = SILOS[silo][1]
+    kids = children(hub)
+    f = '.' + url + 'index.html'
+    if not kids or not os.path.exists(f):
+        return False
+    t = open(f).read()
+    main = t[t.find('<main'):t.find('<!-- SILO -->') if '<!-- SILO -->' in t else len(t)]
+    return sum(('href="' + k + '"') in main for k in kids) >= len(kids) / 2
+
+
 def related(url):
     """The way up (hub, sub-hub), then children, then siblings. Same silo only."""
     label, parent, silo, _ = PAGES[url]
     if silo is None:
         return [u for u in PLAN if u != url]
+    if hub_lists_children(url):
+        # the hub already shows its own pages in the body: point to the other hubs and the plan pages instead
+        return [h for k, (n, h) in SILOS.items() if k != silo and built(h)] + [u for u in PLAN if built(u)]
     out = [u for u in reversed(chain(parent))] if parent else []   # the way up first: hub, then sub-hub
     out += children(url)
     if parent and not url.startswith('/testimonial-item/'):   # the 8 review pages link up, not to each other
@@ -102,7 +120,7 @@ def block(url):
     if not links:
         return ''
     silo = PAGES[url][2]
-    eyebrow, h2 = HEADS[silo]
+    eyebrow, h2 = HEADS[silo] if not hub_lists_children(url) else ('Plan your stay', 'Stay, explore and book')
     used, cards = set(), []
     for i, u in enumerate(links):
         name, _, _, blurb = PAGES[u]
