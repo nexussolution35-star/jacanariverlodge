@@ -469,10 +469,14 @@
     resetAuto();
   }
 
-  /* ---------- long intros on phones: show the opening paragraphs, "Read more" reveals the rest ---------- */
+  /* ---------- long intros on phones: two paragraphs, then "Read more" right under the text ----------
+     The link goes straight after the second paragraph (before any button in the column), so a button can
+     never sit on the faded text. Tapping it shows everything and the link goes away. Desktop: CSS hides it. */
   Array.prototype.forEach.call(document.querySelectorAll('.intro__cols'), function (cols, n) {
     var words = (cols.textContent || '').trim().split(/\s+/).length;
-    if (words < 220) return;
+    var first = cols.querySelector('.intro__col');
+    var paras = first ? first.querySelectorAll(':scope > p') : [];
+    if (words < 220 || paras.length < 2) return;
     cols.classList.add('is-long', 'is-clamped');
     if (!cols.id) cols.id = 'introMore' + n;
     var btn = document.createElement('button');
@@ -480,12 +484,11 @@
     btn.setAttribute('aria-controls', cols.id); btn.setAttribute('aria-expanded', 'false');
     btn.innerHTML = '<span>Read more</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
     btn.addEventListener('click', function () {
-      var open = cols.classList.toggle('is-clamped') === false;
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      btn.querySelector('span').textContent = open ? 'Read less' : 'Read more';
-      if (!open) cols.scrollIntoView({ block: 'nearest' });
+      cols.classList.remove('is-clamped');
+      btn.setAttribute('aria-expanded', 'true');
+      btn.hidden = true;
     });
-    cols.parentNode.insertBefore(btn, cols.nextSibling);
+    paras[1].parentNode.insertBefore(btn, paras[1].nextSibling);
   });
 
   /* ---------- year ---------- */

@@ -1480,18 +1480,20 @@ main:has(.page-hero) .section:not(.newsletter) h2:not([class]):not([style]){font
   .glance__row dd{text-align:left}
   [role="region"] > table{min-width:600px}
 }
-/* long intros on phones: first two paragraphs, then "Read more" (desktop always shows everything) */
+/* long intros on phones: first two paragraphs, a fade, "Read more" directly under the text, then any button
+   (desktop always shows everything; the link only exists inside the media query) */
 .intro__more{display:none}
 @media (max-width:760px){
   .intro__cols.is-clamped .intro__col:first-child > p:nth-of-type(n+3),
   .intro__cols.is-clamped .intro__col:nth-child(n+2){display:none}
   .intro__cols.is-clamped .intro__col:first-child > p:nth-of-type(2){position:relative;margin-bottom:0;max-height:7.2em;overflow:hidden}
   .intro__cols.is-clamped .intro__col:first-child > p:nth-of-type(2)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3.6em;background:linear-gradient(rgba(247,243,220,0),var(--cream))}
-  .intro__more{display:inline-flex;align-items:center;gap:8px;margin:18px auto 0;padding:0;border:0;background:none;cursor:pointer;
+  .intro__more{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin:14px 0 0;padding:0;border:0;background:none;cursor:pointer;
     font:700 .95rem var(--sans);color:var(--rust);text-decoration:underline;text-underline-offset:4px}
-  .intro__more svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s}
-  .intro__more[aria-expanded="true"] svg{transform:rotate(180deg)}
-  .intro__inner{display:flex;flex-direction:column}
+  .intro__more[hidden]{display:none}
+  .intro__more svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .intro__cols.is-clamped .intro__col:first-child .btn{margin-top:clamp(26px,6vw,34px)}
+}
 }
 /* inner-page intros: a button at the foot of one column lines up with the last line of the other column */
 main:has(.page-hero) .intro__cols{align-items:stretch}
