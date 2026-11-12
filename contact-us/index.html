@@ -132,18 +132,18 @@
 </section>
 
 <!-- ============ MAP + CONTACT FORM (homepage enquiry layout, map in place of the contact list) ============ -->
-<section class="section newsletter contact-map" id="send-enquiry">
+<section class="xp contact-map" id="send-enquiry" aria-labelledby="msgTitle">
   <div class="container">
-    <div class="enq-intro reveal">
-      <span class="eyebrow" style="color:#f7e7df">Find us &amp; get in touch</span>
-      <h2>Send Us a Message</h2>
-      <p>Have a question about the lodge, the reserve or planning your stay? Send us a message. To request specific dates, use our <a href="/book-now/" style="color:inherit;text-decoration:underline;text-underline-offset:3px">online booking request</a>.</p>
-      <figure class="contact-map__frame">
+    <div class="sec-head reveal">
+      <p class="sec-eyebrow">Find us &amp; get in touch</p>
+      <h2 class="sec-title" id="msgTitle">Send Us a Message</h2>
+      <p class="sec-lead">Have a question about the lodge, the reserve or planning your stay? Send us a message. To request specific dates, use our <a href="/book-now/" style="color:var(--rust);font-weight:600;text-decoration:underline;text-underline-offset:3px">online booking request</a>.</p>
+    </div>
+    <div class="contact-map__grid">
+      <figure class="contact-map__frame reveal">
         <iframe class="map-frame" title="Jacana River Lodge on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28827.477751822204!2d31.664625553470422!3d-25.42372595615988!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7de8a2712976fe46!2sJacana%20River%20Lodge!5e0!3m2!1sen!2sza!4v1584308024890!5m2!1sen!2sza"></iframe>
       </figure>
-      <p class="contact-map__addr">Jacana River Lodge, Mjejane Private Game Reserve, Hectorspruit, Mpumalanga, on the Kruger National Park&rsquo;s southern boundary between the Malelane and Crocodile Bridge gates. <a href="/directions/" style="color:inherit;text-decoration:underline;text-underline-offset:3px">Directions</a> &middot; <a href="https://g.page/jacana-river-lodge?share" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px">Open in Google Maps</a></p>
-    </div>
-    <form class="nl-form reveal" id="nlForm" novalidate>
+      <form class="nl-form reveal" id="nlForm" novalidate>
       <input type="text" name="name" placeholder="Full name*" aria-label="Full name" autocomplete="name" required>
       <input type="tel" name="phone" placeholder="Phone number*" aria-label="Phone number" autocomplete="tel" required>
       <input class="full" type="email" name="email" placeholder="Email address*" aria-label="Email address" autocomplete="email" required>
@@ -156,6 +156,11 @@
       <button class="btn full" type="submit">Send Enquiry</button>
       <p class="nl-msg" id="nlMsg" role="status"></p>
     </form>
+    </div>
+    <p class="contact-map__addr">Jacana River Lodge, Mjejane Private Game Reserve, Hectorspruit, Mpumalanga, on the Kruger National Park&rsquo;s southern boundary between the Malelane and Crocodile Bridge gates. <a href="/directions/" style="color:var(--rust);font-weight:600;text-decoration:underline;text-underline-offset:3px">Directions</a> &middot; <a href="https://g.page/jacana-river-lodge?share" target="_blank" rel="noopener" style="color:var(--rust);font-weight:600;text-decoration:underline;text-underline-offset:3px">Open in Google Maps</a></p>
+  </div>
+  <div class="xp__divider">
+    <img src="/assets/images/river-divider-cream.svg" alt="" width="2000" height="150" loading="lazy" decoding="async">
   </div>
 </section>
 
