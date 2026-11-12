@@ -1590,3 +1590,13 @@ main > .silo:last-child,main > section:last-child{padding-bottom:calc(clamp(56px
 @media (min-width:900px){.intro__col--split{display:block;column-count:2;column-gap:clamp(36px,4.5vw,64px)}.intro__col--split > *{break-inside:avoid-column}}
 /* portraits of Special Khoza: keep his face in frame wherever the photo is cropped */
 img[src*="special-khoza"]{object-position:50% 12%}
+/* accordions: always spaced, even if one slips outside a list */
+.faq__item + .faq__item{margin-top:clamp(14px,1.6vw,22px)}
+.faq__list > .faq__item + .faq__item{margin-top:0}
+.acc-in{margin:clamp(18px,2vw,26px) 0 clamp(8px,1vw,14px)}
+.intro-acc{max-width:880px;margin:clamp(26px,3vw,38px) auto 0;text-align:left}
+/* card rows: one even row for up to four cards */
+.cards-row{grid-template-columns:repeat(4,minmax(0,1fr))}
+.cards-row:has(> :nth-child(3):last-child){grid-template-columns:repeat(3,minmax(0,1fr))}
+.cards-row:has(> :nth-child(2):last-child){grid-template-columns:repeat(2,minmax(0,1fr));max-width:900px;margin-left:auto;margin-right:auto}
+@media (max-width:1080px){.cards-row{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
