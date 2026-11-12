@@ -1493,3 +1493,8 @@ main:has(.page-hero) .section:not(.newsletter) h2:not([class]):not([style]){font
   .intro__more[aria-expanded="true"] svg{transform:rotate(180deg)}
   .intro__inner{display:flex;flex-direction:column}
 }
+/* inner-page intros: a button at the foot of one column lines up with the last line of the other column */
+main:has(.page-hero) .intro__cols{align-items:stretch}
+main:has(.page-hero) .intro__col:not(:has(.btn)) > :last-child{margin-bottom:0}
+main:has(.page-hero) .intro__col:has(.btn) > p:last-of-type{margin-bottom:18px}
+main:has(.page-hero) .intro__col:has(.btn) .btn{margin-bottom:12px}
