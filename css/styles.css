@@ -1273,3 +1273,13 @@ body:has(.hero):not(.scrolled) .wa-float{opacity:0;transform:translateY(14px);po
   .reason-split__media{position:static}
   .reason-split__media img{aspect-ratio:16/10}
 }
+
+/* FOOTER river line on every page (the homepage has it at the bottom of its posts section) */
+.footer{position:relative}
+.footer__divider{--fd-h:clamp(56px,7.5vw,165px);position:absolute;left:0;right:0;bottom:calc(100% - 1px);height:var(--fd-h);pointer-events:none}
+.footer__divider img{display:block;width:100%;height:100%;object-fit:cover;object-position:left bottom}
+main:has(+ .footer .footer__divider) > :last-child{padding-bottom:calc(clamp(56px,7.5vw,165px) + clamp(40px,5vw,70px))}
+/* photo strips open in the lightbox */
+.page-gallery img{cursor:zoom-in;transition:filter .3s}
+.page-gallery img:hover{filter:brightness(1.08) saturate(1.05)}
+.page-gallery img:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}

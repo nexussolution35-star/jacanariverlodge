@@ -376,28 +376,51 @@
     } else { agalHead.classList.add('is-in'); }
   }
 
-  /* ---------- gallery lightbox ---------- */
+  /* ---------- lightbox: gallery page, homepage tiles and every .page-gallery photo strip ---------- */
+  var galleryImgs = Array.prototype.slice.call(document.querySelectorAll('#galleryGrid img, .page-gallery img'));
   var lb = document.getElementById('lightbox');
+  if (!lb && galleryImgs.length) {
+    lb = document.createElement('div');
+    lb.className = 'lightbox'; lb.id = 'lightbox'; lb.setAttribute('aria-hidden', 'true');
+    lb.innerHTML = '<button class="lightbox__close" id="lightboxClose" aria-label="Close">&times;</button>' +
+      '<button class="lightbox__nav lightbox__prev" id="lightboxPrev" aria-label="Previous">&#8249;</button>' +
+      '<img class="lightbox__img" id="lightboxImg" src="" alt="">' +
+      '<button class="lightbox__nav lightbox__next" id="lightboxNext" aria-label="Next">&#8250;</button>';
+    document.body.appendChild(lb);
+  }
   var lbImg = document.getElementById('lightboxImg');
-  var galleryImgs = Array.prototype.slice.call(document.querySelectorAll('#galleryGrid img'));
   var lbIndex = 0;
   function showLb(i) {
     lbIndex = (i + galleryImgs.length) % galleryImgs.length;
-    var src = galleryImgs[lbIndex].getAttribute('src');
-    lbImg.setAttribute('src', src);
+    lbImg.setAttribute('src', galleryImgs[lbIndex].currentSrc || galleryImgs[lbIndex].getAttribute('src'));
     lbImg.setAttribute('alt', galleryImgs[lbIndex].getAttribute('alt') || '');
   }
   function openLb(i) { showLb(i); lb.classList.add('open'); lb.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; }
   function closeLb() { lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; }
   if (lb && galleryImgs.length) {
     galleryImgs.forEach(function (img, i) {
-      // homepage tiles are buttons (keyboard friendly); the gallery page binds the image itself
-      (img.closest('button') || img).addEventListener('click', function () { openLb(i); });
+      // homepage tiles are buttons; strip photos get button semantics so the keyboard can open them too
+      var target = img.closest('button') || img;
+      if (target === img) {
+        img.setAttribute('tabindex', '0');
+        img.setAttribute('role', 'button');
+        img.setAttribute('aria-label', 'View larger: ' + (img.getAttribute('alt') || 'photo'));
+        img.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLb(i); } });
+      }
+      target.addEventListener('click', function () { openLb(i); });
     });
     document.getElementById('lightboxClose').addEventListener('click', closeLb);
     document.getElementById('lightboxNext').addEventListener('click', function () { showLb(lbIndex + 1); });
     document.getElementById('lightboxPrev').addEventListener('click', function () { showLb(lbIndex - 1); });
     lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+    // swipe left / right on touch screens
+    var touchX = null;
+    lb.addEventListener('touchstart', function (e) { touchX = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', function (e) {
+      if (touchX === null) return;
+      var dx = e.changedTouches[0].clientX - touchX; touchX = null;
+      if (Math.abs(dx) > 40) showLb(lbIndex + (dx < 0 ? 1 : -1));
+    });
     document.addEventListener('keydown', function (e) {
       if (!lb.classList.contains('open')) return;
       if (e.key === 'Escape') closeLb();
