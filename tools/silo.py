@@ -73,28 +73,56 @@ def related(url):
     return res[:12]
 
 
+SKIP_IMG = ('logo', 'menu-', 'tgcsa', 'icon', 'favicon', 'badge', 'map', '.svg', '.png')
+
+
+def page_image(u, used):
+    """A photo for a page's card: its hero background, else the first content photo not used yet."""
+    f = '.' + u + 'index.html'
+    if not os.path.exists(f):
+        return None
+    t = open(f).read()
+    main = t[t.find('<main'):t.find('<!-- SILO -->') if '<!-- SILO -->' in t else len(t)]
+    cands = re.findall(r"page-hero\"[^>]*url\('([^']+)'\)", main) + re.findall(r'<img[^>]+src="(/assets/images/[^"]+)"', main)
+    cands = [c for c in cands if not any(s in c.lower() for s in SKIP_IMG)]
+    for c in cands:
+        if c not in used:
+            return c
+    return cands[0] if cands else None
+
+
+GO = '<span class="xcard__go"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>'
+PREV = '<button class="xp__nav xp__nav--prev" type="button" aria-label="Previous pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>'
+NEXT = '<button class="xp__nav xp__nav--next" type="button" aria-label="More pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>'
+
+
 def block(url):
+    """The homepage's expanding photo cards (.xp__wrap / .xcard), one per related page."""
     links = related(url)
     if not links:
         return ''
     silo = PAGES[url][2]
     eyebrow, h2 = HEADS[silo]
-    ups = set(chain(PAGES[url][1])) if PAGES[url][1] else set()
-    cards = []
-    for u in links:
+    used, cards = set(), []
+    for i, u in enumerate(links):
         name, _, _, blurb = PAGES[u]
-        tag = ''
-        if u in ups:
-            tag = '<span class="silo__tag">Overview</span>'
-        text = f'<span class="silo__text">{E(blurb)}</span>' if blurb else ''
-        cards.append(f'      <li><a class="silo__card" href="{u}">{tag}<span class="silo__title">{E(name)}</span>{text}</a></li>')
+        img = page_image(u, used)
+        used.add(img)
+        pic = f'<img src="{img}" alt="" loading="lazy" decoding="async">' if img else ''
+        text = f'<span class="xcard__text"><span>{E(blurb)}</span></span>' if blurb else ''
+        cards.append(f'      <a class="xcard{" is-open" if i == 0 else ""}" href="{u}">{pic}'
+                     f'<span class="xcard__body"><span class="xcard__title">{E(name)}</span>{text}</span>{GO}</a>')
     return f'''<!-- SILO -->
 <section class="section section--sand silo" aria-labelledby="silo-h">
   <div class="container">
     <div class="silo__head"><span class="eyebrow">{eyebrow}</span><h2 id="silo-h">{h2}</h2></div>
-    <ul class="silo__grid">
+    <div class="xp__wrap silo__wrap">
+      {PREV}
+      <div class="xp__track">
 {chr(10).join(cards)}
-    </ul>
+      </div>
+      {NEXT}
+    </div>
   </div>
 </section>
 <!-- /SILO -->

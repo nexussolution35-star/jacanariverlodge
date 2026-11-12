@@ -1251,3 +1251,25 @@ body:has(.hero):not(.scrolled) .wa-float{opacity:0;transform:translateY(14px);po
 }
 .lodge-cta .sec-lead{margin:0 auto}
 .lodge-cta .activity__cta{margin-top:22px}
+
+/* SILO block as the homepage photo carousel: a little shorter than on the homepage */
+.silo .xcard{height:clamp(300px,27vw,440px)}
+.silo__wrap{margin-top:6px}
+.silo .xcard img[alt=""]{background:var(--charcoal)}
+@media (max-width:760px){.silo .xcard,.silo .xcard.is-open{height:300px}}
+
+/* LODGE PAGE: five reasons as a numbered list beside one photo */
+.reason-split{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,4.5vw,72px);align-items:start;margin-top:clamp(24px,3vw,40px)}
+.reason-split__media{margin:0;position:sticky;top:150px}
+.reason-split__media img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:var(--photo-r,5px)}
+.reason-list{list-style:none;margin:0;padding:0;counter-reset:none}
+.reason-list li{display:grid;grid-template-columns:clamp(52px,5vw,72px) 1fr;gap:clamp(14px,1.6vw,22px);padding:clamp(20px,2.2vw,28px) 0;border-top:1px solid var(--line)}
+.reason-list li:last-child{border-bottom:1px solid var(--line)}
+.reason-list__n{font-family:var(--serif);font-size:clamp(2rem,3vw,2.8rem);line-height:.9;color:var(--rust);font-variant-numeric:lining-nums}
+.reason-list h3{font-family:var(--serif);font-size:clamp(1.3rem,1.7vw,1.6rem);font-weight:600;line-height:1.15;margin:0 0 8px;color:var(--charcoal)}
+.reason-list p{margin:0;color:var(--muted);line-height:1.65}
+@media (max-width:860px){
+  .reason-split{grid-template-columns:1fr}
+  .reason-split__media{position:static}
+  .reason-split__media img{aspect-ratio:16/10}
+}

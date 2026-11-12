@@ -206,13 +206,15 @@
     });
   }
 
-  /* ---------- explore: expanding activity cards ---------- */
-  var xpTrack = document.getElementById('xpTrack');
-  if (xpTrack) {
-    var xCards = Array.prototype.slice.call(xpTrack.querySelectorAll('.xcard'));
-    var xPrev = document.querySelector('.xp__nav--prev');
-    var xNext = document.querySelector('.xp__nav--next');
-    var phone = window.matchMedia('(max-width: 760px)');
+  /* ---------- explore: expanding photo cards (homepage activities + "more in this section") ---------- */
+  var phone = window.matchMedia('(max-width: 760px)');
+  Array.prototype.slice.call(document.querySelectorAll('.xp__wrap')).forEach(function (wrap) {
+    var track = wrap.querySelector('.xp__track');
+    if (!track) return;
+    var xCards = Array.prototype.slice.call(track.querySelectorAll('.xcard'));
+    if (!xCards.length) return;
+    var xPrev = wrap.querySelector('.xp__nav--prev');
+    var xNext = wrap.querySelector('.xp__nav--next');
     var lastPointer = 'mouse';
     var openCard = function (card) {
       xCards.forEach(function (c) { c.classList.toggle('is-open', c === card); });
@@ -230,18 +232,19 @@
       });
     });
     var syncNav = function () {
-      var max = xpTrack.scrollWidth - xpTrack.clientWidth - 2;
-      xPrev.hidden = xpTrack.scrollLeft <= 2;
-      xNext.hidden = xpTrack.scrollLeft >= max;
+      if (!xPrev || !xNext) return;
+      var max = track.scrollWidth - track.clientWidth - 2;
+      xPrev.hidden = track.scrollLeft <= 2;
+      xNext.hidden = track.scrollLeft >= max;
     };
-    var step = function (dir) { xpTrack.scrollBy({ left: dir * (xCards[0].offsetWidth + 14) * 2, behavior: 'smooth' }); };
-    xPrev.addEventListener('click', function () { step(-1); });
-    xNext.addEventListener('click', function () { step(1); });
-    xpTrack.addEventListener('scroll', syncNav, { passive: true });
+    var step = function (dir) { track.scrollBy({ left: dir * (xCards[0].offsetWidth + 14) * 2, behavior: 'smooth' }); };
+    if (xPrev) xPrev.addEventListener('click', function () { step(-1); });
+    if (xNext) xNext.addEventListener('click', function () { step(1); });
+    track.addEventListener('scroll', syncNav, { passive: true });
     window.addEventListener('resize', syncNav);
     xCards.forEach(function (c) { c.addEventListener('transitionend', syncNav); });
     syncNav();
-  }
+  });
 
   /* ---------- lodge video: load YouTube only when asked ---------- */
   var xpVideo = document.getElementById('xpVideo');
