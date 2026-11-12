@@ -82,13 +82,8 @@ p{margin-bottom:1.1rem}
 .btn:hover{--lift:2px;transform:translateY(3px);filter:brightness(1.05)}
 .btn:active{--lift:0px;transform:translateY(5px);filter:brightness(.97)}
 .btn:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
-/* secondary buttons keep the same shape and press, in a lighter finish */
-.btn--outline,.btn--ghost-dark{
-  --bevel:inset 0 0 0 1.5px var(--rust),inset 0 1px 0 rgba(255,255,255,.6);
-  background:var(--cream);color:var(--rust);text-shadow:none}
-.btn--ghost{
-  --bevel:inset 0 0 0 1.5px rgba(255,255,255,.75);
-  background:rgba(255,255,255,.08);color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.4)}
+/* no outline or transparent buttons on the site: the secondary classes render as the solid .btn */
+.btn--outline,.btn--ghost-dark,.btn--ghost{}
 .btn--lg{padding:18px 38px;font-size:1.02rem}
 
 /* =========================================================
@@ -1359,9 +1354,4 @@ main:has(+ .footer .footer__divider) > :last-child{padding-bottom:calc(clamp(56p
 .page-gallery--eight figure:last-child{grid-column:auto}
 .page-gallery--eight figure:last-child img{aspect-ratio:4/3}
 @media (max-width:900px){.page-gallery--eight{grid-template-columns:repeat(2,minmax(0,1fr))}}
-/* booking buttons + award in the enquiry block */
-.enq-book{margin-top:clamp(24px,2.6vw,32px)}
-.enq-book .btn--light{--depth:#c9b8a4;background:#fff;color:var(--rust);text-shadow:none}
-.enq-book .btn--light:hover{filter:brightness(.98)}
-.enq-award{width:180px;height:auto;margin-top:clamp(24px,2.6vw,32px);border-radius:6px}
 .nl-form{align-content:center}
