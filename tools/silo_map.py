@@ -40,6 +40,7 @@ PAGES = {
     '/gallery/': ('Gallery', STAY, S, 'The lodge, the river and recent sightings in photos.'),
     REV: ('Guest Reviews', STAY, S, 'What guests say on Google, Booking.com and Facebook.'),
     '/accommodation-near-malelane/': ('Near Malelane', STAY, S, "About 38 minutes' drive from Malelane along the N4."),
+    '/directions/': ('Directions', STAY, S, 'How to reach the lodge by road or air.'),
     '/accommodation-near-komatipoort/': ('Near Komatipoort', STAY, S, "About 38 minutes' drive from Komatipoort along the N4."),
     # legacy testimonial pages live under Guest Reviews
     '/testimonial-item/708/': ('708', REV, S, ''),
@@ -92,7 +93,6 @@ PAGES = {
     '/': ('Home', None, None, ''),
     '/book-now/': ('Book Now', None, None, 'Send your dates and we confirm availability.'),
     '/contact-us/': ('Contact Us', None, None, 'Phone, WhatsApp and email for the lodge.'),
-    '/directions/': ('Directions', None, None, 'How to reach the lodge by road or air.'),
     '/faq/': ('FAQ', None, None, 'Answers about the lodge, rates, activities and the reserve.'),
     '/news/': ('News', None, None, ''),
     '/backlinks/': ('Useful Links', None, None, ''),
@@ -108,7 +108,7 @@ PLAN = ['/book-now/', '/contact-us/', '/directions/', '/faq/']
 MENU = [
     ('Stay', STAY, [(None, [STAY, '/rooms-and-suites/', '/facilities/', '/mjejane-accommodation-specials/',
                            '/mjejane-accommodation-prices-and-packages/', '/self-catering-getaway-in-mpumalanga/',
-                           '/self-catering-family-retreat-in-mpumalanga/', '/self-catering-guide/', '/gallery/', REV])]),
+                           '/self-catering-family-retreat-in-mpumalanga/', '/self-catering-guide/', '/gallery/', REV, '/directions/'])]),
     ('Activities', ACT, [
         ('In the Mjejane', ['/game-drive-mjejane-game-reserve/', '/guided-bush-walks-kruger-national-park/',
                             '/mjejane-game-reserve-birding-guide/', '/mjejane-mobile-bush-spa/', '/kingsland-recreational-area/']),
