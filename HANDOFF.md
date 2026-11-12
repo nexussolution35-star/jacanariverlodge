@@ -36,8 +36,17 @@ Read `README.md` first ("URLs, SEO and shared parts").
 - Technical: twitter cards, one `<main>`, LodgingBusiness schema (Home + Contact), canonical for `/activities/` → hub.
 - Client photos swapped in (king suite, leopard, Special Khoza, bush walk, game drive).
 
+## Done (rebuild pass 2)
+- Every Stay, Activities and Mjejane page rebuilt from the homepage/Lodge patterns: intro (Read more on phones
+  when long), image-beside-text blocks, numbered lists, accordions for long or many short sections, aligned photo
+  strips, glance cards, stacked data tables on phones, and the homepage enquiry block with each page's own line.
+- Rules the client set in this pass: solid buttons only (no outline/ghost); no text link stacked on a button;
+  no repeated review sections; headings: page title leads, section titles one step below; no AI dashes in prose
+  (ranges and guest quotes untouched); nothing squashed or overflowing at phone width.
+- Plan pages (Book Now, Contact, Directions, FAQ, News) were already homepage components; only site-wide fixes.
+
 ## Next
-1. Apply the Lodge-page treatment to the other Stay pages (Rates & Facilities first), then Activities and Reserve pages.
+1. Client review of the rebuilt Activities and Mjejane pages.
 2. SEO spec Part 2 (Activities) and Part 3 (Mjejane Reserve + Plan pages), then blog migration, then the Lovable port.
 3. At launch in Lovable: 301 `/activities/` → `/activities-near-mjejane/`; reinstall GTM-NG736RT, Google Ads AW-10868306513, Hotjar 3028515; forms → GHL, keep the thank-you page redirects (Ads conversions).
 

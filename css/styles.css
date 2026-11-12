@@ -1504,3 +1504,57 @@ main:has(.page-hero) .intro__col:has(.btn) .btn{margin-bottom:12px}
 main .stay__copy .btn,main .stay__copy .activity__cta{margin-top:clamp(22px,2.4vw,30px)}
 main .stay__copy .activity__cta .btn{margin-top:0}
 main .activity__cta{margin-top:clamp(30px,3vw,40px)}
+
+/* =========================================================
+   ACTIVITIES + MJEJANE pages (converted to the homepage patterns)
+   ========================================================= */
+.prose-block{max-width:880px;margin:0 auto}
+.prose-block > * + *{margin-top:0}
+.prose-block .sec-lead{margin:0 0 16px}
+.prose-list{margin:6px 0 18px;padding-left:22px;color:#5a554d;line-height:1.75}
+.prose-list li{margin:0 0 8px}
+.prose-list li::marker{color:#A04E29;font-weight:700}
+.sec-intro{max-width:880px;margin:0 auto clamp(26px,3vw,40px);text-align:center}
+.sec-intro .sec-lead{margin:0 auto 12px}
+.acc-wide{max-width:980px}
+.acc-h4{margin:18px 0 8px;font-family:var(--serif);font-size:1.2rem;font-weight:600;color:var(--ink)}
+.faq__a .sec-lead{font-size:1rem;margin:0 0 12px}
+.faq__a .stay-list,.faq__a .feature-list{margin:6px 0 14px}
+.dist-cards--glance{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.dist-cards--glance .dist-card b{font-size:clamp(1.1rem,1.4vw,1.3rem);line-height:1.3}
+.stat-row--facts{grid-template-columns:repeat(auto-fit,minmax(140px,1fr));max-width:900px}
+.intro__extra{max-width:880px;margin:clamp(22px,2.6vw,32px) auto 0;text-align:left}
+.cards-row{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.dist-cards--glance{grid-template-columns:repeat(var(--cols,4),minmax(0,1fr))}
+@media (max-width:980px){.dist-cards--glance{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:420px){.dist-cards--glance{grid-template-columns:1fr}}
+.info-card{max-width:880px;margin:0 auto;padding:clamp(22px,2.6vw,34px);background:#fffdf3;border:1px solid var(--line);border-top:3px solid #A04E29;border-radius:8px}
+.info-card .sec-lead{margin:0 0 12px}
+.info-card .contact-list,.contact-list{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:10px}
+.contact-list li{display:flex;align-items:center;gap:10px;font-size:1rem;color:#4a463f}
+.contact-list li > span{color:#A04E29;display:inline-flex}
+.contact-list li svg{width:18px;height:18px;fill:#A04E29}
+.contact-list a{color:var(--rust);font-weight:700;overflow-wrap:anywhere}
+.glance-title{margin:clamp(30px,3.4vw,44px) 0 -14px;font-family:var(--serif);font-size:1.35rem;font-weight:600;color:var(--ink)}
+/* phones: numbered lists put the number above the text, so the text gets the full width */
+@media (max-width:560px){
+  .reason-list li{grid-template-columns:1fr;gap:4px}
+  .reason-list__n{font-size:1.7rem}
+}
+/* phones: data tables become one card per row (labels come from the header, added by main.js) */
+@media (max-width:620px){
+  main table.is-stacked{min-width:0!important;width:100%!important;border:0;background:none!important}
+  main table.is-stacked thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+  main table.is-stacked,main table.is-stacked tbody,main table.is-stacked tr,main table.is-stacked th,main table.is-stacked td{display:block;width:auto!important;text-align:left!important}
+  main table.is-stacked tbody tr{margin:0 0 14px;padding:14px 16px;background:#fffdf3;border:1px solid var(--line);border-top:3px solid #A04E29;border-radius:8px}
+  main table.is-stacked tbody th,main table.is-stacked tbody td{padding:6px 0!important;border:0!important;white-space:normal!important}
+  main table.is-stacked tbody th{font-family:var(--serif);font-size:1.2rem;font-weight:600;color:var(--ink)}
+  main table.is-stacked td[data-label]::before{content:attr(data-label);display:block;margin-bottom:2px;font-family:var(--sans);font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  main table.is-stacked caption{display:block;text-align:left}
+  main [role="region"]:has(> table.is-stacked),main .pkg-compare:has(table.is-stacked){overflow:visible!important}
+}
+/* icons inside text blocks never render larger than the text */
+main .prose-block li svg,main .prose-list svg,main .info-card li svg,main .stay__copy li > span:not(.fl-i) svg,main .faq__a li > span:not(.fl-i) svg{width:18px;height:18px;fill:#A04E29;flex:none;vertical-align:-3px}
+main .prose-block li:has(> span > svg),main .info-card li:has(> span > svg),main .faq__a li:has(> span > svg){list-style:none;display:flex;align-items:center;gap:10px}
+/* image-beside-text: the photo matches the copy height, but never grows past 1000px (very long copy) */
+@media (min-width:981px){.stay--fill .stay__media{max-height:1000px}}

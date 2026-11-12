@@ -491,6 +491,19 @@
     paras[1].parentNode.insertBefore(btn, paras[1].nextSibling);
   });
 
+  /* ---------- data tables: label every cell from its column header so phones can show one card per row ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('main table'), function (t) {
+    if (t.classList.contains('rate-table') || t.classList.contains('cancel-table')) return;
+    var heads = Array.prototype.map.call(t.querySelectorAll('thead th'), function (th) { return th.textContent.trim(); });
+    if (heads.length < 3) return;
+    Array.prototype.forEach.call(t.querySelectorAll('tbody tr'), function (tr) {
+      Array.prototype.forEach.call(tr.children, function (cell, i) {
+        if (cell.tagName === 'TD' && heads[i] && !cell.hasAttribute('data-label')) cell.setAttribute('data-label', heads[i]);
+      });
+    });
+    t.classList.add('is-stacked');
+  });
+
   /* ---------- year ---------- */
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
