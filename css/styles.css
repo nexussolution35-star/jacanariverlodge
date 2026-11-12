@@ -1576,3 +1576,10 @@ main .prose-block li:has(> span > svg),main .info-card li:has(> span > svg),main
   .sec-intro.rm-box{text-align:left}
 }
 @media (max-width:760px){.rm-list.is-clamped > .rm-hide{display:none!important}}
+/* long text-only blocks: two columns on desktop, one on phones */
+@media (min-width:900px){
+  .prose-block.prose-2col{max-width:1100px;column-count:2;column-gap:clamp(36px,4.5vw,64px)}
+  .prose-2col > *{break-inside:avoid}
+  .prose-2col > :first-child{margin-top:0}
+}
+.info-card .contact-list{margin-top:16px}
