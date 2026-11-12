@@ -1355,3 +1355,10 @@ main:has(+ .footer .footer__divider) > :last-child{padding-bottom:calc(clamp(56p
 .page-gallery--eight figure:last-child img{aspect-ratio:4/3}
 @media (max-width:900px){.page-gallery--eight{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .nl-form{align-content:center}
+/* RATES PAGE: numbered facilities + photo strip run to the same edges as the .stay block above,
+   so the photo lines up with the button's left edge */
+.fac-wide{--stay-w:min(calc(100vw - 2*clamp(16px,4vw,64px)),1520px);width:var(--stay-w);margin-left:calc((100% - var(--stay-w))/2);padding-left:clamp(0px,3vw,48px)}
+.fac-wide{margin-top:clamp(50px,6vw,90px)}
+.fac-wide .reason-split{margin-top:0}
+@media (max-width:1180px){.fac-wide{padding-left:0}}
+@media (max-width:980px){.fac-wide{width:auto;margin-left:0}}
