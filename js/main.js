@@ -284,7 +284,7 @@
       item.querySelector('summary').addEventListener('click', function (e) {
         e.preventDefault();
         var opening = !item.open || (item._anim && item._anim.onfinish);
-        faqItems.forEach(function (other) { if (other !== item && other.open) animate(other, false); });
+        faqItems.forEach(function (other) { if (other !== item && other.open && other.parentNode === item.parentNode) animate(other, false); });
         animate(item, opening);
       });
     });
