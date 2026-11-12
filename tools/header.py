@@ -9,13 +9,13 @@ from silo_map import PAGES, MENU, MENU_LINKS, silo_of
 FEATURE = {
     'Stay': ('Explore the Lodge',
              'Five en-suite king rooms, an infinity pool and the Crocodile River: the whole lodge is yours, for up to 10 guests.',
-             'menu-stay.jpg'),
+             'menu-lodge-suite.jpg'),
     'Activities': ('Explore All Activities',
                    'Game drives and bush walks in the Mjejane, plus day trips into the Kruger and along the Panorama Route.',
                    'menu-activities.jpg'),
     'Mjejane Reserve': ('Explore the Mjejane',
                         'A private Big 5 reserve on the Kruger\u2019s southern boundary, with the Crocodile River as its border.',
-                        'menu-reserve.jpg'),
+                        'menu-reserve-leopard.jpg'),
 }
 
 
