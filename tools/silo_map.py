@@ -58,7 +58,7 @@ PAGES = {
     '/guided-bush-walks-kruger-national-park/': ('Guided Bush Walks', ACT, A, 'Walking safaris in the Mjejane every Tuesday, Thursday and Saturday.'),
     '/mjejane-game-reserve-birding-guide/': ('Birding Guide', ACT, A, 'More than 330 bird species recorded in the Mjejane.'),
     '/mjejane-mobile-bush-spa/': ('Bush Spa', ACT, A, 'Mobile spa therapists who come to you at the lodge.'),
-    '/kingsland-recreational-area/': ('Kingsland', ACT, A, 'Walking trails, a mountain-bike route and a bush braai in the reserve.'),
+    '/kingsland-recreational-area/': ('Kingsland', ACT, A, 'Walking trails, three mountain-bike trails and a bush braai in the reserve.'),
     # Kruger & Panorama
     KTP: ('Kruger Tours & Packages', ACT, A, 'Every Kruger and Panorama tour from the lodge, with packages compared.'),
     '/full-and-half-day-game-drive-in-the-kruger-park/': ('Kruger Day Drives', KTP, A, 'Full- and half-day game drives in the Kruger National Park.'),
@@ -80,7 +80,7 @@ PAGES = {
     WILD: ('Wildlife & Sightings', RES, R, 'What lives in the Mjejane and what guests have seen.'),
     '/big-5-safari-mjejane/': ('The Big 5', RES, R, 'Lion, leopard, elephant, rhino and buffalo in the Mjejane.'),
     '/best-time-to-visit-kruger/': ('Best Time to Visit', RES, R, 'The seasons in the Mjejane and the southern Kruger.'),
-    '/mjejane-bridge-entrance-to-knp/': ('Bridge to the Kruger', RES, R, 'How the Mjejane bridge entrance to the Kruger works.'),
+    '/mjejane-bridge-entrance-to-knp/': ('Mjejane Bridge', RES, R, 'The Mjejane bridge into the Kruger, temporarily closed.'),
     '/rules-and-safety/': ('Rules & Safety', RES, R, 'The lodge and reserve rules every guest signs.'),
     '/wildlife-and-sightings/sightings/': ('Sightings', WILD, R, 'Wildlife experiences of our guests and rangers.'),
     '/wildlife-and-sightings/wildlife-in-mjejane/': ('Wildlife in the Mjejane', WILD, R, 'The animals that live in the reserve.'),

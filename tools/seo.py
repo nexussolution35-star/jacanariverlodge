@@ -27,6 +27,9 @@ TITLE_OVERRIDES = {
     '/luxury-self-catering-lodge-accommodation-in-mpumalanga/': 'Self-Catering Lodge in Mpumalanga | Jacana River Lodge',
     '/self-catering-getaway-in-mpumalanga/': 'Bush Getaway in Mpumalanga | Jacana River Lodge',
     '/mjejane-accommodation-specials/': 'Mjejane Accommodation Specials | Jacana River Lodge',
+    # accuracy review: the live wording put the lodge or the walks inside the Kruger
+    '/contact-us/': 'Contact Us | Jacana River Lodge, Mjejane Game Reserve',
+    '/guided-bush-walks-kruger-national-park/': 'Guided Bush Walks in the Mjejane | Jacana River Lodge',
 }
 META_OVERRIDES = {
     '/': 'Exclusive-use, 5-star self-catering safari lodge in Mpumalanga, on the Crocodile River in the Mjejane Game Reserve beside the Kruger. Sleeps 10. Book direct.',
@@ -35,6 +38,12 @@ META_OVERRIDES = {
     '/self-catering-getaway-in-mpumalanga/': 'Plan a bush getaway in Mpumalanga at Jacana River Lodge: a private self-catering lodge for up to 10 on the Crocodile River, 4 hours from Johannesburg.',
     # live page reused /book-now/'s description word for word
     '/mjejane-accommodation-specials/': 'Low-season special at Jacana River Lodge: stay 3 nights and get the 4th night at 50% off at our 5-star self-catering lodge in the Mjejane Game Reserve.',
+    # accuracy review (live descriptions were wrong or misleading)
+    '/contact-us/': "Contact details for Jacana River Lodge, a self-catering lodge in the Mjejane Private Game Reserve on the Kruger National Park's southern boundary.",
+    '/book-now/': 'Request your dates at Jacana River Lodge, an exclusive-use 5-star self-catering lodge in the Mjejane Game Reserve, or book online with NightsBridge.',
+    '/guided-bush-walks-kruger-national-park/': 'Guided bush walks in the Mjejane Private Game Reserve every Tuesday, Thursday and Saturday, leaving at 05:30. Explore the bush on foot from Jacana River Lodge.',
+    '/mjejane-bridge-entrance-to-knp/': 'The Mjejane bridge into the Kruger National Park is temporarily closed. How it works for Jacana River Lodge guests when it reopens: own vehicle or game viewer.',
+    '/portfolio-item/verreaux-eagle-owls/': 'In September 2019 our resident Verreaux eagle owls in the Mjejane Game Reserve had two nearly full-grown chicks that had just left the nest.',
 }
 for _d in (TITLE_OVERRIDES, META_OVERRIDES):
     for _u, _v in _d.items():
