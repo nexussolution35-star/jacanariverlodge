@@ -2,310 +2,294 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Jacana River Lodge: Website Handover</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Mulish:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>Jacana River Lodge: Website Structure Handover</title>
 <style>
-  @page{size:A4;margin:16mm 15mm 16mm}
-  :root{--rust:#954635;--rust2:#A04E29;--ink:#211f1f;--muted:#6f6a62;--line:#e3dccb;--cream:#f7f3dc;--sand:#efe9cf}
+  @page{size:A4 landscape;margin:12mm 14mm}
   *{box-sizing:border-box}
-  body{margin:0;font-family:Mulish,Arial,sans-serif;font-size:10pt;line-height:1.55;color:#3a3633}
-  h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;color:var(--ink);font-weight:600;margin:0}
-  h1{font-size:30pt;line-height:1.05}
-  h2{font-size:18pt;margin:0 0 4mm;padding-bottom:2mm;border-bottom:2px solid var(--rust2)}
-  h3{font-size:12.5pt;margin:5mm 0 2mm}
-  p{margin:0 0 2.6mm}
+  body{margin:0;font-family:Helvetica,Arial,sans-serif;font-size:9.5pt;line-height:1.45;color:#111}
+  h1{font-size:22pt;margin:0 0 3mm;line-height:1.1}
+  h2{font-size:15pt;margin:0 0 1.5mm}
+  h3{font-size:10.5pt;margin:0 0 1mm}
+  p{margin:0 0 2mm}
   .page{page-break-after:always}
   .page:last-child{page-break-after:auto}
-  .eyebrow{font-size:7.5pt;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--rust2)}
-  .cover{height:262mm;display:flex;flex-direction:column;justify-content:space-between}
-  .cover__top{padding-top:30mm}
-  .cover h1{margin:4mm 0 5mm}
-  .cover .lead{font-size:12pt;color:var(--muted);max-width:150mm}
-  .toc{list-style:none;padding:0;margin:10mm 0 0;columns:2;column-gap:10mm}
-  .toc li{padding:2.2mm 0;border-top:1px solid var(--line);break-inside:avoid}
-  .toc b{color:var(--rust2);margin-right:3mm}
-  .meta{font-size:9pt;color:var(--muted);border-top:1px solid var(--line);padding-top:4mm}
-  .meta b{color:var(--ink)}
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm;margin:3mm 0 5mm}
-  .stat{border:1px solid var(--line);border-top:3px solid var(--rust2);border-radius:2mm;padding:3mm}
-  .stat .k{font-size:7.5pt;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-  .stat .v{font-family:'Cormorant Garamond',serif;font-size:13pt;font-weight:600;color:var(--ink);line-height:1.2;margin-top:1mm}
-  .stat .v s{color:#a39d93;font-weight:500}
-  .stat .v b{color:var(--rust2)}
-  table{width:100%;border-collapse:collapse;font-size:9pt;margin:2mm 0 4mm}
-  th{background:var(--rust2);color:#fff;text-align:left;font-size:7.5pt;letter-spacing:.12em;text-transform:uppercase;padding:2.2mm 2.5mm}
-  td{padding:2mm 2.5mm;border-bottom:1px solid var(--line);vertical-align:top}
-  tr:nth-child(even) td{background:#fbf9f1}
-  .two{display:grid;grid-template-columns:1fr 1fr;gap:6mm}
-  .box{border:1px solid var(--line);border-radius:2mm;padding:3.5mm 4mm;break-inside:avoid}
-  .box h3{margin-top:0}
-  .box--old{background:#f5f3ee}
-  .box--new{background:#fffdf3;border-top:3px solid var(--rust2)}
-  ul{margin:0 0 2.6mm;padding-left:5mm}
-  li{margin:0 0 1.2mm}
-  .menu{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3mm;margin-top:2mm}
-  .menu .col{border:1px solid var(--line);border-top:3px solid var(--rust2);border-radius:2mm;padding:3mm;background:#fffdf3;break-inside:avoid}
-  .menu .col h3{margin:0 0 1.5mm;font-size:12pt}
-  .menu .col .hub{font-size:8pt;color:var(--muted);margin-bottom:2mm}
-  .menu .grp{font-size:7.5pt;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--rust2);margin:2mm 0 1mm}
-  .menu ul{padding-left:4mm;font-size:9pt}
-  .tag{display:inline-block;font-size:7pt;font-weight:800;letter-spacing:.06em;color:#fff;background:var(--rust2);border-radius:1mm;padding:.3mm 1.4mm;margin-left:1mm;vertical-align:1px}
-  .note{background:var(--sand);border-left:3px solid var(--rust2);padding:3mm 4mm;border-radius:0 2mm 2mm 0;font-size:9pt;margin:3mm 0}
-  .steps{counter-reset:s;list-style:none;padding:0}
-  .steps li{counter-increment:s;position:relative;padding:0 0 2.5mm 9mm}
-  .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:6mm;height:6mm;border-radius:50%;background:var(--rust2);color:#fff;font-size:8pt;font-weight:800;display:flex;align-items:center;justify-content:center}
-  code{font-family:Menlo,Consolas,monospace;font-size:8.5pt;background:#f3efe3;padding:.2mm 1.2mm;border-radius:1mm}
-  .small{font-size:8.5pt;color:var(--muted)}
+  .sub{color:#444;max-width:230mm;margin-bottom:4mm}
+  .small{font-size:8pt;color:#555}
+  .kicker{font-size:7.5pt;letter-spacing:.18em;text-transform:uppercase;color:#555;margin-bottom:2mm}
+  .stats{display:flex;gap:10mm;margin:6mm 0}
+  .stats div b{display:block;font-size:20pt}
+  .stats div span{font-size:8pt;color:#444}
+  .cmp{width:100%;border-collapse:collapse;margin-top:4mm}
+  .cmp th,.cmp td{border:1px solid #999;padding:2mm 3mm;text-align:left;vertical-align:top}
+  .cmp th{background:#eee;font-size:8pt;text-transform:uppercase;letter-spacing:.06em}
+  /* trees */
+  .tree{border:1px solid #999;padding:4mm;margin-top:3mm}
+  .root{text-align:center;margin-bottom:3mm}
+  .box{display:inline-block;border:1px solid #111;padding:1.2mm 2.4mm;font-size:8pt;background:#fff;line-height:1.25}
+  .box.bad{border:1.5px dashed #111;background:#eee}
+  .box.hub{border-width:2px;font-weight:bold}
+  .box.new{border-style:double;border-width:3px}
+  .row{display:flex;justify-content:space-between;gap:2mm;border-top:1px solid #111;padding-top:3mm;position:relative}
+  .col{flex:1;display:flex;flex-direction:column;align-items:center;gap:1.5mm}
+  .col .box{width:100%;text-align:center}
+  .col .kids{display:flex;flex-direction:column;gap:1.2mm;width:88%;border-left:1px solid #111;padding-left:2mm}
+  .col .kids .box{text-align:left}
+  .grp{font-size:7pt;letter-spacing:.1em;text-transform:uppercase;color:#444;margin-top:1mm}
+  .orphans{border:1.5px dashed #111;padding:3mm;margin-top:4mm;display:flex;flex-wrap:wrap;gap:1.5mm;align-items:center}
+  .orphans b{width:100%;font-size:8.5pt;margin-bottom:1mm}
+  .legend{display:flex;gap:6mm;margin-top:2.5mm;font-size:8pt;align-items:center}
+  .legend .box{margin-right:1.5mm}
+  .two{display:flex;gap:8mm}
+  .two > div{flex:1}
+  ol.issues{margin:2mm 0 0;padding-left:5mm}
+  ol.issues li{margin-bottom:2mm}
+  table.kw{width:100%;border-collapse:collapse;font-size:8.5pt}
+  table.kw th,table.kw td{border-bottom:1px solid #bbb;padding:1.5mm 2mm;text-align:left}
+  table.kw th{border-bottom:1.5px solid #111;font-size:7.5pt;text-transform:uppercase;letter-spacing:.06em}
+  table.kw td.n{text-align:right;white-space:nowrap}
+  .links{display:flex;gap:6mm;margin-top:3mm}
+  .rule{flex:1;border-top:2px solid #111;padding-top:2mm}
+  svg text{font-family:Helvetica,Arial,sans-serif}
+  .tight .box{padding:.7mm 2mm;font-size:7.5pt}
+  .tight .col .kids{gap:.8mm}
+  .tight .tree{padding:3mm;margin-top:2mm}
+  .tight .grp{margin-top:.5mm}
+  .tight .sub{margin-bottom:2mm}
 </style>
 </head>
 <body>
 
-<!-- ============ COVER ============ -->
-<section class="page cover">
-  <div class="cover__top">
-    <p class="eyebrow">jacanariverlodge.com &middot; project handover</p>
-    <h1>Website Rebuild:<br>Old vs New</h1>
-    <p class="lead">How the old site was structured, how the new site is structured, what we changed, the keywords each page targets, and how to find your way around the new website.</p>
-    <ol class="toc">
-      <li><b>1</b>At a glance</li>
-      <li><b>2</b>Old structure vs new structure</li>
-      <li><b>3</b>The new menu and pages</li>
-      <li><b>4</b>Keywords by page</li>
-      <li><b>5</b>What we changed</li>
-      <li><b>6</b>How to navigate the new site</li>
-      <li><b>7</b>Updating the site</li>
-      <li><b>8</b>Open items before launch</li>
-    </ol>
-  </div>
-  <div class="meta">
-    <p><b>Preview:</b> jacana-river-lodge-mjejane.surge.sh (hidden from Google)</p>
-    <p><b>Live site:</b> jacanariverlodge.com (WordPress, unchanged until launch)</p>
-    <p style="margin:0"><b>Date:</b> November 2026</p>
-  </div>
-</section>
-
-<!-- ============ 1 + 2 ============ -->
+<!-- 1. SUMMARY -->
 <section class="page">
-  <h2>1. At a glance</h2>
+  <div class="kicker">jacanariverlodge.com · website handover</div>
+  <h1>How the website was structured before,<br>and how it is structured now</h1>
+  <p class="sub">The old website had a menu but no clear structure: pages on the same topic were spread across different menus, 13 pages could not be reached from the menu at all, and most pages were never linked from other pages. The new website groups every page into three sections (Stay, Activities, Mjejane Reserve), each with its own main page, and links the pages so visitors and Google can always find them. Every page address from the old website is kept, so existing Google rankings carry over.</p>
   <div class="stats">
-    <div class="stat"><div class="k">Structure</div><div class="v"><s>No silos</s><br><b>3 silos</b></div></div>
-    <div class="stat"><div class="k">Pages</div><div class="v"><s>33 pages</s><br><b>46 pages</b> (13 new)</div></div>
-    <div class="stat"><div class="k">Pages with no menu item</div><div class="v"><s>13</s><br><b>0</b></div></div>
-    <div class="stat"><div class="k">Live URLs</div><div class="v"><b>All kept</b><br>no redirects needed*</div></div>
+    <div><b>33 → 46</b><span>pages (13 new)</span></div>
+    <div><b>0 → 3</b><span>clear sections</span></div>
+    <div><b>13 → 0</b><span>pages missing from the menu</span></div>
+    <div><b>21 → 0</b><span>pages no other page linked to*</span></div>
+    <div><b>All kept</b><span>old page addresses</span></div>
   </div>
-  <p class="small">* One exception at launch: <code>/activities/</code> (a copy of the Activities page) redirects to <code>/activities-near-mjejane/</code>. The 8 review pages, 3 photo stories and 2 thank-you pages also keep their URLs.</p>
-
-  <h2 style="margin-top:7mm">2. Old structure vs new structure</h2>
-  <div class="two">
-    <div class="box box--old">
-      <p class="eyebrow" style="color:var(--muted)">Before</p>
-      <h3>The old site</h3>
-      <ul>
-        <li>A 9-item menu with dropdowns that mixed topics, plus two PDF files listed as menu items.</li>
-        <li>No silos: pages on the same topic didn&rsquo;t link to each other.</li>
-        <li>13 pages had no menu item and could only be found through Google (for example Kruger day drives, Panorama tours, the Irving Knight and Lihlosi packages).</li>
-        <li>21 pages had no links from any other page.</li>
-        <li>Long text pages with one image, and repeated sections and reviews.</li>
-        <li>A 137-post blog, most posts on one topic (self-catering family stays), competing with the homepage.</li>
-      </ul>
-    </div>
-    <div class="box box--new">
-      <p class="eyebrow">After</p>
-      <h3>The new site</h3>
-      <ul>
-        <li>Three silos, <b>Stay</b>, <b>Activities</b> and <b>Mjejane Reserve</b>, each with a hub page.</li>
-        <li>A mega menu that reaches every page.</li>
-        <li>Linking rules: hub &harr; page and page &harr; sibling within a silo, never across silos. Book Now and Contact can be linked from anywhere.</li>
-        <li>Breadcrumbs on every page, and a &ldquo;more in this section&rdquo; photo carousel before the footer.</li>
-        <li>Every page rebuilt from the homepage&rsquo;s sections, with the live SEO text kept but organised: drop-downs, numbered lists, photo blocks.</li>
-        <li>The same enquiry form at the end of every page.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 3 ============ -->
-<section class="page">
-  <h2>3. The new menu and pages</h2>
-  <p>Main menu: <b>Stay</b> &middot; <b>Activities</b> &middot; <b>Mjejane Reserve</b> &middot; News &middot; Contact Us &middot; <b>Book Now</b>. The first three open a menu showing every page in that silo. <span class="tag">NEW</span> marks pages the old site didn&rsquo;t have.</p>
-  <div class="menu">
-    <div class="col">
-      <h3>Stay</h3><div class="hub">Hub: The Lodge</div>
-      <ul>
-        <li>The Lodge</li>
-        <li>Rooms &amp; Suites <span class="tag">NEW</span></li>
-        <li>Rates &amp; Facilities</li>
-        <li>Specials</li>
-        <li>5-Night Packages</li>
-        <li>Bush Getaway</li>
-        <li>Family Retreat</li>
-        <li>Self-Catering Guide <span class="tag">NEW</span></li>
-        <li>Gallery</li>
-        <li>Guest Reviews <span class="tag">NEW</span></li>
-        <li>Near Malelane <span class="tag">NEW</span></li>
-        <li>Near Komatipoort <span class="tag">NEW</span></li>
-      </ul>
-      <p class="small" style="margin:0">The 8 review pages sit under Guest Reviews.</p>
-    </div>
-    <div class="col">
-      <h3>Activities</h3><div class="hub">Hub: Activities</div>
-      <div class="grp">In the Mjejane</div>
-      <ul><li>Private Game Drives</li><li>Guided Bush Walks</li><li>Birding Guide</li><li>Bush Spa</li><li>Kingsland</li></ul>
-      <div class="grp">Kruger &amp; Panorama</div>
-      <ul><li>Kruger Tours &amp; Packages <span class="tag">NEW</span></li><li>Kruger Day Drives</li><li>Drives with Special Khoza <span class="tag">NEW</span></li><li>Irving Knight Safaris (+ 1 week, weekend)</li><li>Lihlosi (1 week, weekend)</li><li>Panorama Tours (+ week, weekend)</li></ul>
-      <div class="grp">Nearby</div>
-      <ul><li>Day Trips <span class="tag">NEW</span></li><li>Golf near the Kruger <span class="tag">NEW</span></li></ul>
-    </div>
-    <div class="col">
-      <h3>Mjejane Reserve</h3><div class="hub">Hub: Mjejane Reserve guide</div>
-      <ul>
-        <li>Mjejane Reserve guide</li>
-        <li>Wildlife &amp; Sightings (+ Sightings, Wildlife in the Mjejane, 3 photo stories)</li>
-        <li>The Big 5 <span class="tag">NEW</span></li>
-        <li>Best Time to Visit <span class="tag">NEW</span></li>
-        <li>Mjejane Bridge</li>
-        <li>Rules &amp; Safety</li>
-      </ul>
-      <div class="grp">Plan your stay (open to all)</div>
-      <ul><li>Book Now</li><li>Contact Us</li><li>Directions <span class="tag">NEW</span></li><li>FAQ <span class="tag">NEW</span></li><li>News</li></ul>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 4 ============ -->
-<section class="page">
-  <h2>4. Keywords by page</h2>
-  <p>Each page targets one main keyword, and no two pages target the same one. Monthly searches are for South Africa, from the keyword research (Search Atlas). Pages with no search demand, such as Specials, Gallery and Rules, target no keyword; they&rsquo;re there for guests.</p>
-  <table>
-    <thead><tr><th>Page</th><th>Main keyword</th><th>Searches / month</th></tr></thead>
-    <tbody>
-      <tr><td>Home</td><td>mpumalanga lodges</td><td>1,900</td></tr>
-      <tr><td>The Lodge</td><td>self catering mpumalanga</td><td>720</td></tr>
-      <tr><td>Rates &amp; Facilities</td><td>kruger self catering accommodation</td><td>590</td></tr>
-      <tr><td>Bush Getaway</td><td>mpumalanga getaway</td><td>210</td></tr>
-      <tr><td>Near Malelane</td><td>malelane accommodation</td><td>1,000</td></tr>
-      <tr><td>Near Komatipoort</td><td>komatipoort accommodation</td><td>720</td></tr>
-      <tr><td>Mjejane Reserve guide</td><td>mjejane game reserve</td><td>2,900</td></tr>
-      <tr><td>The Big 5</td><td>big 5 safari south africa</td><td>1,900</td></tr>
-      <tr><td>Best Time to Visit</td><td>best time to visit kruger</td><td>320</td></tr>
-      <tr><td>Activities</td><td>things to do in mpumalanga</td><td>1,000</td></tr>
-      <tr><td>Kruger Day Drives</td><td>game drives kruger national park</td><td>720</td></tr>
-      <tr><td>Kruger Tours &amp; Packages</td><td>kruger tours</td><td>590</td></tr>
-      <tr><td>Panorama Tours</td><td>panorama route</td><td>2,900</td></tr>
-      <tr><td>Day Trips</td><td>graskop gorge lift</td><td>2,400</td></tr>
-      <tr><td>Golf near the Kruger</td><td>kambaku golf club</td><td>2,400</td></tr>
-      <tr><td>Birding Guide</td><td>birds of kruger</td><td>320</td></tr>
-      <tr><td>Guided Bush Walks</td><td>walking safari</td><td>70</td></tr>
-      <tr><td>Bush Spa</td><td>bush spa</td><td>50</td></tr>
-      <tr><td>Directions</td><td>nelspruit to kruger</td><td>170</td></tr>
-      <tr><td>Book Now, Contact Us</td><td>jacana river lodge (brand)</td><td>210</td></tr>
-    </tbody>
+  <table class="cmp">
+    <tr><th style="width:22%"></th><th>Before</th><th>Now</th></tr>
+    <tr><td><b>Menu</b></td><td>9 items. Dropdowns mixed topics, and two certificates (PDF files) appeared as menu items.</td><td>Stay · Activities · Mjejane Reserve · News · Contact Us · Book Now. Each of the first three opens a menu showing every page in that section.</td></tr>
+    <tr><td><b>Finding pages</b></td><td>13 pages had no menu item and could only be found through Google, including Kruger day drives, Panorama tours and all six Kruger packages.</td><td>Every page is in the menu and shows its place, for example Home › Activities › Kruger Tours &amp; Packages.</td></tr>
+    <tr><td><b>Links between pages</b></td><td>Most pages linked only to Book Now. Related pages didn&rsquo;t link to each other.</td><td>Each page links to its section&rsquo;s main page and to its related pages, with a photo carousel of those pages at the bottom.</td></tr>
+    <tr><td><b>Blog</b></td><td>137 posts, mostly on one topic, competing with the homepage for the same searches.</td><td>Unchanged for now. The blog move is the next phase (page 6).</td></tr>
   </table>
-  <div class="note"><b>Accuracy rule.</b> Jacana is in the <b>Mjejane Private Game Reserve</b> on the Kruger&rsquo;s southern boundary, not in the Kruger National Park, so no page targets &ldquo;Kruger Park lodges&rdquo; (that is also another resort&rsquo;s name). Pages say &ldquo;near the Kruger&rdquo;.</div>
-  <p class="small">Titles and meta descriptions: live pages keep their live text unless an approved change exists (SEO plan, Part 1: Home &amp; Stay). Full research: <code>seo/keywords/keyword-map.csv</code>.</p>
+  <p class="small" style="margin-top:3mm">* Apart from the privacy policy, useful links and the two thank-you pages, which are reached from the footer or after sending a form.</p>
 </section>
 
-<!-- ============ 5 ============ -->
+<!-- 2. OLD MENU -->
 <section class="page">
-  <h2>5. What we changed</h2>
+  <h2>1. The old website: menu</h2>
+  <p class="sub">What a visitor saw on the old website. Dashed grey boxes are items in the wrong place, or not real pages.</p>
+  <div class="tree">
+    <div class="root"><span class="box hub">Home (logo)</span></div>
+    <div class="row">
+      <div class="col"><span class="box">Rates &amp; Facilities</span><div class="kids"><span class="box bad">① Star Grading (PDF)</span><span class="box bad">① Tourism Memb. (PDF)</span></div></div>
+      <div class="col"><span class="box">Activities</span><div class="kids"><span class="box bad">② Wildlife &amp; Sightings</span></div></div>
+      <div class="col"><span class="box">Mjejane Game Reserve</span><div class="kids"><span class="box">Rules &amp; Safety</span><span class="box bad">③ Book Now (again)</span><span class="box bad">④ Birding Guide</span></div></div>
+      <div class="col"><span class="box">Gallery</span></div>
+      <div class="col"><span class="box">Blog</span></div>
+      <div class="col"><span class="box">Packages</span><div class="kids"><span class="box">Specials</span></div></div>
+      <div class="col"><span class="box bad">⑤ Review Us</span></div>
+      <div class="col"><span class="box">Book Now</span></div>
+      <div class="col"><span class="box">Enquiry</span></div>
+    </div>
+    <div class="orphans">
+      <b>⑥ Not in the menu at all: only reachable from Google (13 pages)</b>
+      <span class="box bad">About the lodge</span><span class="box bad">Kruger full &amp; half-day drives</span><span class="box bad">Panorama tours</span><span class="box bad">Bridge to the Kruger</span><span class="box bad">Irving Knight: 1 week</span><span class="box bad">Irving Knight: weekend</span><span class="box bad">Lihlosi: 1 week</span><span class="box bad">Lihlosi: weekend</span><span class="box bad">Kruger &amp; Panorama: week</span><span class="box bad">Kruger &amp; Panorama: weekend</span><span class="box bad">Family retreat</span><span class="box bad">Bush getaway</span><span class="box bad">Useful links</span>
+    </div>
+    <div class="orphans">
+      <b>⑦ Blog: 137 posts</b>
+      <span>About 112 posts cover one topic (self-catering family stays) and compete with each other and with the homepage. The 3 newest posts were linked over 100 times each; 91 posts got no links.</span>
+    </div>
+  </div>
+  <div class="legend"><span><span class="box">Page</span>in the menu</span><span><span class="box bad">Problem</span>wrong place, not a page, or not in the menu</span></div>
+</section>
+
+<!-- 3. OLD PROBLEMS + LINKING -->
+<section class="page">
+  <h2>2. The old website: what was wrong</h2>
   <div class="two">
     <div>
-      <h3>Structure &amp; SEO</h3>
-      <ul>
-        <li>Three silos with a mega menu, breadcrumbs and breadcrumb schema.</li>
-        <li>Every live URL kept, so rankings carry over.</li>
-        <li>13 new pages for real search demand or real guest questions.</li>
-        <li>All live text kept, organised into sections and drop-downs instead of long walls of text.</li>
-        <li>Lodge schema (Home, Contact), social sharing cards, one main heading per page, sitemaps.</li>
-        <li>Copy checked three times for accuracy (Mjejane vs Kruger, bridge temporarily closed, prices copied exactly).</li>
-      </ul>
-      <h3>Pages</h3>
-      <ul>
-        <li>Every page uses the homepage&rsquo;s section designs: intro, image-beside-text blocks, numbered lists, drop-downs, photo rows.</li>
-        <li>Clear tables for rates, cancellation, seasons and package comparisons.</li>
-        <li>Contact page: contact cards, a live Google map beside the form, 24-hour emergency numbers.</li>
-      </ul>
+      <p class="sub">The numbers match the menu on the previous page.</p>
+      <ol class="issues">
+        <li><b>Certificates filed as pages.</b> &ldquo;Star Grading&rdquo; and &ldquo;Tourism Memberships&rdquo; opened PDF files from the menu. They are trust badges and belong in the footer.</li>
+        <li><b>Wildlife under Activities.</b> Wildlife &amp; Sightings is about the reserve, not something you book.</li>
+        <li><b>Book Now inside the reserve menu</b>, as well as in the main menu.</li>
+        <li><b>Birding under the reserve.</b> Birding is an activity, with its own guides and walks.</li>
+        <li><b>&ldquo;Review Us&rdquo; in the main menu.</b> A link off the website took the place of a real page.</li>
+        <li><b>Whole products hidden.</b> Kruger day drives, Panorama tours, six packages, the bridge page and even the About page had no menu item and no links.</li>
+        <li><b>The blog competed with the main pages</b> for the same searches.</li>
+      </ol>
     </div>
     <div>
-      <h3>Design rules applied site-wide</h3>
-      <ul>
-        <li>Clean heroes: a title and one line, no buttons.</li>
-        <li>Solid buttons only, never crowded under a text link.</li>
-        <li>Every hero photo unique, and no repeated or near-identical photos on a page.</li>
-        <li>High-quality photos swapped in, with no collages or flyers carrying text.</li>
-        <li>Flat cards: no lift or shadow on hover; only the photo zooms.</li>
-        <li>Reviews quoted word for word, and not repeated on every page.</li>
-        <li>Booking cards only for different contacts (spa, walks office, SANParks, emergency). The form covers the lodge.</li>
-      </ul>
-      <h3>Phones</h3>
-      <ul>
-        <li>Nothing squashed or wider than the screen.</li>
-        <li>Long text shows its opening with a &ldquo;Read more&rdquo; link.</li>
-        <li>Tables turn into one card per row.</li>
-        <li>Tappable phone numbers and emails, and the WhatsApp button on every page.</li>
-      </ul>
+      <h3 style="margin-top:2mm">How often other pages linked to each page</h3>
+      <p class="small">Links from the content of other pages and posts (menu and footer not counted). Google mostly follows these links.</p>
+      <svg viewBox="0 0 420 330" width="100%">
+        <g font-size="9">
+          <!-- bars: label, value -->
+          <g transform="translate(150,10)">
+            <text x="-6" y="9" text-anchor="end">Book Now</text><rect x="0" y="1" width="225" height="10" fill="#111"/><text x="230" y="9">15</text>
+            <text x="-6" y="25" text-anchor="end">Mjejane guide</text><rect x="0" y="17" width="135" height="10" fill="#111"/><text x="140" y="25">9</text>
+            <text x="-6" y="41" text-anchor="end">Home</text><rect x="0" y="33" width="135" height="10" fill="#111"/><text x="140" y="41">9</text>
+            <text x="-6" y="57" text-anchor="end">Rates &amp; Facilities</text><rect x="0" y="49" width="75" height="10" fill="#111"/><text x="80" y="57">5</text>
+            <text x="-6" y="73" text-anchor="end">Activities (copy page)</text><rect x="0" y="65" width="75" height="10" fill="#111"/><text x="80" y="73">5</text>
+            <text x="-6" y="89" text-anchor="end">Gallery</text><rect x="0" y="81" width="60" height="10" fill="#111"/><text x="65" y="89">4</text>
+            <text x="-6" y="105" text-anchor="end">Contact Us</text><rect x="0" y="97" width="45" height="10" fill="#111"/><text x="50" y="105">3</text>
+            <text x="-6" y="121" text-anchor="end">Wildlife &amp; sightings pages</text><rect x="0" y="113" width="30" height="10" fill="#111"/><text x="35" y="121">2</text>
+            <text x="-6" y="137" text-anchor="end">Rules, Game drive</text><rect x="0" y="129" width="15" height="10" fill="#111"/><text x="20" y="137">1</text>
+            <text x="-6" y="160" text-anchor="end" font-weight="bold">21 pages</text><text x="0" y="160" font-weight="bold">0 links each:</text>
+          </g>
+          <text x="20" y="190" font-size="8.5" fill="#333">Activities (main page), About the lodge, Specials, Packages, Birding guide, Bridge to the</text>
+          <text x="20" y="203" font-size="8.5" fill="#333">Kruger, Kruger day drives, Panorama tours, all 6 Kruger packages, Family retreat,</text>
+          <text x="20" y="216" font-size="8.5" fill="#333">Bush getaway, Bush spa, Kingsland, Bush walks, Useful links and others.</text>
+          <text x="20" y="250" font-size="9" font-weight="bold">Now: every one of these pages is linked from its section&rsquo;s</text>
+          <text x="20" y="264" font-size="9" font-weight="bold">main page, from its related pages and from the menu.</text>
+        </g>
+      </svg>
     </div>
   </div>
 </section>
 
-<!-- ============ 6 + 7 ============ -->
-<section class="page">
-  <h2>6. How to navigate the new site</h2>
-  <ol class="steps">
-    <li><b>Menu (top).</b> Hover or tap <b>Stay</b>, <b>Activities</b> or <b>Mjejane Reserve</b> to see every page in that section. <b>Book Now</b> is always on the right.</li>
-    <li><b>Breadcrumb (in the hero).</b> Shows where you are, for example <i>Home &rsaquo; Activities &rsaquo; Kruger Tours &amp; Packages &rsaquo; Irving Knight Safaris</i>. Each step is a link back up.</li>
-    <li><b>Page sections.</b> Each page opens with an intro and key facts, then the details. Rust-coloured bars are drop-downs; tap one to open it.</li>
-    <li><b>Enquiry form (end of every page).</b> Phone, WhatsApp, email and the message form. On Contact, the form sits beside the map.</li>
-    <li><b>&ldquo;More in this section&rdquo; (before the footer).</b> A photo carousel of related pages in the same section. Use the arrows or swipe.</li>
-    <li><b>Footer.</b> Main pages, contact details, awards and the legal pages.</li>
-  </ol>
-  <div class="note">Quick routes: rates &rarr; <b>Stay &rsaquo; Rates &amp; Facilities</b>; Kruger safaris compared &rarr; <b>Activities &rsaquo; Kruger Tours &amp; Packages</b>; how to get there &rarr; <b>Directions</b>; common questions &rarr; <b>FAQ</b>.</div>
-
-  <h2 style="margin-top:7mm">7. Updating the site</h2>
-  <p>The site is static HTML: every page is <code>folder/index.html</code> at its live URL. Shared parts (menu, footer, breadcrumbs, related-pages carousel, titles, sitemaps) are generated. After editing pages, run these from the project folder in this order:</p>
-  <table>
-    <thead><tr><th>Command</th><th>What it does</th></tr></thead>
-    <tbody>
-      <tr><td><code>python3 tools/header.py</code></td><td>Builds the menu</td></tr>
-      <tr><td><code>python3 tools/footer.py</code></td><td>Builds the footer and river divider</td></tr>
-      <tr><td><code>python3 tools/silo.py</code></td><td>Builds breadcrumbs and the related-pages carousel</td></tr>
-      <tr><td><code>python3 tools/seo.py</code></td><td>Builds titles, descriptions, canonicals and sitemaps</td></tr>
-      <tr><td><code>python3 tools/audit.py</code></td><td>Prints an SEO check (report only)</td></tr>
-    </tbody>
-  </table>
-  <p class="small">To add a page, add one line to <code>tools/silo_map.py</code> (its name, parent and section) and run the commands above. The full technical notes are in <code>HANDOFF.md</code> and <code>README.md</code> in the project.</p>
+<!-- 4. NEW MENU -->
+<section class="page tight">
+  <h2>3. The new website: menu and sections</h2>
+  <p class="sub">Three sections, each with a main page (bold). Every page sits under one section. Book Now and Contact Us are open to every page. Double-bordered boxes are new pages.</p>
+  <div class="tree">
+    <div class="root"><span class="box hub">Home</span> &nbsp; <span class="small">menu: Stay · Activities · Mjejane Reserve · News · Contact Us · Book Now</span></div>
+    <div class="row">
+      <div class="col"><span class="box hub">STAY: The Lodge</span>
+        <div class="kids">
+          <span class="box new">Rooms &amp; Suites</span><span class="box">Rates &amp; Facilities</span><span class="box">Specials</span><span class="box">5-Night Packages</span><span class="box">Bush Getaway</span><span class="box">Family Retreat</span><span class="box new">Self-Catering Guide</span><span class="box">Gallery</span><span class="box new">Guest Reviews<br><span class="small">+ the 8 guest review pages</span></span><span class="box new">Near Malelane</span><span class="box new">Near Komatipoort</span>
+        </div></div>
+      <div class="col"><span class="box hub">ACTIVITIES</span>
+        <div class="kids">
+          <div class="grp">In the Mjejane</div>
+          <span class="box">Private Game Drives</span><span class="box">Guided Bush Walks</span><span class="box">Birding Guide</span><span class="box">Bush Spa</span><span class="box">Kingsland</span>
+          <div class="grp">Kruger &amp; Panorama</div>
+          <span class="box new">Kruger Tours &amp; Packages</span><span class="box">Kruger Day Drives</span><span class="box new">Drives with Special Khoza</span><span class="box">Irving Knight Safaris<br><span class="small">+ 1 week, weekend</span></span><span class="box">Lihlosi: 1 week, weekend</span><span class="box">Panorama Tours<br><span class="small">+ week, weekend</span></span>
+          <div class="grp">Nearby</div>
+          <span class="box new">Day Trips</span><span class="box new">Golf near the Kruger</span>
+        </div></div>
+      <div class="col"><span class="box hub">MJEJANE RESERVE: Guide</span>
+        <div class="kids">
+          <span class="box">Wildlife &amp; Sightings<br><span class="small">+ Sightings, Wildlife in the Mjejane, 3 photo stories</span></span><span class="box new">The Big 5</span><span class="box new">Best Time to Visit</span><span class="box">Mjejane Bridge</span><span class="box">Rules &amp; Safety</span>
+        </div></div>
+      <div class="col"><span class="box hub">PLAN YOUR STAY</span>
+        <div class="kids">
+          <span class="box">Book Now</span><span class="box">Contact Us</span><span class="box new">Directions</span><span class="box new">FAQ</span><span class="box">News (blog)</span>
+          <div class="grp">Footer</div>
+          <span class="box">Privacy policy</span><span class="box">Useful links</span><span class="box">Star grading &amp; awards (badges)</span>
+        </div></div>
+    </div>
+  </div>
+  <div class="legend"><span><span class="box hub">Main page</span>of a section</span><span><span class="box">Page</span>from the old website</span><span><span class="box new">New</span>new page</span></div>
 </section>
 
-<!-- ============ 8 ============ -->
+<!-- 5. LINKING -->
 <section class="page">
-  <h2>8. Open items before launch</h2>
-  <h3>At launch (Lovable)</h3>
-  <ul>
-    <li>Redirect <code>/activities/</code> to <code>/activities-near-mjejane/</code> (301).</li>
-    <li>Reinstall tracking: Google Tag Manager (GTM-NG736RT), Google Ads (AW-10868306513), Hotjar (3028515).</li>
-    <li>Connect the forms to GoHighLevel, keeping the thank-you page redirects that Google Ads uses to count conversions.</li>
-    <li>Replace the preview&rsquo;s &ldquo;hide from Google&rdquo; setting with the live <code>robots.txt</code>.</li>
-  </ul>
-  <h3>Still to do</h3>
-  <ul>
-    <li>SEO plan Part 2 (Activities) and Part 3 (Mjejane Reserve and the Plan pages): approved titles and descriptions.</li>
-    <li>Blog migration (137 posts).</li>
-  </ul>
-  <h3>Questions for the lodge (the live site contradicts itself)</h3>
-  <table>
-    <thead><tr><th>#</th><th>Question</th></tr></thead>
-    <tbody>
-      <tr><td>1</td><td>Irving Knight weekend: R6 475,00 and R7 856,25 are both labelled &ldquo;for 8 people&rdquo;.</td></tr>
-      <tr><td>2</td><td>Bush walks: R550 for &ldquo;4&ndash;6 people&rdquo; vs R500 for &ldquo;5&ndash;6 people&rdquo;.</td></tr>
-      <tr><td>3</td><td>Reservations email on the walks poster: <code>.co.za</code> vs <code>.com</code>.</td></tr>
-      <tr><td>4</td><td>Domestic worker hours: Sat 07h30&ndash;11h45 (Rates) vs weekends 08:00&ndash;11:30 (Rules).</td></tr>
-      <tr><td>5</td><td>George Minnaar&rsquo;s emergency number: +27 76 793 3497 (Contact) vs +27 76 762 3920 (Rules).</td></tr>
-      <tr><td>6</td><td>Packages: &ldquo;2nd night half price&rdquo; vs &ldquo;4th night 50% off&rdquo;. Which is current?</td></tr>
-      <tr><td>7</td><td>Packages say &ldquo;4 nights&rdquo; for Mon&ndash;Thu and Thu&ndash;Sun (3 nights).</td></tr>
-      <tr><td>8</td><td>Kruger day drives: &plusmn;12 / &plusmn;6 hours (headings) vs 8 / 4 hours (older text).</td></tr>
-      <tr><td>9</td><td>Special Khoza&rsquo;s name tag reads &ldquo;SIBUSISO&rdquo;. Should his full name appear anywhere?</td></tr>
-    </tbody>
-  </table>
+  <h2>4. The new website: how pages link</h2>
+  <p class="sub">The structure only works if the links follow it. Every page follows the same rules, shown here with the Activities section as an example.</p>
+  <svg viewBox="0 0 820 250" width="100%">
+    <defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#111"/></marker>
+      <marker id="b" markerWidth="8" markerHeight="8" refX="1" refY="4" orient="auto"><path d="M8,0 L0,4 L8,8 z" fill="#111"/></marker></defs>
+    <g font-size="11">
+      <rect x="280" y="10" width="180" height="34" fill="#fff" stroke="#111" stroke-width="2"/><text x="370" y="32" text-anchor="middle" font-weight="bold">Activities (main page)</text>
+      <rect x="600" y="10" width="140" height="34" fill="#fff" stroke="#111" stroke-dasharray="4 3"/><text x="670" y="32" text-anchor="middle">Book Now / Contact</text>
+      <rect x="60" y="120" width="150" height="34" fill="#fff" stroke="#111"/><text x="135" y="142" text-anchor="middle">Game Drives</text>
+      <rect x="295" y="120" width="150" height="34" fill="#fff" stroke="#111"/><text x="370" y="142" text-anchor="middle">Bush Walks</text>
+      <rect x="530" y="120" width="150" height="34" fill="#fff" stroke="#111"/><text x="605" y="142" text-anchor="middle">Birding Guide</text>
+      <rect x="530" y="205" width="150" height="34" fill="#eee" stroke="#111" stroke-dasharray="4 3"/><text x="605" y="227" text-anchor="middle">Rates (Stay section)</text>
+      <line x1="300" y1="44" x2="150" y2="118" stroke="#111" marker-end="url(#a)" marker-start="url(#b)"/>
+      <line x1="370" y1="44" x2="370" y2="118" stroke="#111" marker-end="url(#a)" marker-start="url(#b)"/>
+      <line x1="440" y1="44" x2="590" y2="118" stroke="#111" marker-end="url(#a)" marker-start="url(#b)"/>
+      <line x1="212" y1="137" x2="293" y2="137" stroke="#111" marker-end="url(#a)" marker-start="url(#b)"/><text x="252" y="130" text-anchor="middle" font-size="9">related</text>
+      <line x1="605" y1="156" x2="605" y2="203" stroke="#111" stroke-dasharray="3 3"/><text x="612" y="185" font-size="16">✕</text><text x="630" y="185" font-size="9">no links across sections</text>
+      <line x1="670" y1="46" x2="670" y2="118" stroke="#111" stroke-dasharray="3 3" marker-start="url(#b)"/><text x="676" y="90" font-size="9">every page can link here</text>
+      <text x="200" y="85" font-size="9">down and up</text>
+    </g>
+  </svg>
+  <div class="links">
+    <div class="rule"><h3>Main page ⇄ page</h3><p>Each section&rsquo;s main page links to all its pages, and each page links back up.</p></div>
+    <div class="rule"><h3>Related pages</h3><p>Pages in the same section link to each other, for example Game Drives ⇄ Bush Walks.</p></div>
+    <div class="rule"><h3>Booking is open</h3><p>Every page can link to Book Now and Contact Us, and every page ends with the same enquiry form.</p></div>
+    <div class="rule"><h3>No links across sections</h3><p>An activity page doesn&rsquo;t link sideways to Rates. Visitors move between sections through the menu or a main page.</p></div>
+  </div>
+  <p class="small" style="margin-top:4mm">On every page: the menu at the top, the page&rsquo;s place shown under the title (Home › Activities › …), and a &ldquo;more in this section&rdquo; photo carousel above the footer.</p>
+</section>
+
+<!-- 6. KEYWORDS -->
+<section class="page">
+  <h2>5. Keywords: what each page is found for</h2>
+  <p class="sub">Each page aims at one main search phrase, and no two pages aim at the same one, so they don&rsquo;t compete. Searches are per month in South Africa. Pages people don&rsquo;t search for, like Specials, Gallery or Rules, are there for guests and aim at no phrase.</p>
+  <div class="two">
+    <table class="kw">
+      <tr><th>Page</th><th>Main search phrase</th><th style="text-align:right">Searches</th></tr>
+      <tr><td>Home</td><td>mpumalanga lodges</td><td class="n">1,900</td></tr>
+      <tr><td>The Lodge</td><td>self catering mpumalanga</td><td class="n">720</td></tr>
+      <tr><td>Rates &amp; Facilities</td><td>kruger self catering accommodation</td><td class="n">590</td></tr>
+      <tr><td>Bush Getaway</td><td>mpumalanga getaway</td><td class="n">210</td></tr>
+      <tr><td>Near Malelane</td><td>malelane accommodation</td><td class="n">1,000</td></tr>
+      <tr><td>Near Komatipoort</td><td>komatipoort accommodation</td><td class="n">720</td></tr>
+      <tr><td>Mjejane Reserve guide</td><td>mjejane game reserve</td><td class="n">2,900</td></tr>
+      <tr><td>The Big 5</td><td>big 5 safari south africa</td><td class="n">1,900</td></tr>
+      <tr><td>Best Time to Visit</td><td>best time to visit kruger</td><td class="n">320</td></tr>
+      <tr><td>Directions</td><td>nelspruit to kruger</td><td class="n">170</td></tr>
+    </table>
+    <table class="kw">
+      <tr><th>Page</th><th>Main search phrase</th><th style="text-align:right">Searches</th></tr>
+      <tr><td>Activities</td><td>things to do in mpumalanga</td><td class="n">1,000</td></tr>
+      <tr><td>Kruger Day Drives</td><td>game drives kruger national park</td><td class="n">720</td></tr>
+      <tr><td>Kruger Tours &amp; Packages</td><td>kruger tours</td><td class="n">590</td></tr>
+      <tr><td>Panorama Tours</td><td>panorama route</td><td class="n">2,900</td></tr>
+      <tr><td>Day Trips</td><td>graskop gorge lift</td><td class="n">2,400</td></tr>
+      <tr><td>Golf near the Kruger</td><td>kambaku golf club</td><td class="n">2,400</td></tr>
+      <tr><td>Birding Guide</td><td>birds of kruger</td><td class="n">320</td></tr>
+      <tr><td>Guided Bush Walks</td><td>walking safari</td><td class="n">70</td></tr>
+      <tr><td>Bush Spa</td><td>bush spa</td><td class="n">50</td></tr>
+      <tr><td>Book Now, Contact Us</td><td>jacana river lodge (name)</td><td class="n">210</td></tr>
+    </table>
+  </div>
+  <p style="margin-top:4mm"><b>Accuracy:</b> Jacana is in the Mjejane Private Game Reserve on the Kruger&rsquo;s southern boundary, not inside the Kruger National Park, so the website says &ldquo;near the Kruger&rdquo; and never aims at &ldquo;Kruger Park lodges&rdquo;, which is also the name of another resort.</p>
+</section>
+
+<!-- 7. OPEN ITEMS -->
+<section class="page">
+  <h2>6. Still to do, and questions for the lodge</h2>
+  <div class="two">
+    <div>
+      <h3>When the new website goes live</h3>
+      <ul>
+        <li>Send visitors from the old copy of the Activities page to the main Activities page.</li>
+        <li>Reconnect visitor tracking: Google Analytics, Google Ads and Hotjar.</li>
+        <li>Connect the booking and enquiry forms to the CRM, keeping the thank-you pages that Google Ads uses to count bookings.</li>
+        <li>Let Google index the new website. The preview is hidden from Google until then.</li>
+      </ul>
+      <h3 style="margin-top:4mm">Next phase</h3>
+      <ul>
+        <li>Search titles and descriptions for the Activities and Mjejane Reserve pages.</li>
+        <li>Move the 137 blog posts into the new sections, each linking to its section&rsquo;s main page.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Questions for the lodge (the old website contradicts itself)</h3>
+      <ol style="padding-left:5mm;margin:1mm 0 0">
+        <li>Irving Knight weekend: R6 475,00 and R7 856,25 are both labelled &ldquo;for 8 people&rdquo;.</li>
+        <li>Bush walks: R550 for &ldquo;4–6 people&rdquo; or R500 for &ldquo;5–6 people&rdquo;?</li>
+        <li>Reservations email on the walks poster: .co.za or .com?</li>
+        <li>Domestic worker: Saturday 07h30–11h45 (Rates) or weekends 08:00–11:30 (Rules)?</li>
+        <li>George Minnaar&rsquo;s emergency number: +27 76 793 3497 or +27 76 762 3920?</li>
+        <li>Packages: &ldquo;2nd night half price&rdquo; or &ldquo;4th night 50% off&rdquo;? Which is current?</li>
+        <li>Packages say &ldquo;4 nights&rdquo; for Mon–Thu and Thu–Sun (3 nights).</li>
+        <li>Kruger day drives: about 12 / 6 hours or 8 / 4 hours?</li>
+        <li>Special Khoza&rsquo;s name tag reads &ldquo;SIBUSISO&rdquo;. Should his full name appear anywhere?</li>
+      </ol>
+    </div>
+  </div>
 </section>
 
 </body>
