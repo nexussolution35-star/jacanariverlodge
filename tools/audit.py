@@ -28,7 +28,8 @@ checks = {k: [] for k in [
     'twitter:card', 'one <main> landmark', 'img alt present', 'no bare "Read more" links',
     'form controls have accessible names', 'schema: LodgingBusiness/LocalBusiness on home + contact',
     'schema: BreadcrumbList on deep pages', 'FAQPage only where FAQ visible', 'no AggregateRating',
-    'noindex where required', 'no stray noindex', 'sitemap lists every indexable page', 'favicon declared']}
+    'noindex where required', 'no stray noindex', 'sitemap lists every indexable page', 'favicon declared',
+    'at most one "more in this section" block']}
 titles, metas = {}, {}
 for path, url in pages():
     h = open(path).read()
@@ -83,6 +84,7 @@ for path, url in pages():
     if noindex and url not in NOINDEX_EXPECTED: checks['no stray noindex'].append(url)
     if not noindex and url not in CANONICAL_TO and url not in sitemap: checks['sitemap lists every indexable page'].append(url)
     if 'rel="icon"' not in head: checks['favicon declared'].append(url)
+    if body.count('class="section section--sand silo"') > 1: checks['at most one "more in this section" block'].append(url)
 for t, us in titles.items():
     us = [u for u in us if u not in CANONICAL_TO]
     if t and len(us) > 1: checks['title: present + unique'] += [f'duplicate: {", ".join(us)}']

@@ -123,10 +123,14 @@ for path, url in pages():
     # 3. "more in this section"
     b = '' if url in NO_BLOCK else block(url)
     if '<!-- SILO -->' in t:
-        if '<!-- /SILO -->' in t:
-            t = re.sub(r'<!-- SILO -->.*?<!-- /SILO -->\n?', lambda m: b or '<!-- SILO -->\n', t, count=1, flags=re.S)
-        else:
-            t = t.replace('<!-- SILO -->\n', b or '<!-- SILO -->\n', 1).replace('<!-- SILO -->', b or '<!-- SILO -->', 1)
+        a0 = t.index('<!-- SILO -->')
+        if '<!-- /SILO -->' in t:   # first opening marker to the LAST closing one, so a doubled block heals
+            z = t.rindex('<!-- /SILO -->') + len('<!-- /SILO -->')
+            z += 1 if t[z:z + 1] == '\n' else 0
+        else:                       # bare marker left by a page author
+            z = a0 + len('<!-- SILO -->')
+            z += 1 if t[z:z + 1] == '\n' else 0
+        t = t[:a0] + (b or '<!-- SILO -->\n') + t[z:]
     elif b:
         t = t.replace('<footer class="footer"', b + '<footer class="footer"', 1)
     if t != t0:
