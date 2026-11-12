@@ -1652,3 +1652,8 @@ article.story-card:hover{box-shadow:none!important;transform:none!important}
 @media (max-width:900px){.contact-map__grid{grid-template-columns:1fr}.contact-map__frame{aspect-ratio:16/10;min-height:0}}
 /* News cards: titles at card size, not section-heading size */
 main .story-card__body h2,main .story-card__body h3{font-size:clamp(1.25rem,1.6vw,1.5rem)!important;line-height:1.2;margin-bottom:10px}
+/* chat widget placeholder (live chat to be connected later) */
+.chat-widget{border:0;cursor:pointer;background:#A04E29;color:#fff;display:flex;align-items:center;justify-content:center}
+.chat-widget svg{width:28px;height:28px;fill:#fff}
+.chat-widget{box-shadow:0 8px 22px -8px rgba(33,31,31,.45)}
+.chat-widget{border:2px solid #fff}
