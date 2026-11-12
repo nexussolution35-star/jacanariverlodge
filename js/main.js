@@ -53,7 +53,15 @@
         ddToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       }
     });
-    dd.addEventListener('mouseenter', function () { ddToggle.setAttribute('aria-expanded', 'true'); });
+    dd.addEventListener('mouseenter', function () {
+      ddToggle.setAttribute('aria-expanded', 'true');
+      // point the panel's notch at this menu item
+      var menu = dd.querySelector('.nav-dd__menu');
+      if (menu && window.innerWidth > 1060) {
+        var r = ddToggle.getBoundingClientRect(), m = menu.getBoundingClientRect();
+        menu.style.setProperty('--notch', Math.round(r.left + r.width / 2 - m.left) + 'px');
+      }
+    });
     dd.addEventListener('mouseleave', function () { ddToggle.setAttribute('aria-expanded', 'false'); });
   });
 
