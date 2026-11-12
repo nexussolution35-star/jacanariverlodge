@@ -1583,3 +1583,10 @@ main .prose-block li:has(> span > svg),main .info-card li:has(> span > svg),main
   .prose-2col > :first-child{margin-top:0}
 }
 .info-card .contact-list{margin-top:16px}
+/* the last block before the footer always clears the footer river line */
+main > .silo:last-child,main > section:last-child{padding-bottom:calc(clamp(56px,7.5vw,165px) + clamp(40px,5vw,70px))}
+/* an intro with one long paragraph: centred, flowing into two columns on desktop */
+.intro__cols--one{grid-template-columns:1fr;max-width:1100px;margin-left:auto;margin-right:auto}
+@media (min-width:900px){.intro__col--split{display:block;column-count:2;column-gap:clamp(36px,4.5vw,64px)}.intro__col--split > *{break-inside:avoid-column}}
+/* portraits of Special Khoza: keep his face in frame wherever the photo is cropped */
+img[src*="special-khoza"]{object-position:50% 12%}
