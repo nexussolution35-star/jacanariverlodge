@@ -1283,3 +1283,85 @@ main:has(+ .footer .footer__divider) > :last-child{padding-bottom:calc(clamp(56p
 .page-gallery img{cursor:zoom-in;transition:filter .3s}
 .page-gallery img:hover{filter:brightness(1.08) saturate(1.05)}
 .page-gallery img:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
+
+/* =========================================================
+   RATES & FACILITIES PAGE (/facilities/)
+   ========================================================= */
+.rates-lead{max-width:720px;margin:clamp(20px,2.2vw,28px) auto 0}
+/* season x weekday/weekend rate table */
+.rate-card{max-width:980px;margin:clamp(30px,3.4vw,44px) auto 0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fffdf3;text-align:left}
+.rate-table{width:100%;border-collapse:collapse;font-family:var(--sans)}
+.rate-table thead th{background:#A04E29;color:#fff9f4;font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:16px clamp(14px,2vw,26px);text-align:left}
+.rate-table tbody th,.rate-table td{padding:clamp(18px,2vw,26px) clamp(14px,2vw,26px);border-top:1px solid var(--line);vertical-align:middle}
+.rate-table tbody tr:first-child th,.rate-table tbody tr:first-child td{border-top:0}
+.rate-table tbody th{width:34%;font-family:var(--serif);font-size:clamp(1.2rem,1.7vw,1.5rem);font-weight:600;line-height:1.2;color:var(--ink)}
+.rate-table tbody th span{display:block;margin-top:4px;font-family:var(--sans);font-size:.86rem;font-weight:500;color:var(--muted)}
+.rate-table td{width:33%}
+.rate-table td+td{border-left:1px solid var(--line)}
+.rate-table td b{display:block;font-family:var(--serif);font-size:clamp(1.7rem,2.6vw,2.3rem);font-weight:600;line-height:1;color:#A04E29;font-variant-numeric:lining-nums}
+.rate-table td span{display:block;margin-top:6px;font-size:.86rem;color:var(--muted);line-height:1.4}
+.rate-table td[colspan]{text-align:center}
+.rate-card__foot{margin:0;padding:12px clamp(14px,2vw,26px);border-top:1px solid var(--line);background:var(--cream-deep);font-size:.78rem;letter-spacing:.12em;color:var(--muted);text-align:center}
+@media (max-width:620px){
+  /* each season becomes a block: name on top, its prices side by side below */
+  .rate-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+  .rate-table,.rate-table tbody,.rate-table tr{display:block}
+  .rate-table tr{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+  .rate-table tbody tr:first-child{border-top:0}
+  .rate-table tbody th{grid-column:1/-1;width:auto;padding:16px 16px 6px;border:0}
+  .rate-table td{width:auto;padding:8px 16px 18px;border:0!important}
+  .rate-table td[colspan]{grid-column:1/-1;text-align:left}
+  .rate-table td::before{content:attr(data-label);display:block;margin-bottom:6px;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+}
+/* deposits, fees & extras */
+.rates-sub{margin:clamp(48px,5vw,70px) 0 clamp(20px,2.2vw,28px);font-family:var(--serif);font-size:clamp(1.5rem,2.3vw,2rem);font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.fee-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.6vw,22px);text-align:left}
+.fee-card{display:flex;flex-direction:column;background:#fffdf3;border:1px solid var(--line);border-top:3px solid #A04E29;border-radius:8px;padding:clamp(20px,2.2vw,28px)}
+.fee-card p{margin:0 0 12px;font-size:.95rem;line-height:1.6;color:#5a554d}
+.fee-card .fee-card__k{margin-bottom:10px;font-size:.76rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
+.fee-card .fee-card__price{margin-bottom:12px;font-family:var(--serif);font-size:clamp(1.7rem,2.4vw,2.1rem);font-weight:600;line-height:1;color:#A04E29}
+.fee-card__price small{font-family:var(--sans);font-size:.82rem;font-weight:600;color:var(--muted)}
+.fee-card__rows{margin:0 0 12px}
+.fee-card__rows div{padding:10px 0;border-top:1px solid var(--line)}
+.fee-card__rows div:first-child{border-top:0;padding-top:0}
+.fee-card__rows dt{font-size:.82rem;font-weight:700;color:var(--muted)}
+.fee-card__rows dd{margin:2px 0 0;font-family:var(--serif);font-size:1.35rem;font-weight:600;line-height:1.2;color:#A04E29}
+.fee-card__rows dd span{display:block;margin-top:3px;font-family:var(--sans);font-size:.86rem;font-weight:400;line-height:1.45;color:#5a554d}
+.fee-card .fee-card__note{margin-top:auto;padding:10px 12px;background:var(--cream-deep);border-radius:5px;font-size:.84rem;color:var(--ink)}
+.fee-card__link{margin-top:auto;font-weight:700;font-size:.92rem;color:var(--rust);text-decoration:underline;text-underline-offset:3px}
+@media (max-width:900px){.fee-cards{grid-template-columns:1fr;max-width:560px;margin:0 auto}}
+/* payment steps + cancellation table */
+.terms-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,5vw,80px);align-items:start;max-width:1180px;margin:0 auto}
+.terms-h{margin:0 0 clamp(16px,1.8vw,22px);font-family:var(--serif);font-size:clamp(1.4rem,2vw,1.75rem);font-weight:600}
+.terms-col .reason-list h4{font-family:var(--serif);font-size:clamp(1.2rem,1.5vw,1.4rem);font-weight:600;line-height:1.15;margin:0 0 6px;color:var(--charcoal)}
+.cancel-table{width:100%;border-collapse:collapse;font-family:var(--sans);border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fffdf3}
+.cancel-table thead th{background:#A04E29;color:#fff9f4;font-size:.76rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:14px 18px;text-align:left}
+.cancel-table tbody th,.cancel-table td{padding:16px 18px;border-top:1px solid var(--line);text-align:left;vertical-align:top;font-size:.95rem;line-height:1.55}
+.cancel-table tbody th{width:44%;font-weight:700;color:var(--ink)}
+.cancel-table td{color:#5a554d}
+@media (max-width:860px){.terms-grid{grid-template-columns:1fr}}
+@media (max-width:520px){
+  .cancel-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+  .cancel-table,.cancel-table tbody,.cancel-table tr,.cancel-table th,.cancel-table td{display:block;width:auto}
+  .cancel-table tbody tr{border-top:1px solid var(--line)}
+  .cancel-table tbody tr:first-child{border-top:0}
+  .cancel-table tbody th{width:auto;padding:14px 16px 2px;border:0}
+  .cancel-table td{padding:2px 16px 14px;border:0}
+}
+/* domestic service hours */
+.hours{width:100%;max-width:480px;margin:clamp(16px,1.8vw,22px) 0 0}
+.hours div{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:16px;padding:12px 0;border-top:1px solid var(--line)}
+.hours div:last-child{border-bottom:1px solid var(--line)}
+.hours dt{font-weight:700;font-size:.92rem;color:var(--ink)}
+.hours dd{margin:0;font-size:.95rem;color:#5a554d}
+/* photo strip with eight photos: two even rows of four */
+.page-gallery--eight{grid-template-columns:repeat(4,minmax(0,1fr))}
+.page-gallery--eight figure:last-child{grid-column:auto}
+.page-gallery--eight figure:last-child img{aspect-ratio:4/3}
+@media (max-width:900px){.page-gallery--eight{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* booking buttons + award in the enquiry block */
+.enq-book{margin-top:clamp(24px,2.6vw,32px)}
+.enq-book .btn--light{--depth:#c9b8a4;background:#fff;color:var(--rust);text-shadow:none}
+.enq-book .btn--light:hover{filter:brightness(.98)}
+.enq-award{width:180px;height:auto;margin-top:clamp(24px,2.6vw,32px);border-radius:6px}
+.nl-form{align-content:center}
