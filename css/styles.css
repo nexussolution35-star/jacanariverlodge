@@ -1440,3 +1440,56 @@ main:has(+ .footer .footer__divider) > :last-child{padding-bottom:calc(clamp(56p
 /* guest stories carry more text than journal cards: darker overlay so it reads on light photos */
 .story-card::after{background:linear-gradient(180deg,rgba(20,14,8,.7) 0%,rgba(20,14,8,.6) 45%,rgba(20,14,8,.85) 100%)}
 .story-card .post-card__title,.story-card__q{text-shadow:0 1px 8px rgba(0,0,0,.5)}
+/* Self-Catering Guide: Supplied / What to Bring as two accordions */
+.terms-grid--acc{gap:clamp(14px,2vw,28px)}
+.terms-acc .faq__a .stay-list{margin:0 0 18px}
+.terms-acc .faq__a .activity__note{margin:6px 0 0}
+.terms-acc .faq__a .sec-lead{margin:0 0 14px}
+.terms-acc summary h3{margin:0;font:inherit;color:inherit;letter-spacing:inherit}
+
+/* =========================================================
+   INNER PAGES: heading scale. The page title (hero H1) leads; section titles sit one step below it
+   and wrap to fewer lines. Homepage (no .page-hero) is unchanged.
+   ========================================================= */
+main:has(.page-hero) .intro__title,
+main:has(.page-hero) .sec-head .sec-title{font-size:clamp(1.65rem,2.9vw,2.55rem);letter-spacing:.07em;line-height:1.15}
+main:has(.page-hero) .sec-head{max-width:1000px}
+main:has(.page-hero) .intro__inner > .intro__title{max-width:1000px;margin-left:auto;margin-right:auto}
+main:has(.page-hero) .stay .sec-title{font-size:clamp(1.5rem,2.3vw,2.15rem);letter-spacing:.05em;line-height:1.15}
+main:has(.page-hero) .intro__script{font-size:clamp(1.6rem,2.6vw,2.3rem)}
+.page-hero h1{max-width:1000px}
+@media (max-width:620px){
+  .page-hero h1{font-size:clamp(1.75rem,7.4vw,2.1rem)}
+  main:has(.page-hero) .intro__title,
+  main:has(.page-hero) .sec-head .sec-title{font-size:1.5rem;letter-spacing:.04em}
+  main:has(.page-hero) .stay .sec-title{font-size:1.45rem;letter-spacing:.04em}
+}
+main:has(.page-hero) .section:not(.newsletter) h2:not([class]):not([style]){font-size:clamp(1.8rem,3.2vw,2.7rem)}
+@media (max-width:620px){main:has(.page-hero) .section:not(.newsletter) h2:not([class]):not([style]){font-size:1.6rem}}
+/* reviews carousel on phones: cards get the full width, arrows sit underneath */
+@media (max-width:620px){
+  .reviews__carousel{flex-wrap:wrap;justify-content:center;gap:14px}
+  .reviews__track{order:-1;flex:0 0 100%;width:100%;gap:14px}
+  .reviews__track .review-card{flex:0 0 88%}
+}
+/* phones: no squashed columns. Long-item checklists go to one column (short 2-col checklists keep two),
+   details lists stack label over value, data tables keep a readable width and scroll sideways */
+@media (max-width:560px){
+  .feature-list:not(.stay-list){grid-template-columns:1fr}
+  .glance__row{flex-direction:column;gap:2px}
+  .glance__row dd{text-align:left}
+  [role="region"] > table{min-width:600px}
+}
+/* long intros on phones: first two paragraphs, then "Read more" (desktop always shows everything) */
+.intro__more{display:none}
+@media (max-width:760px){
+  .intro__cols.is-clamped .intro__col:first-child > p:nth-of-type(n+3),
+  .intro__cols.is-clamped .intro__col:nth-child(n+2){display:none}
+  .intro__cols.is-clamped .intro__col:first-child > p:nth-of-type(2){position:relative;margin-bottom:0;max-height:7.2em;overflow:hidden}
+  .intro__cols.is-clamped .intro__col:first-child > p:nth-of-type(2)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3.6em;background:linear-gradient(rgba(247,243,220,0),var(--cream))}
+  .intro__more{display:inline-flex;align-items:center;gap:8px;margin:18px auto 0;padding:0;border:0;background:none;cursor:pointer;
+    font:700 .95rem var(--sans);color:var(--rust);text-decoration:underline;text-underline-offset:4px}
+  .intro__more svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s}
+  .intro__more[aria-expanded="true"] svg{transform:rotate(180deg)}
+  .intro__inner{display:flex;flex-direction:column}
+}

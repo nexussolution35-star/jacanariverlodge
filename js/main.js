@@ -469,6 +469,25 @@
     resetAuto();
   }
 
+  /* ---------- long intros on phones: show the opening paragraphs, "Read more" reveals the rest ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('.intro__cols'), function (cols, n) {
+    var words = (cols.textContent || '').trim().split(/\s+/).length;
+    if (words < 220) return;
+    cols.classList.add('is-long', 'is-clamped');
+    if (!cols.id) cols.id = 'introMore' + n;
+    var btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'intro__more';
+    btn.setAttribute('aria-controls', cols.id); btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<span>Read more</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+    btn.addEventListener('click', function () {
+      var open = cols.classList.toggle('is-clamped') === false;
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.querySelector('span').textContent = open ? 'Read less' : 'Read more';
+      if (!open) cols.scrollIntoView({ block: 'nearest' });
+    });
+    cols.parentNode.insertBefore(btn, cols.nextSibling);
+  });
+
   /* ---------- year ---------- */
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();

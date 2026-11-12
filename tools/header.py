@@ -59,7 +59,7 @@ def header(url):
     return f'''<header class="site-header" id="siteHeader">
   <div class="nav-shell">
     <div class="nav-bg" aria-hidden="true"><span class="nav-bg__bar"></span><span class="nav-bg__tab"></span></div>
-    <a class="brand" href="/" aria-label="Jacana River Lodge — home">
+    <a class="brand" href="/" aria-label="Jacana River Lodge home">
       <img src="/assets/images/logo-640.png" alt="Jacana River Lodge, 5-star graded" width="640" height="522">
     </a>
     <nav class="nav" id="nav" aria-label="Main">
