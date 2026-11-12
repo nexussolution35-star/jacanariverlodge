@@ -1498,3 +1498,7 @@ main:has(.page-hero) .intro__cols{align-items:stretch}
 main:has(.page-hero) .intro__col:not(:has(.btn)) > :last-child{margin-bottom:0}
 main:has(.page-hero) .intro__col:has(.btn) > p:last-of-type{margin-bottom:18px}
 main:has(.page-hero) .intro__col:has(.btn) .btn{margin-bottom:12px}
+/* a button never sits tight under a line of text: clear space between copy and the action */
+main .stay__copy .btn,main .stay__copy .activity__cta{margin-top:clamp(22px,2.4vw,30px)}
+main .stay__copy .activity__cta .btn{margin-top:0}
+main .activity__cta{margin-top:clamp(30px,3vw,40px)}
