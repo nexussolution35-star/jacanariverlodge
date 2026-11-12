@@ -52,7 +52,8 @@ Read `README.md` first ("URLs, SEO and shared parts").
 8. Kruger day drives: ±12/±6 h (headings) vs 8/4 h (old text).
 9. Special Khoza's name tag reads "SIBUSISO": full name wanted anywhere?
 
-## Documents (in the other Claude account; share them to keep using them)
+## Documents
+All research is in the repo: `seo/keywords/` (keyword map, competitors, Search Atlas data) and the PDFs in `seo/`. The original Claude Docs (optional, under the first account):
 - Keyword research sheet (Keyword map tab): https://claude.ai/artifact/UURyY2qaQ1gu2jYVmGXXHk
 - SEO Spec Part 1 doc: https://claude.ai/artifact/TrBHV7VAPkgj4h1yfEtXz9
 - PDFs in `seo/`: site structure, SEO plan Part 1. Live content as Markdown in `seo/content/`.

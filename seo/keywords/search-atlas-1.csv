@@ -1,0 +1,199 @@
+,keyword,sv,cpc,is_restricted,search_intent_list,kd,ppcd,last_updated_at
+0,kruger park lodges,12100,0.34,False,['commercial'],31,35.0,2026-11-11 13:02:27.518508+00:00
+1,kruger national park accommodation,8100,0.48,False,['commercial'],57,63.0,2026-11-11 13:02:27.517271+00:00
+2,mjejane game reserve,2900,0.38,False,['informational'],21,37.0,2026-11-11 13:02:31.550101+00:00
+3,mjejane reserve,2900,0.42,False,['informational'],14,37.0,2026-11-11 13:02:27.758206+00:00
+4,graskop gorge lift,2400,0.65,False,"['informational', 'commercial']",20,8.0,2026-11-11 13:02:46.322092+00:00
+5,lodges in mpumalanga,1900,0.33,False,['commercial'],46,100.0,2026-11-11 13:02:29.765369+00:00
+6,mjejane private game reserve,1900,0.4,False,['commercial'],11,13.0,2026-11-11 13:02:34.482720+00:00
+7,mpumalanga accommodation,1900,0.3,False,['commercial'],30,97.0,2026-11-11 13:02:40.270845+00:00
+8,mpumalanga lodges,1900,0.33,False,['commercial'],8,100.0,2026-11-11 13:02:28.524058+00:00
+9,mjejane,1600,0.6,False,['informational'],11,30.0,2026-11-11 13:02:29.854476+00:00
+10,kruger park accommodation,1300,0.55,False,['commercial'],32,60.0,2026-11-11 13:02:27.455028+00:00
+11,malelane accommodation,1000,0.56,False,[],15,84.0,2026-11-11 13:03:49.583933+00:00
+12,malelane golf club,1000,0.0,False,['commercial'],16,0.0,2026-11-11 13:02:39.592553+00:00
+13,komatipoort accommodation,720,0.61,False,['informational'],2,79.0,2026-11-11 13:02:51.699138+00:00
+14,komatipoort lodges,720,0.68,False,['commercial'],27,79.0,2026-11-11 13:02:27.522791+00:00
+15,kruger accommodation,720,0.66,False,"['commercial', 'informational']",34,53.0,2026-11-11 13:02:27.417379+00:00
+16,kruger lodges,720,0.49,False,"['commercial', 'informational']",29,51.0,2026-11-11 13:02:27.729223+00:00
+17,kruger safari lodge,720,0.68,False,"['informational', 'commercial']",16,45.0,2026-11-11 13:02:30.628910+00:00
+18,mpumalanga self catering,720,0.29,False,"['commercial', 'informational']",29,82.0,2026-11-11 13:02:27.960864+00:00
+19,safari lodge kruger,720,0.68,False,"['commercial', 'informational']",6,45.0,2026-11-11 13:02:49.144043+00:00
+20,self catering mpumalanga,720,0.29,False,[],28,82.0,2026-11-11 13:04:16.575327+00:00
+21,kruger self catering accommodation,590,0.32,False,['navigational'],34,50.0,2026-11-11 13:02:32.965726+00:00
+22,self catering accommodation kruger national park,590,0.32,False,['informational'],31,50.0,2026-11-11 13:02:51.221893+00:00
+23,self catering accommodation kruger park,590,0.32,False,[],40,50.0,2026-11-11 13:04:11.031253+00:00
+24,kruger national park lodges,390,0.43,False,['navigational'],28,51.0,2025-01-11 10:23:25.246546+00:00
+25,best time to visit kruger national park,320,0.43,False,['commercial'],37,18.0,2026-11-11 13:02:22.581738+00:00
+26,luxury lodge kruger park,260,0.71,False,"['informational', 'commercial']",23,60.0,2026-11-11 13:02:27.798611+00:00
+27,luxury lodges kruger,260,0.71,False,['commercial'],24,60.0,2026-11-11 13:02:27.688140+00:00
+28,mjejane accommodation,260,0.86,False,['commercial'],17,71.0,2026-11-11 13:02:27.696112+00:00
+29,jacana river lodge,210,0.52,False,['transactional'],30,18.0,2026-11-11 13:00:37.834524+00:00
+30,game lodge mpumalanga,170,0.35,False,['navigational'],11,84.0,2026-11-11 13:02:27.431984+00:00
+31,game lodges in mpumalanga,170,0.32,False,"['informational', 'commercial']",26,84.0,2026-11-11 13:02:27.522749+00:00
+32,game lodges mpumalanga,170,0.35,False,['commercial'],11,84.0,2026-11-11 13:02:27.840801+00:00
+33,jacana lodge,170,0.0,False,"['commercial', 'informational']",28,4.0,2026-11-11 13:02:23.012445+00:00
+34,marloth park self catering,170,0.43,False,['commercial'],22,63.0,2026-11-11 13:02:38.434696+00:00
+35,mpumalanga game lodges,170,0.35,False,['commercial'],15,84.0,2026-11-11 13:02:27.954093+00:00
+36,luxury safari lodge,140,1.98,False,"['commercial', 'informational']",16,36.0,2026-11-11 13:02:27.902967+00:00
+37,safari lodge mpumalanga,140,0.35,False,['commercial'],12,96.0,2026-11-11 13:02:42.500544+00:00
+38,safari lodges mpumalanga,140,0.35,False,[],11,96.0,2026-11-11 13:02:17.258816+00:00
+39,walking safari kruger,140,0.54,False,['informational'],14,39.0,2026-11-11 13:02:42.011263+00:00
+40,malelane self catering accommodation,110,0.39,False,[],37,66.0,2026-11-11 13:04:08.471088+00:00
+41,mjejane game reserve accommodation,110,0.72,False,[],13,67.0,2026-11-11 13:04:06.525533+00:00
+42,mjejane lodge,110,0.6,False,['informational'],17,56.99999999999999,2026-11-11 13:02:27.422747+00:00
+43,mjejane lodges,110,0.6,False,[],10,56.99999999999999,2026-11-11 13:02:17.759032+00:00
+44,malelane lodges,90,0.29,False,[],28,74.0,2026-11-11 13:03:56.640725+00:00
+45,luxury lodges mpumalanga,70,0.43,False,[],7,100.0,2026-11-11 13:04:14.863555+00:00
+46,luxury safari lodge south africa,70,1.08,False,['commercial'],28,38.0,2026-11-11 13:02:29.524643+00:00
+47,panorama route tours,70,0.52,False,['informational'],5,39.0,2026-11-11 13:02:44.496040+00:00
+48,self catering accommodation near kruger national park,70,0.47,False,['commercial'],34,57.99999999999999,2026-11-11 13:02:43.460202+00:00
+49,accommodation near crocodile bridge gate,50,0.74,False,[],21,72.0,2026-11-11 13:02:27.537570+00:00
+50,hectorspruit accommodation,50,0.61,False,[],10,62.0,2026-11-11 13:03:38.244378+00:00
+51,irving knight safaris,50,0.0,False,[],52,1.0,2026-11-11 13:03:45.227439+00:00
+52,kruger park self catering,50,0.37,False,"['informational', 'commercial']",32,59.0,2026-11-11 13:02:30.772670+00:00
+53,kruger self catering,50,0.37,False,[],9,59.0,2026-11-11 13:04:02.051561+00:00
+54,mjejane self catering accommodation,50,0.67,False,[],7,79.0,2026-11-11 13:03:57.934269+00:00
+55,self catering kruger park,50,0.37,False,[],31,59.0,2026-11-11 13:02:18.828752+00:00
+56,accommodation near malelane gate,40,0.65,False,[],24,91.0,2026-11-11 13:02:29.156261+00:00
+57,kruger villa,30,0.75,False,"['informational', 'commercial']",6,27.0,2026-11-11 13:02:27.697168+00:00
+58,luxury game lodges mpumalanga,30,0.43,False,[],15,100.0,2026-11-11 13:04:12.897975+00:00
+59,mjejane game reserve map,30,0.0,False,['informational'],10,2.0,2026-11-11 13:02:40.729448+00:00
+60,mjejane kruger,30,0.55,False,[],13,39.0,2026-11-11 13:02:17.842964+00:00
+61,private game lodge kruger,30,0.44,False,['commercial'],30,85.0,2026-11-11 13:02:44.472103+00:00
+62,things to do near kruger national park,30,0.0,False,"['commercial', 'informational']",34,28.000000000000004,2026-11-11 13:02:45.755402+00:00
+63,5 star lodges mpumalanga,20,0.42,False,[],9,83.0,2026-11-11 13:02:17.052910+00:00
+64,family lodges in mpumalanga,20,0.49,False,['commercial'],26,94.0,2026-11-11 13:02:23.617558+00:00
+65,game lodges near kruger,20,0.48,False,[],27,88.0,2026-11-11 13:03:29.075583+00:00
+66,game lodges near kruger national park,20,0.48,False,['commercial'],28,88.0,2026-11-11 13:02:30.854433+00:00
+67,mjejane game lodge,20,0.47,False,[],11,39.0,2026-11-11 13:03:47.683739+00:00
+68,private lodge kruger,20,0.71,False,[],28,70.0,2026-11-11 13:02:17.721970+00:00
+69,safari lodges near kruger,20,0.64,False,[],24,85.0,2026-11-11 13:02:18.530080+00:00
+70,5 star game lodges mpumalanga,10,0.0,False,[],15,100.0,2026-11-11 13:02:16.087821+00:00
+71,5 star self catering accommodation,10,0.0,False,[],30,14.000000000000002,2026-11-11 13:02:17.586566+00:00
+72,accommodation in mjejane,10,0.71,False,[],13,80.0,2026-11-11 13:02:27.172361+00:00
+73,accommodation near kruger mpumalanga international airport,10,1.52,False,['commercial'],31,90.0,2026-11-11 13:02:22.047601+00:00
+74,best game lodges in mpumalanga,10,0.0,False,['commercial'],19,86.0,2026-11-11 13:02:21.764794+00:00
+75,birding kruger national park,10,0.0,False,['navigational'],32,19.0,2026-11-11 13:02:24.924231+00:00
+76,exclusive use lodge,10,0.0,False,['informational'],6,0.0,2026-11-11 13:02:21.979440+00:00
+77,full day kruger safari,10,0.81,False,['commercial'],8,56.00000000000001,2026-11-11 13:02:37.525147+00:00
+78,jacana river lodge mjejane,10,0.0,False,"['navigational', 'transactional']",32,0.0,2026-11-11 13:02:41.446584+00:00
+79,luxury self catering accommodation mpumalanga,10,0.0,False,[],7,100.0,2026-11-11 13:04:20.393629+00:00
+80,mjejane bridge,10,0.0,False,[],13,0.0,2026-11-11 13:02:17.274115+00:00
+81,mjejane bridge open,10,0.0,False,[],6,0.0,2026-11-11 13:03:53.944948+00:00
+82,mjejane game reserve self catering,10,0.0,False,[],7,0.0,2026-11-11 13:02:16.028947+00:00
+83,mjejane private game reserve accommodation,10,0.52,False,[],13,55.00000000000001,2026-11-11 13:02:16.622821+00:00
+84,mjejane self catering,10,0.0,False,['navigational'],25,52.0,2026-11-11 13:02:28.593068+00:00
+85,self catering kruger,10,0.73,False,[],15,81.0,2026-11-11 13:02:18.567430+00:00
+86,southern kruger accommodation,10,0.0,False,[],15,86.0,2026-11-11 13:02:19.100712+00:00
+87,things to do in mjejane,10,0.0,False,[],17,0.0,2026-11-11 13:04:04.580559+00:00
+88,things to do near malelane,10,0.0,False,[],22,24.0,2026-11-11 13:02:18.841768+00:00
+89,5 bedroom lodge kruger,0,0.0,False,[],19,0.0,2026-11-11 13:02:17.493195+00:00
+90,5 bedroom safari lodge,0,0.0,False,[],14,0.0,2026-11-11 13:02:16.178427+00:00
+91,5 star self catering kruger,0,0.0,False,[],25,0.0,2026-11-11 13:02:17.404506+00:00
+92,5 star self catering lodge,0,0.0,False,[],10,0.0,2026-11-11 13:02:17.300544+00:00
+93,5 star self catering lodge kruger,0,0.0,False,[],25,0.0,2026-11-11 13:02:16.610973+00:00
+94,activities near mjejane,0,0.0,False,[],17,0.0,2026-11-11 13:02:30.106149+00:00
+95,best game lodge in mpumalanga,0,0.0,False,[],23,0.0,2026-11-11 13:02:33.554092+00:00
+96,big 5 in kruger south,0,0.0,False,[],31,0.0,2026-11-11 13:02:33.698297+00:00
+97,big 5 self catering lodge,0,0.0,False,[],2,0.0,2026-11-11 13:02:39.578786+00:00
+98,bush walk mjejane,0,0.0,False,[],6,0.0,2026-11-11 13:02:39.817359+00:00
+99,can you self drive in mjejane,0,0.0,False,[],11,0.0,2026-11-11 13:02:51.554967+00:00
+100,day trips near kruger national park,0,0.0,False,[],15,0.0,2026-11-11 13:02:52.116610+00:00
+101,directions to mjejane game reserve,0,0.0,False,[],10,0.0,2026-11-11 13:02:53.873282+00:00
+102,exclusive use lodge kruger,0,0.0,False,['commercial'],15,0.0,2026-11-11 13:02:23.331692+00:00
+103,exclusive use safari lodge,0,0.0,False,['navigational'],19,0.0,2026-11-11 13:02:22.167195+00:00
+104,exclusive use safari lodge kruger,0,0.0,False,[],27,0.0,2026-11-11 13:02:55.065150+00:00
+105,exclusive use villa kruger,0,0.0,False,[],10,0.0,2026-11-11 13:02:57.804064+00:00
+106,family friendly accommodation kruger park,0,0.0,False,[],35,0.0,2026-11-11 13:02:58.109892+00:00
+107,family friendly lodges near kruger,0,0.0,False,[],24,0.0,2026-11-11 13:03:03.912714+00:00
+108,family game lodges mpumalanga,0,0.0,False,[],15,0.0,2026-11-11 13:03:04.177195+00:00
+109,family safari lodge kruger,0,0.0,False,[],27,0.0,2026-11-11 13:03:16.021129+00:00
+110,five star self catering lodge,0,0.0,False,[],15,0.0,2026-11-11 13:03:15.979589+00:00
+111,game drive mjejane game reserve,0,0.0,False,[],18,0.0,2026-11-11 13:03:26.105967+00:00
+112,game lodges in mpumalanga self catering,0,0.0,False,[],29,0.0,2026-11-11 13:03:27.243638+00:00
+113,golf near kruger national park,0,0.0,False,[],33,0.0,2026-11-11 13:03:30.236676+00:00
+114,greater kruger self catering,0,0.0,False,[],7,0.0,2026-11-11 13:03:33.567481+00:00
+115,group accommodation kruger park,0,0.0,False,[],31,0.0,2026-11-11 13:03:33.857120+00:00
+116,guided bush walks kruger national park,0,0.0,False,[],11,0.0,2026-11-11 13:03:37.186411+00:00
+117,half day kruger safari,0,0.0,False,"['commercial', 'informational']",16,0.0,2026-11-11 13:02:31.126453+00:00
+118,hectorspruit self catering,0,0.0,False,[],18,0.0,2026-11-11 13:03:41.970058+00:00
+119,infinity pool lodge kruger,0,0.0,False,[],22,0.0,2026-11-11 13:03:43.059915+00:00
+120,is mjejane part of kruger,0,0.0,False,[],9,0.0,2026-11-11 13:03:45.968757+00:00
+121,jacana river lodge booking,0,0.0,False,[],26,0.0,2026-11-11 13:04:15.651376+00:00
+122,jacana river lodge hectorspruit,0,0.0,False,[],32,0.0,2026-11-11 13:03:50.530505+00:00
+123,jacana river lodge kruger,0,0.0,False,[],29,0.0,2026-11-11 13:02:59.888806+00:00
+124,jacana river lodge rates,0,0.0,False,[],26,0.0,2026-11-11 13:03:01.785467+00:00
+125,jacana river lodge reviews,0,0.0,False,[],44,0.0,2026-11-11 13:03:15.497664+00:00
+126,kingsland recreational area mjejane,0,0.0,False,[],8,0.0,2026-11-11 13:03:24.743925+00:00
+127,kruger accommodation for large groups,0,0.0,False,[],22,0.0,2026-11-11 13:03:28.098491+00:00
+128,kruger day trip from malelane,0,0.0,False,[],16,0.0,2026-11-11 13:03:32.958963+00:00
+129,kruger lodge sleeps 10,0,0.0,False,[],40,0.0,2026-11-11 13:03:34.960255+00:00
+130,kruger lodge with pool,0,0.0,False,[],31,0.0,2026-11-11 13:03:39.590441+00:00
+131,kruger national park in winter,0,0.0,False,[],23,0.0,2026-11-11 13:03:45.634361+00:00
+132,kruger safari school holidays,0,0.0,False,[],38,0.0,2026-11-11 13:04:15.573883+00:00
+133,leopard creek golf stay,0,0.0,False,[],17,0.0,2026-11-11 13:04:03.361363+00:00
+134,lodge on the crocodile river kruger,0,0.0,False,[],10,0.0,2026-11-11 13:04:05.287534+00:00
+135,lodge sleeps 10 kruger,0,0.0,False,[],23,0.0,2026-11-11 13:04:13.354767+00:00
+136,lodge with infinity pool kruger,0,0.0,False,[],19,0.0,2026-11-11 13:04:15.456755+00:00
+137,lodge with private pool kruger,0,0.0,False,[],24,0.0,2026-11-11 13:04:06.826777+00:00
+138,lodges on the crocodile river,0,0.0,False,[],4,0.0,2026-11-11 13:04:14.536546+00:00
+139,luxury game lodge mpumalanga,0,0.0,False,[],13,0.0,2026-11-11 13:04:08.554473+00:00
+140,luxury lodge mjejane,0,0.0,False,[],6,0.0,2026-11-11 13:04:14.403711+00:00
+141,luxury safari lodge kruger,0,0.0,False,['informational'],31,0.0,2026-11-11 13:02:27.812722+00:00
+142,luxury self catering accommodation kruger,0,0.0,False,[],25,0.0,2026-11-11 13:04:18.837424+00:00
+143,luxury self catering accommodation near kruger national park,0,0.0,False,[],25,0.0,2026-11-11 13:02:16.380134+00:00
+144,luxury self catering kruger,0,0.0,False,[],11,0.0,2026-11-11 13:02:17.393674+00:00
+145,luxury self catering kruger park,0,0.0,False,[],25,0.0,2026-11-11 13:02:17.342177+00:00
+146,luxury self catering lodge,0,0.0,False,[],7,0.0,2026-11-11 13:02:16.974451+00:00
+147,luxury self catering lodge kruger,0,0.0,False,[],11,0.0,2026-11-11 13:03:46.928242+00:00
+148,luxury self catering safari lodge,0,0.0,False,[],6,0.0,2026-11-11 13:03:44.842317+00:00
+149,luxury villa kruger,0,0.0,False,[],16,0.0,2026-11-11 13:03:45.037455+00:00
+150,marloth park vs mjejane,0,0.0,False,[],12,0.0,2026-11-11 13:04:04.843971+00:00
+151,mjejane accommodation prices and packages,0,0.0,False,[],9,0.0,2026-11-11 13:04:10.845627+00:00
+152,mjejane accommodation specials,0,0.0,False,[],8,0.0,2026-11-11 13:04:16.836538+00:00
+153,mjejane birding,0,0.0,False,[],16,0.0,2026-11-11 13:02:17.143237+00:00
+154,mjejane bridge fees,0,0.0,False,[],6,0.0,2026-11-11 13:02:16.059843+00:00
+155,mjejane bridge into kruger,0,0.0,False,[],13,0.0,2026-11-11 13:02:15.894894+00:00
+156,mjejane bridge kruger,0,0.0,False,[],3,0.0,2026-11-11 13:02:16.897864+00:00
+157,mjejane conservation fee,0,0.0,False,[],11,0.0,2026-11-11 13:03:51.550050+00:00
+158,mjejane game lodges,0,0.0,False,[],14,0.0,2026-11-11 13:03:54.333346+00:00
+159,mjejane game reserve accommodation self catering,0,0.0,False,[],6,0.0,2026-11-11 13:04:17.408580+00:00
+160,mjejane game reserve big 5,0,0.0,False,[],9,0.0,2026-11-11 13:04:10.145025+00:00
+161,mjejane game reserve entrance fee,0,0.0,False,[],9,0.0,2026-11-11 13:04:16.157663+00:00
+162,mjejane game reserve hectorspruit,0,0.0,False,[],20,0.0,2026-11-11 13:02:16.147161+00:00
+163,mjejane game reserve kruger,0,0.0,False,[],12,0.0,2026-11-11 13:02:16.637799+00:00
+164,mjejane game reserve lodges,0,0.0,False,[],13,0.0,2026-11-11 13:02:16.293088+00:00
+165,mjejane game reserve rules,0,0.0,False,[],6,0.0,2026-11-11 13:02:17.572525+00:00
+166,mjejane luxury lodge,0,0.0,False,[],6,0.0,2026-11-11 13:02:17.734140+00:00
+167,mjejane private game reserve lodges,0,0.0,False,[],10,0.0,2026-11-11 13:02:16.747210+00:00
+168,mjejane self catering lodge,0,0.0,False,[],8,0.0,2026-11-11 13:03:56.714860+00:00
+169,mobile spa mpumalanga,0,0.0,False,[],4,0.0,2026-11-11 13:04:05.549756+00:00
+170,multi generational safari south africa,0,0.0,False,[],12,0.0,2026-11-11 13:04:16.428365+00:00
+171,panorama route day tour from kruger,0,0.0,False,[],8,0.0,2026-11-11 13:04:08.835137+00:00
+172,private game drives kruger,0,0.0,False,[],27,0.0,2026-11-11 13:04:15.034481+00:00
+173,private safari lodge kruger,0,0.0,False,"['commercial', 'informational']",31,0.0,2026-11-11 13:02:43.825464+00:00
+174,private safari villa kruger,0,0.0,False,"['transactional', 'commercial']",27,0.0,2026-11-11 13:02:43.433796+00:00
+175,private villa kruger,0,0.0,False,[],8,0.0,2026-11-11 13:02:16.480295+00:00
+176,safari lodge sleeps 10,0,0.0,False,[],9,0.0,2026-11-11 13:02:17.682671+00:00
+177,safari lodge with private pool,0,0.0,False,[],18,0.0,2026-11-11 13:02:18.795361+00:00
+178,safari villa kruger,0,0.0,False,[],12,0.0,2026-11-11 13:02:19.153343+00:00
+179,safari villa south africa,0,0.0,False,[],14,0.0,2026-11-11 13:04:04.063584+00:00
+180,self catering accommodation kruger,0,0.0,False,[],33,0.0,2026-11-11 13:04:01.010127+00:00
+181,self catering accommodation rates kruger,0,0.0,False,[],29,0.0,2026-11-11 13:04:19.405551+00:00
+182,self catering family retreat mpumalanga,0,0.0,False,[],9,0.0,2026-11-11 13:04:10.445500+00:00
+183,self catering game lodge mpumalanga,0,0.0,False,[],16,0.0,2026-11-11 13:04:16.426835+00:00
+184,self catering game lodges mpumalanga,0,0.0,False,[],24,0.0,2026-11-11 13:02:18.944698+00:00
+185,self catering getaway mpumalanga,0,0.0,False,[],15,0.0,2026-11-11 13:02:18.941684+00:00
+186,self catering lodge kruger,0,0.0,False,[],34,0.0,2026-11-11 13:02:18.805050+00:00
+187,self catering lodge mjejane,0,0.0,False,[],6,0.0,2026-11-11 13:04:03.773652+00:00
+188,self catering lodge south africa,0,0.0,False,[],4,0.0,2026-11-11 13:04:10.591730+00:00
+189,self catering lodges kruger park,0,0.0,False,[],32,0.0,2026-11-11 13:03:59.756454+00:00
+190,self catering lodges near kruger,0,0.0,False,[],26,0.0,2026-11-11 13:04:07.547287+00:00
+191,self catering lodges near kruger national park,0,0.0,False,[],25,0.0,2026-11-11 13:04:20.541691+00:00
+192,self catering safari lodge,0,0.0,False,['commercial'],8,0.0,2026-11-11 13:02:41.749363+00:00
+193,self catering safari lodge kruger,0,0.0,False,[],30,0.0,2026-11-11 13:04:01.807982+00:00
+194,self catering safari lodge south africa,0,0.0,False,[],3,0.0,2026-11-11 13:02:18.690084+00:00
+195,sleeps 10 kruger,0,0.0,False,[],21,0.0,2026-11-11 13:04:09.370280+00:00
+196,whole lodge hire kruger,0,0.0,False,[],9,0.0,2026-11-11 13:04:10.584319+00:00
+197,wildlife and sightings mjejane,0,0.0,False,[],15,0.0,2026-11-11 13:02:19.082633+00:00
