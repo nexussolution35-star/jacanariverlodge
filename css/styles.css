@@ -1657,3 +1657,42 @@ main .story-card__body h2,main .story-card__body h3{font-size:clamp(1.25rem,1.6v
 .chat-widget svg{width:28px;height:28px;fill:#fff}
 .chat-widget{box-shadow:0 8px 22px -8px rgba(33,31,31,.45)}
 .chat-widget{border:2px solid #fff}
+
+/* =========================================================
+   BLOG POSTS (migrated from WordPress) + News index
+   ========================================================= */
+.page-hero--post h1{max-width:960px;font-size:clamp(1.9rem,3.6vw,3rem)}
+.post-body{max-width:780px;margin:0 auto;font-size:1.05rem;line-height:1.8;color:#3d3934}
+.post-body .post-meta{font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 26px}
+.post-body p{margin:0 0 18px}
+.post-body h2{font-size:clamp(1.5rem,2.4vw,2rem)!important;line-height:1.2;margin:38px 0 14px;letter-spacing:0}
+.post-body h3{font-size:clamp(1.25rem,1.8vw,1.5rem);line-height:1.25;margin:30px 0 10px}
+.post-body h4,.post-body h5{font-family:var(--sans);font-size:1.05rem;font-weight:700;margin:24px 0 8px}
+.post-body ul,.post-body ol{margin:0 0 20px;padding-left:24px}
+.post-body li{margin:0 0 8px}
+.post-body li::marker{color:#A04E29}
+.post-body a{color:var(--rust);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.post-body img{display:block;max-width:100%;height:auto;border-radius:var(--photo-r);margin:8px auto}
+.post-body figure{margin:26px 0}
+.post-body figcaption{font-size:.86rem;color:var(--muted);text-align:center;margin-top:8px}
+.post-body .alignleft{float:left;max-width:45%;margin:6px 24px 14px 0}
+.post-body .alignright{float:right;max-width:45%;margin:6px 0 14px 24px}
+.post-body .aligncenter{margin-left:auto;margin-right:auto}
+.post-body::after{content:"";display:block;clear:both}
+.post-body blockquote{margin:26px 0;padding:6px 0 6px 20px;border-left:3px solid #A04E29;font-family:var(--serif);font-size:1.25rem;font-style:italic;color:var(--ink)}
+.post-body table{width:100%;border-collapse:collapse;margin:20px 0;font-size:.95rem}
+.post-body th,.post-body td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.post-body video{display:block;width:100%;height:auto;border-radius:var(--photo-r);background:#000}
+.post-embed{position:relative;aspect-ratio:16/9;margin:26px 0}
+.post-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:var(--photo-r)}
+.post-body .blocks-gallery-grid,.post-body .wp-block-gallery ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.post-body .blocks-gallery-grid img,.post-body .wp-block-gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;margin:0}
+.post-body .wp-block-columns{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.post-body .wp-block-button__link{display:inline-block;padding:12px 24px;border-radius:12px;background:#A04E29;color:#fbf3e1;text-decoration:none}
+@media (max-width:620px){.post-body .alignleft,.post-body .alignright{float:none;max-width:100%;margin:16px 0}.post-body .blocks-gallery-grid,.post-body .wp-block-gallery ul{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.post-all{margin-top:clamp(28px,3vw,40px)}
+.post-more .stories__grid,.news-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:980px){.post-more .stories__grid,.news-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.post-more .stories__grid,.news-grid{grid-template-columns:1fr}}
+.news-grid.is-paged > .story-card.is-hidden{display:none}
+.news-more-wrap{margin-top:clamp(28px,3vw,40px)}

@@ -149,13 +149,21 @@ for path, url in pages():
     if not noindex and url not in CANONICAL_TO:
         urls.append(url)
 
-# same file names as the live Yoast setup, so Search Console's registered sitemap keeps working
+# same file names as the live Yoast setup, so Search Console's registered sitemaps keep working:
+# blog posts (seo/blog-posts.json, written by the blog migration) go in post-sitemap.xml with their dates
+posts = {'/' + p['slug'] + '/': p for p in json.load(open('seo/blog-posts.json'))} if os.path.exists('seo/blog-posts.json') else {}
 with open('page-sitemap.xml', 'w') as f:
     f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
-    for u in sorted(urls, key=lambda u: (u != '/', u)):
+    for u in sorted((u for u in urls if u not in posts), key=lambda u: (u != '/', u)):
         f.write(f'  <url><loc>{DOMAIN}{u}</loc></url>\n')
+    f.write('</urlset>\n')
+with open('post-sitemap.xml', 'w') as f:
+    f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
+    for u in sorted((u for u in urls if u in posts), key=lambda u: posts[u]['date'], reverse=True):
+        f.write(f'  <url><loc>{DOMAIN}{u}</loc><lastmod>{posts[u]["modified"][:10]}</lastmod></url>\n')
     f.write('</urlset>\n')
 with open('sitemap_index.xml', 'w') as f:
     f.write('<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-            f'  <sitemap><loc>{DOMAIN}/page-sitemap.xml</loc></sitemap>\n</sitemapindex>\n')
+            f'  <sitemap><loc>{DOMAIN}/page-sitemap.xml</loc></sitemap>\n'
+            + (f'  <sitemap><loc>{DOMAIN}/post-sitemap.xml</loc></sitemap>\n' if posts else '') + '</sitemapindex>\n')
 print('pages:', len(urls), '| live titles kept:', sum(1 for u in urls if u in inv and u not in TITLE_OVERRIDES), '| spec titles:', len(TITLE_OVERRIDES))

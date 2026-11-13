@@ -546,6 +546,15 @@
     list.parentNode.insertBefore(btn, list.nextSibling);
   });
 
+  /* ---------- News: show 12 articles, then "Show more articles" reveals 12 at a time ---------- */
+  var newsGrid = document.getElementById('newsGrid'), newsMore = document.getElementById('newsMore');
+  if (newsGrid && newsMore) {
+    var cards = newsGrid.querySelectorAll('.story-card'), shown = 12;
+    var showUpTo = function (n) { Array.prototype.forEach.call(cards, function (c, i) { c.classList.toggle('is-hidden', i >= n); }); newsMore.parentNode.hidden = n >= cards.length; };
+    newsGrid.classList.add('is-paged'); showUpTo(shown);
+    newsMore.addEventListener('click', function () { shown += 12; showUpTo(shown); });
+  }
+
   /* ---------- year ---------- */
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();

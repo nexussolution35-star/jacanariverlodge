@@ -45,6 +45,15 @@ Read `README.md` first ("URLs, SEO and shared parts").
   (ranges and guest quotes untouched); nothing squashed or overflowing at phone width.
 - Plan pages (Book Now, Contact, Directions, FAQ, News) were already homepage components; only site-wide fixes.
 
+## Blog (migrated from the WordPress export)
+- 135 published posts at their live paths (`/<slug>/`), original publish dates, featured image as hero, BlogPosting schema,
+  listed newest first on `/news/` (12 at a time, "Show more articles"), in `post-sitemap.xml` with last-modified dates.
+- Rebuild: `python3 -I tools/blog_migrate.py <export.xml> .` then the 4 build scripts. Media goes to `assets/blog/<yyyy>/<mm>/`.
+- Not migrated: 3 drafts, 1 trashed post, 2 scheduled for 15 and 30 Nov 2026, and 3 posts whose slug is a page
+  (bush walks, Kingsland, bush spa: the page keeps the address).
+- `_redirects` (and `seo/redirects.csv`): 301s for old slugs, date permalinks, tags, categories, author, feeds,
+  `/news/page/*`, `/activities/` and every blog media file. Load into the host at launch.
+
 ## Next
 1. Client review of the rebuilt Activities and Mjejane pages.
 2. SEO spec Part 2 (Activities) and Part 3 (Mjejane Reserve + Plan pages), then blog migration, then the Lovable port.
