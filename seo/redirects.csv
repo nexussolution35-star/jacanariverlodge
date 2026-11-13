@@ -262,8 +262,8 @@ from,to,reason
 /category/game-viewing/,/news/,category archive
 /category/news/,/news/,category archive
 /category/uncategorized/,/news/,category archive
-/author/Mjejane Game Reserve Expert/,/news/,author archive
-/author/Blue Cabin SEO/,/news/,author archive
+/author/mjejane-game-reserve-expert/,/news/,author archive
+/author/blue-cabin-seo/,/news/,author archive
 /author/mjejane-game-reserve-expert/,/news/,author archive
 /news/page/*,/news/,blog pagination
 /feed/,/news/,RSS feed

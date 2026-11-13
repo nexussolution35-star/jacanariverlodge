@@ -29,6 +29,9 @@ unpublished = {T(i, 'wp:post_name') for i in allposts if T(i, 'wp:status') != 'p
 # pages of the new site (tracked in git, not the generated posts): a post never overwrites one
 site_paths = {('/' if os.path.dirname(f) == '' else '/' + os.path.dirname(f) + '/')
               for f in subprocess.run(['git', 'ls-files', '*index.html'], cwd=ROOT, capture_output=True, text=True).stdout.split()}
+# posts migrated on an earlier run are tracked too: they are not pages
+if os.path.exists(os.path.join(ROOT, 'seo/blog-posts.json')):
+    site_paths -= {'/' + x['slug'] + '/' for x in json.load(open(os.path.join(ROOT, 'seo/blog-posts.json')))}
 collide = [T(p, 'wp:post_name') for p in posts if '/' + T(p, 'wp:post_name') + '/' in site_paths]
 posts = [p for p in posts if '/' + T(p, 'wp:post_name') + '/' not in site_paths]
 slugs = {T(p, 'wp:post_name') for p in posts}
@@ -293,7 +296,7 @@ tags = sorted({c.get('nicename') for i in allposts for c in i.findall('category'
 cats = sorted({c.get('nicename') for i in allposts for c in i.findall('category') if c.get('domain') == 'category'})
 for t in tags: rows.append((f'/tag/{t}/', '/news/', 'tag archive'))
 for c in cats: rows.append((f'/category/{c}/', '/news/', 'category archive'))
-for a_ in authors: rows.append((f'/author/{a_}/', '/news/', 'author archive'))
+for a_ in authors: rows.append((f"/author/{re.sub(r'[^a-z0-9]+', '-', a_.lower()).strip('-')}/", '/news/', 'author archive'))
 for p in inv:
     if p.startswith('/author/') and (p, '/news/', 'author archive') not in rows: rows.append((p, '/news/', 'author archive'))
 rows += [('/news/page/*', '/news/', 'blog pagination'), ('/feed/', '/news/', 'RSS feed'), ('/comments/feed/', '/news/', 'RSS feed'),
