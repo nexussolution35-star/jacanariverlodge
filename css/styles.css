@@ -1725,3 +1725,5 @@ main .story-card__body h2,main .story-card__body h3{font-size:clamp(1.25rem,1.6v
   .footer__awards{grid-column:1/-1;grid-row:auto}
 }
 @media (min-width:1181px){.footer__col a{white-space:nowrap}.footer__grid{column-gap:clamp(20px,2.4vw,40px)}}
+/* the intro's river divider ends in #FFF9F4: any section after it that is not .xp continues that colour */
+.intro + section:not(.xp){background:#FFF9F4}
