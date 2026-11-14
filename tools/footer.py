@@ -33,17 +33,23 @@ def footer(r, divider=True):
 {soc}
         </ul>
       </div>
+      <nav class="footer__col" aria-label="Stay">
+        <h2 class="footer__h">Stay</h2>
+        <ul>
+          <li><a href="/luxury-self-catering-lodge-accommodation-in-mpumalanga/">The Lodge</a></li>
+          <li><a href="/rooms-and-suites/">Rooms &amp; Suites</a></li>
+          <li><a href="/facilities/">Rates &amp; Facilities</a></li>
+          <li><a href="/accommodation-near-malelane/">Near Malelane</a></li>
+          <li><a href="/accommodation-near-komatipoort/">Near Komatipoort</a></li>
+        </ul>
+      </nav>
       <nav class="footer__col" aria-label="Explore">
         <h2 class="footer__h">Explore</h2>
         <ul>
-          <li><a href="/luxury-self-catering-lodge-accommodation-in-mpumalanga/">The Lodge</a></li>
-          <li><a href="/facilities/">Rates &amp; Facilities</a></li>
           <li><a href="/activities-near-mjejane/">Activities</a></li>
           <li><a href="/mjejane-game-reserve-accommodation-guide/">Mjejane Reserve</a></li>
           <li><a href="/guest-reviews/">Guest Reviews</a></li>
           <li><a href="/news/">News &amp; Stories</a></li>
-          <li><a href="/accommodation-near-malelane/">Accommodation near Malelane</a></li>
-          <li><a href="/accommodation-near-komatipoort/">Accommodation near Komatipoort</a></li>
         </ul>
       </nav>
       <nav class="footer__col" aria-label="Plan your stay">
