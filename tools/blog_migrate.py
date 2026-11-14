@@ -22,10 +22,10 @@ meta = lambda i: {m.findtext('wp:meta_key', namespaces=NS): m.findtext('wp:meta_
 authors = {a.findtext('wp:author_login', namespaces=NS): a.findtext('wp:author_display_name', namespaces=NS) for a in ch.findall('wp:author', namespaces=NS)}
 att = {T(i, 'wp:post_id'): T(i, 'wp:attachment_url') for i in items if T(i, 'wp:post_type') == 'attachment'}
 allposts = [i for i in items if T(i, 'wp:post_type') == 'post']
-posts = [i for i in allposts if T(i, 'wp:status') == 'publish']
-skipped = [(T(i, 'wp:status'), T(i, 'wp:post_date'), T(i, 'title')) for i in allposts if T(i, 'wp:status') != 'publish']
+posts = [i for i in allposts if T(i, 'wp:status') in ('publish', 'future')]
+skipped = [(T(i, 'wp:status'), T(i, 'wp:post_date'), T(i, 'title')) for i in allposts if T(i, 'wp:status') not in ('publish', 'future')]
 slugs = {T(p, 'wp:post_name') for p in posts}
-unpublished = {T(i, 'wp:post_name') for i in allposts if T(i, 'wp:status') != 'publish'}
+unpublished = {T(i, 'wp:post_name') for i in allposts if T(i, 'wp:status') not in ('publish', 'future')}
 # pages of the new site (tracked in git, not the generated posts): a post never overwrites one
 site_paths = {('/' if os.path.dirname(f) == '' else '/' + os.path.dirname(f) + '/')
               for f in subprocess.run(['git', 'ls-files', '*index.html'], cwd=ROOT, capture_output=True, text=True).stdout.split()}
